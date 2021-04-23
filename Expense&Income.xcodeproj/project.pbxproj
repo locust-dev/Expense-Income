@@ -23,6 +23,7 @@
 		E9B3FFB42632EBE000E182A6 /* AddExpenseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FFB32632EBE000E182A6 /* AddExpenseVC.swift */; };
 		E9B3FFB72632EBEC00E182A6 /* AddIncomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FFB62632EBEC00E182A6 /* AddIncomeVC.swift */; };
 		E9B3FFBA2632EC4C00E182A6 /* BudgetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FFB92632EC4C00E182A6 /* BudgetVC.swift */; };
+		E9B3FFC526333EF600E182A6 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FFC426333EF600E182A6 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		E9B3FFB32632EBE000E182A6 /* AddExpenseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseVC.swift; sourceTree = "<group>"; };
 		E9B3FFB62632EBEC00E182A6 /* AddIncomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeVC.swift; sourceTree = "<group>"; };
 		E9B3FFB92632EC4C00E182A6 /* BudgetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetVC.swift; sourceTree = "<group>"; };
+		E9B3FFC426333EF600E182A6 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				E9B3FFAA2632EA0A00E182A6 /* Extensions */,
 				E9B3FF9F2632DD0A00E182A6 /* Supportings */,
 				E9B3FF9B2632DCEA00E182A6 /* DataModel */,
+				E9B3FFC326333EE900E182A6 /* DataManager */,
 				E9B3FF992632DCE200E182A6 /* ViewControllers */,
 				E9B3FFA82632E57B00E182A6 /* Support VCs */,
 				E9B3FF9D2632DCFA00E182A6 /* Storyboards */,
@@ -151,6 +154,14 @@
 				E9B3FFAB2632EA1900E182A6 /* UIViewController.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E9B3FFC326333EE900E182A6 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				E9B3FFC426333EF600E182A6 /* DataManager.swift */,
+			);
+			path = DataManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +243,7 @@
 				E9B3FFB72632EBEC00E182A6 /* AddIncomeVC.swift in Sources */,
 				E9B3FFA62632E57500E182A6 /* ExpenseCell.swift in Sources */,
 				E9B3FF952632D9A500E182A6 /* TabBarVC.swift in Sources */,
+				E9B3FFC526333EF600E182A6 /* DataManager.swift in Sources */,
 				E9B3FFB02632EA7C00E182A6 /* MainContainerVC.swift in Sources */,
 				E9B3FFB42632EBE000E182A6 /* AddExpenseVC.swift in Sources */,
 				E9B3FF752632D5E300E182A6 /* SceneDelegate.swift in Sources */,

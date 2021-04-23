@@ -12,18 +12,26 @@ struct ExpensesAndIncomes {
     var catForExpenses: [String]!
     var catForIncomes: [String]!
     
-    var budget: Int {
+    var allExpenses: Int {
         var expenses = 0
-        var incomes = 0
         
         for expense in self.expenses {
             expenses += expense
         }
+        return expenses
+    }
+    
+    var allIncomes: Int {
+        var incomes = 0
         
         for income in self.incomes {
             incomes += income
         }
-        return incomes - expenses
+        return incomes
+    }
+    
+    var budget: Int {
+        allIncomes - allExpenses
     }
     
     static func getGroup() -> ExpensesAndIncomes {

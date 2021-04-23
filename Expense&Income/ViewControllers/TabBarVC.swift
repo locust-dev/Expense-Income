@@ -9,7 +9,7 @@ import UIKit
 
 class TabBarVC: UITabBarController {
 
-    let currentGroup = ExpensesAndIncomes.getGroup()
+    var currentGroup = ExpensesAndIncomes.getGroup()
     
     override func viewDidLoad() {
         super.viewDidLoad()

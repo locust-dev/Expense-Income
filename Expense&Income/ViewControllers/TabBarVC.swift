@@ -27,7 +27,9 @@ class TabBarVC: UITabBarController {
     @IBAction func unwind(for segue: UIStoryboardSegue) {
         guard let tabBarVC = segue.source as? AddExpenseVC else { return }
         currentGroup.catForExpenses.append(tabBarVC.categoryTextField.text ?? "")
-        currentGroup.expenses.append(1)
+        
+        guard let text = Int(tabBarVC.sumTextField.text ?? "") else { return }
+        currentGroup.expenses.append(text)
         transferDataToChild()
         
        

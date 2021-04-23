@@ -9,21 +9,31 @@
 /* Begin PBXBuildFile section */
 		E9B3FF732632D5E300E182A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FF722632D5E300E182A6 /* AppDelegate.swift */; };
 		E9B3FF752632D5E300E182A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FF742632D5E300E182A6 /* SceneDelegate.swift */; };
-		E9B3FF772632D5E300E182A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FF762632D5E300E182A6 /* ViewController.swift */; };
 		E9B3FF7A2632D5E300E182A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9B3FF782632D5E300E182A6 /* Main.storyboard */; };
 		E9B3FF7C2632D5E400E182A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9B3FF7B2632D5E400E182A6 /* Assets.xcassets */; };
 		E9B3FF7F2632D5E400E182A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9B3FF7D2632D5E400E182A6 /* LaunchScreen.storyboard */; };
+		E9B3FF8B2632D6A300E182A6 /* ExpensesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FF8A2632D6A300E182A6 /* ExpensesVC.swift */; };
+		E9B3FF8E2632D6E300E182A6 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FF8D2632D6E300E182A6 /* DataManager.swift */; };
+		E9B3FF922632D89B00E182A6 /* IncomesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FF912632D89B00E182A6 /* IncomesVC.swift */; };
+		E9B3FF952632D9A500E182A6 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FF942632D9A500E182A6 /* TabBarVC.swift */; };
+		E9B3FFA32632E56A00E182A6 /* IncomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FFA22632E56A00E182A6 /* IncomeCell.swift */; };
+		E9B3FFA62632E57500E182A6 /* ExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FFA52632E57500E182A6 /* ExpenseCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E9B3FF6F2632D5E300E182A6 /* Expense&Income.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Expense&Income.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B3FF722632D5E300E182A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9B3FF742632D5E300E182A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E9B3FF762632D5E300E182A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E9B3FF792632D5E300E182A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E9B3FF7B2632D5E400E182A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9B3FF7E2632D5E400E182A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E9B3FF802632D5E400E182A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9B3FF8A2632D6A300E182A6 /* ExpensesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesVC.swift; sourceTree = "<group>"; };
+		E9B3FF8D2632D6E300E182A6 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		E9B3FF912632D89B00E182A6 /* IncomesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomesVC.swift; sourceTree = "<group>"; };
+		E9B3FF942632D9A500E182A6 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
+		E9B3FFA22632E56A00E182A6 /* IncomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeCell.swift; sourceTree = "<group>"; };
+		E9B3FFA52632E57500E182A6 /* ExpenseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +66,68 @@
 		E9B3FF712632D5E300E182A6 /* Expense&Income */ = {
 			isa = PBXGroup;
 			children = (
-				E9B3FF722632D5E300E182A6 /* AppDelegate.swift */,
-				E9B3FF742632D5E300E182A6 /* SceneDelegate.swift */,
-				E9B3FF762632D5E300E182A6 /* ViewController.swift */,
-				E9B3FF782632D5E300E182A6 /* Main.storyboard */,
-				E9B3FF7B2632D5E400E182A6 /* Assets.xcassets */,
-				E9B3FF7D2632D5E400E182A6 /* LaunchScreen.storyboard */,
-				E9B3FF802632D5E400E182A6 /* Info.plist */,
+				E9B3FF9F2632DD0A00E182A6 /* Supportings */,
+				E9B3FF9B2632DCEA00E182A6 /* DataManager */,
+				E9B3FF992632DCE200E182A6 /* ViewControllers */,
+				E9B3FF9D2632DCFA00E182A6 /* Storyboards */,
+				E9B3FF9E2632DD0200E182A6 /* Files */,
 			);
 			path = "Expense&Income";
+			sourceTree = "<group>";
+		};
+		E9B3FF992632DCE200E182A6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E9B3FF942632D9A500E182A6 /* TabBarVC.swift */,
+				E9B3FF8A2632D6A300E182A6 /* ExpensesVC.swift */,
+				E9B3FF912632D89B00E182A6 /* IncomesVC.swift */,
+				E9B3FFA82632E57B00E182A6 /* Cells */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E9B3FF9B2632DCEA00E182A6 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				E9B3FF8D2632D6E300E182A6 /* DataManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		E9B3FF9D2632DCFA00E182A6 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E9B3FF782632D5E300E182A6 /* Main.storyboard */,
+				E9B3FF7D2632D5E400E182A6 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E9B3FF9E2632DD0200E182A6 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				E9B3FF7B2632D5E400E182A6 /* Assets.xcassets */,
+			);
+			path = Files;
+			sourceTree = "<group>";
+		};
+		E9B3FF9F2632DD0A00E182A6 /* Supportings */ = {
+			isa = PBXGroup;
+			children = (
+				E9B3FF722632D5E300E182A6 /* AppDelegate.swift */,
+				E9B3FF742632D5E300E182A6 /* SceneDelegate.swift */,
+				E9B3FF802632D5E400E182A6 /* Info.plist */,
+			);
+			path = Supportings;
+			sourceTree = "<group>";
+		};
+		E9B3FFA82632E57B00E182A6 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E9B3FFA22632E56A00E182A6 /* IncomeCell.swift */,
+				E9B3FFA52632E57500E182A6 /* ExpenseCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +200,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9B3FF772632D5E300E182A6 /* ViewController.swift in Sources */,
+				E9B3FF922632D89B00E182A6 /* IncomesVC.swift in Sources */,
 				E9B3FF732632D5E300E182A6 /* AppDelegate.swift in Sources */,
+				E9B3FF8E2632D6E300E182A6 /* DataManager.swift in Sources */,
+				E9B3FF8B2632D6A300E182A6 /* ExpensesVC.swift in Sources */,
+				E9B3FFA62632E57500E182A6 /* ExpenseCell.swift in Sources */,
+				E9B3FF952632D9A500E182A6 /* TabBarVC.swift in Sources */,
 				E9B3FF752632D5E300E182A6 /* SceneDelegate.swift in Sources */,
+				E9B3FFA32632E56A00E182A6 /* IncomeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +356,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UHQ7TS5P9H;
-				INFOPLIST_FILE = "Expense&Income/Info.plist";
+				INFOPLIST_FILE = "Expense&Income/Supportings/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,7 +375,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UHQ7TS5P9H;
-				INFOPLIST_FILE = "Expense&Income/Info.plist";
+				INFOPLIST_FILE = "Expense&Income/Supportings/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

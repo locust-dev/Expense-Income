@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c42-Uc-ato">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="l53-lt-gzE">
+            <objects>
+                <navigationController id="c42-Uc-ato" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="u4i-zc-OeW">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Vab-Ry-eDo" kind="relationship" relationship="rootViewController" id="Qaz-c3-bUN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="247-lh-3Aj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3078" y="270"/>
+        </scene>
+        <!--Tab BarVC-->
+        <scene sceneID="Q0i-Ah-TQq">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dbw-NX-YJ3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tabBarController id="Vab-Ry-eDo" customClass="TabBarVC" customModule="Expense_Income" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="of9-Eg-gdK"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5vB-wA-reH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="kk7-hX-tQw" kind="relationship" relationship="viewControllers" id="lew-6l-EFM"/>
+                        <segue destination="5YE-6h-3FH" kind="relationship" relationship="viewControllers" id="aP7-5H-kh7"/>
+                    </connections>
+                </tabBarController>
+            </objects>
+            <point key="canvasLocation" x="-1873" y="270"/>
+        </scene>
+        <!--Incomes-->
+        <scene sceneID="nd1-Oy-97c">
+            <objects>
+                <tableViewController id="5YE-6h-3FH" customClass="IncomesVC" customModule="Expense_Income" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Qmw-Iv-6qx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="incomeCell" id="ub8-tS-meY" customClass="IncomeCell" customModule="Expense_Income" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ub8-tS-meY" id="5ww-wq-JlQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="y6t-3Q-gZK">
+                                            <rect key="frame" x="20" y="11" width="374" height="48"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jg8-fT-2EH">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000 rub." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMg-2R-hTQ">
+                                                    <rect key="frame" x="0.0" y="27" width="374" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="y6t-3Q-gZK" firstAttribute="top" secondItem="5ww-wq-JlQ" secondAttribute="topMargin" id="MeI-cI-lYs"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="y6t-3Q-gZK" secondAttribute="trailing" id="SB6-Fr-sPf"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="y6t-3Q-gZK" secondAttribute="bottom" id="SEH-qc-dVU"/>
+                                        <constraint firstItem="y6t-3Q-gZK" firstAttribute="leading" secondItem="5ww-wq-JlQ" secondAttribute="leadingMargin" id="qt2-NK-fgY"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="categoryLabel" destination="jg8-fT-2EH" id="pLl-RG-jpb"/>
+                                    <outlet property="incomeLabel" destination="eMg-2R-hTQ" id="y5x-Pm-ce6"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="5YE-6h-3FH" id="9eZ-OU-Dvp"/>
+                            <outlet property="delegate" destination="5YE-6h-3FH" id="m6b-Ui-fdh"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Incomes" image="arrow.up.square" catalog="system" id="PKf-Se-9AI"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pco-Ht-Y86" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1013" y="660"/>
+        </scene>
+        <!--Expenses-->
+        <scene sceneID="vqx-l4-XrY">
+            <objects>
+                <tableViewController id="kk7-hX-tQw" customClass="ExpensesVC" customModule="Expense_Income" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="E7u-37-yhr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="expenseCell" id="QyQ-YK-Dd7" customClass="ExpenseCell" customModule="Expense_Income" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QyQ-YK-Dd7" id="H8E-ge-bhq">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="rE7-8x-kRF">
+                                            <rect key="frame" x="20" y="11" width="374" height="48"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Wz-k9-XoF">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000 rub." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6AV-Py-YLS">
+                                                    <rect key="frame" x="0.0" y="27" width="374" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="rE7-8x-kRF" secondAttribute="trailing" id="FBR-KE-boF"/>
+                                        <constraint firstItem="rE7-8x-kRF" firstAttribute="top" secondItem="H8E-ge-bhq" secondAttribute="topMargin" id="PSW-Eu-0bf"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="rE7-8x-kRF" secondAttribute="bottom" id="ioy-k0-lgp"/>
+                                        <constraint firstItem="rE7-8x-kRF" firstAttribute="leading" secondItem="H8E-ge-bhq" secondAttribute="leadingMargin" id="t0D-xO-tbL"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="categoryLabel" destination="8Wz-k9-XoF" id="fs1-f2-HXH"/>
+                                    <outlet property="expenseLabel" destination="6AV-Py-YLS" id="PaX-YL-09Q"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="kk7-hX-tQw" id="jW0-dw-2FX"/>
+                            <outlet property="delegate" destination="kk7-hX-tQw" id="L4f-8s-vhZ"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Expenses" image="arrow.down.app" catalog="system" id="fqN-kf-dvh"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TYU-IL-10Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1013" y="-6"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.down.app" catalog="system" width="128" height="114"/>
+        <image name="arrow.up.square" catalog="system" width="128" height="114"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -17,11 +17,17 @@ class TabBarVC: UITabBarController {
     }
     
     private func transferDataToChild() {
-        let expensesVC = viewControllers?.first as! ExpensesVC
-        let incomesVC = viewControllers?.last as! IncomesVC
+        guard let viewControllers = self.viewControllers else { return }
         
-        expensesVC.currentGroup = currentGroup
-        incomesVC.currentGroup = currentGroup
+        for viewController in viewControllers {
+            if let expenseVC = viewController as? ExpensesVC {
+                expenseVC.currentGroup = currentGroup
+            } else if let incomesVC = viewController as? IncomesVC {
+                incomesVC.currentGroup = currentGroup
+            } else if let budgetVC = viewController as? BudgetVC {
+                budgetVC.currentGroup = currentGroup
+            }
+        }
     }
     
 

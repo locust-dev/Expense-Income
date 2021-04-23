@@ -22,7 +22,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="247-lh-3Aj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3942" y="270"/>
+            <point key="canvasLocation" x="-3677" y="269"/>
         </scene>
         <!--Main ContainerVC-->
         <scene sceneID="cal-HE-Uw1">
@@ -48,6 +48,9 @@
                                         <state key="normal" title="-">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="d96-fu-Jzk" kind="show" id="vh0-eW-22n"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xxc-8g-woz">
                                         <rect key="frame" x="0.0" y="85" width="65" height="65"/>
@@ -56,6 +59,9 @@
                                         <state key="normal" title="+">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="ZM5-q8-48X" kind="show" id="Aqq-nw-jsk"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -83,7 +89,39 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bSk-ld-fzM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2920.289855072464" y="269.19642857142856"/>
+            <point key="canvasLocation" x="-2809" y="269"/>
+        </scene>
+        <!--Add expense-->
+        <scene sceneID="H9C-bd-qxH">
+            <objects>
+                <viewController id="d96-fu-Jzk" customClass="AddExpenseVC" customModule="Expense_Income" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9a5-ZD-MKp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="5PZ-ew-R4E"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add expense" id="Odg-a7-4gM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s9T-Dy-cAD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3057" y="1069"/>
+        </scene>
+        <!--Add income-->
+        <scene sceneID="cYm-zF-a73">
+            <objects>
+                <viewController id="ZM5-q8-48X" customClass="AddIncomeVC" customModule="Expense_Income" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="p42-Cc-GKd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="s42-qu-fnX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add income" id="daV-hw-nlu"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0dM-D6-elV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2328" y="1069"/>
         </scene>
         <!--Tab BarVC-->
         <scene sceneID="Q0i-Ah-TQq">
@@ -99,6 +137,7 @@
                     <connections>
                         <segue destination="kk7-hX-tQw" kind="relationship" relationship="viewControllers" id="lew-6l-EFM"/>
                         <segue destination="5YE-6h-3FH" kind="relationship" relationship="viewControllers" id="aP7-5H-kh7"/>
+                        <segue destination="E1M-dk-aJH" kind="relationship" relationship="viewControllers" id="Px5-et-cNb"/>
                     </connections>
                 </tabBarController>
             </objects>
@@ -160,7 +199,46 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pco-Ht-Y86" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1013" y="660"/>
+            <point key="canvasLocation" x="-1072" y="631"/>
+        </scene>
+        <!--Budget-->
+        <scene sceneID="GIV-1I-F6e">
+            <objects>
+                <viewController id="E1M-dk-aJH" customClass="BudgetVC" customModule="Expense_Income" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="etn-ql-Tmg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Budget value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dfr-x0-bSP">
+                                <rect key="frame" x="131" y="432" width="152.5" height="32.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your have:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fal-M3-Bps">
+                                <rect key="frame" x="159.5" y="359" width="95" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZCv-Qg-f9h"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Dfr-x0-bSP" firstAttribute="top" secondItem="fal-M3-Bps" secondAttribute="bottom" constant="47" id="9Gc-qR-047"/>
+                            <constraint firstItem="fal-M3-Bps" firstAttribute="centerX" secondItem="etn-ql-Tmg" secondAttribute="centerX" id="KXd-rj-UWI"/>
+                            <constraint firstItem="Dfr-x0-bSP" firstAttribute="centerY" secondItem="etn-ql-Tmg" secondAttribute="centerY" id="rRM-X9-BhW"/>
+                            <constraint firstItem="Dfr-x0-bSP" firstAttribute="centerX" secondItem="etn-ql-Tmg" secondAttribute="centerX" id="ydm-cU-Txe"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Budget" image="case" catalog="system" id="vHY-rY-Q4E"/>
+                    <connections>
+                        <outlet property="budgetValue" destination="Dfr-x0-bSP" id="oun-bJ-fiU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zDI-AQ-iqX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-312" y="270"/>
         </scene>
         <!--Expenses-->
         <scene sceneID="vqx-l4-XrY">
@@ -218,12 +296,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TYU-IL-10Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1013" y="-6"/>
+            <point key="canvasLocation" x="-1072" y="-79"/>
         </scene>
     </scenes>
     <resources>
         <image name="arrow.down.app" catalog="system" width="128" height="114"/>
         <image name="arrow.up.square" catalog="system" width="128" height="114"/>
+        <image name="case" catalog="system" width="128" height="98"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

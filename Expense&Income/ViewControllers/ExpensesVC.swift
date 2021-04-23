@@ -11,9 +11,8 @@ class ExpensesVC: UITableViewController {
 
     var currentGroup: ExpensesAndIncomes!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         navigationController?.navigationBar.topItem?.title = "Expenses"
     }
 

@@ -17,7 +17,7 @@ class IncomesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
         
         setBackgroundImage(with: "Back", for: view)
-        earnedLabel.text = String(currentGroup.allIncomes)
+        earnedLabel.text = "\(String(currentGroup.allIncomes)) rub."
     }
     
     override func viewWillAppear(_ animated: Bool) {

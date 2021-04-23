@@ -131,7 +131,7 @@
             <objects>
                 <tabBarController id="Vab-Ry-eDo" customClass="TabBarVC" customModule="Expense_Income" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="of9-Eg-gdK"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5vB-wA-reH">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="5vB-wA-reH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

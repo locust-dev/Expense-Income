@@ -17,7 +17,7 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
         
         setBackgroundImage(with: "Back", for: view)
-        youSpentLabel.text = String(currentGroup.allExpenses)
+        youSpentLabel.text = "\(String(currentGroup.allExpenses)) rub."
     }
     
     override func viewWillAppear(_ animated: Bool) {

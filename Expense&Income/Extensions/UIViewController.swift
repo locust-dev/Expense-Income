@@ -15,4 +15,22 @@ extension UIViewController {
         }
     }
     
+    func setBackgroundImage(with image: String, for view: UIView) {
+        let imageView = UIImageView(image: UIImage(named: image))
+
+        if view is UIButton {
+            imageView.frame = view.bounds
+            imageView.contentMode = .scaleAspectFill
+            imageView.clipsToBounds = true
+            imageView.layer.cornerRadius = view.frame.height / 2
+            view.addSubview(imageView)
+        } else {
+            imageView.frame = view.bounds
+            imageView.contentMode = .scaleAspectFill
+            imageView.clipsToBounds = true
+            imageView.center = view.center
+            view.addSubview(imageView)
+            view.sendSubviewToBack(imageView)
+        }
+    }
 }

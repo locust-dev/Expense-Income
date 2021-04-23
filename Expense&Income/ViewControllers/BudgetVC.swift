@@ -20,7 +20,9 @@ class BudgetVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        budgetValue.text = String(currentGroup.budget)
+        
+        setBackgroundImage(with: "Back", for: view)
+        budgetValue.text = "\(String(currentGroup.budget)) rub."
     }
    
     

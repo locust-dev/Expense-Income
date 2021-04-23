@@ -145,6 +145,9 @@
                                 <state key="normal" title="Добавить">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="ecO-Rv-TBF" kind="unwind" unwindAction="unwindFor:" id="WHM-4c-zfy"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5PZ-ew-R4E"/>
@@ -159,8 +162,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add expense" id="Odg-a7-4gM"/>
+                    <connections>
+                        <outlet property="categoryTextField" destination="Gaj-x6-Yw6" id="s7a-dQ-NfD"/>
+                        <outlet property="doneButton" destination="85L-JI-aeG" id="aeq-x7-2T3"/>
+                        <outlet property="sumTextField" destination="Q6o-DQ-n88" id="2l4-fN-PIP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s9T-Dy-cAD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="ecO-Rv-TBF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-3058.4000000000001" y="1067.3163418290856"/>
         </scene>

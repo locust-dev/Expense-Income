@@ -7,10 +7,10 @@
 
 struct ExpensesAndIncomes {
     
-    let expenses: [Int]!
-    let incomes: [Int]!
-    let catForExpenses: [String]!
-    let catForIncomes: [String]!
+    var expenses: [Int]!
+    var incomes: [Int]!
+    var catForExpenses: [String]!
+    var catForIncomes: [String]!
     
     var budget: Int {
         var expenses = 0

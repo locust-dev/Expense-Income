@@ -13,7 +13,9 @@ class ExpensesVC: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tableView.reloadData()
         navigationController?.navigationBar.topItem?.title = "Expenses"
+
     }
 
     // MARK: - Table view data source

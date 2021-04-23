@@ -10,13 +10,33 @@ import UIKit
 class TabBarVC: UITabBarController {
 
     var currentGroup = ExpensesAndIncomes.getGroup()
+   
+
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         transferDataToChild()
+       
+
+    }
+    
+    
+    
+    @IBAction func unwind(for segue: UIStoryboardSegue) {
+        guard let tabBarVC = segue.source as? AddExpenseVC else { return }
+        currentGroup.catForExpenses.append(tabBarVC.categoryTextField.text ?? "")
+        currentGroup.expenses.append(1)
+        transferDataToChild()
+        
+       
+        
+        
     }
     
     private func transferDataToChild() {
+        print(#function)
         guard let viewControllers = self.viewControllers else { return }
         
         for viewController in viewControllers {

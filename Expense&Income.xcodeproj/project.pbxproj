@@ -18,6 +18,8 @@
 		E9B3FF952632D9A500E182A6 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FF942632D9A500E182A6 /* TabBarVC.swift */; };
 		E9B3FFA32632E56A00E182A6 /* IncomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FFA22632E56A00E182A6 /* IncomeCell.swift */; };
 		E9B3FFA62632E57500E182A6 /* ExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FFA52632E57500E182A6 /* ExpenseCell.swift */; };
+		E9B3FFAC2632EA1900E182A6 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FFAB2632EA1900E182A6 /* UIViewController.swift */; };
+		E9B3FFB02632EA7C00E182A6 /* MainContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FFAF2632EA7C00E182A6 /* MainContainerVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		E9B3FF942632D9A500E182A6 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		E9B3FFA22632E56A00E182A6 /* IncomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeCell.swift; sourceTree = "<group>"; };
 		E9B3FFA52632E57500E182A6 /* ExpenseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCell.swift; sourceTree = "<group>"; };
+		E9B3FFAB2632EA1900E182A6 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		E9B3FFAF2632EA7C00E182A6 /* MainContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContainerVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,9 +70,11 @@
 		E9B3FF712632D5E300E182A6 /* Expense&Income */ = {
 			isa = PBXGroup;
 			children = (
+				E9B3FFAA2632EA0A00E182A6 /* Extensions */,
 				E9B3FF9F2632DD0A00E182A6 /* Supportings */,
 				E9B3FF9B2632DCEA00E182A6 /* DataManager */,
 				E9B3FF992632DCE200E182A6 /* ViewControllers */,
+				E9B3FFA82632E57B00E182A6 /* Support VCs */,
 				E9B3FF9D2632DCFA00E182A6 /* Storyboards */,
 				E9B3FF9E2632DD0200E182A6 /* Files */,
 			);
@@ -81,7 +87,6 @@
 				E9B3FF942632D9A500E182A6 /* TabBarVC.swift */,
 				E9B3FF8A2632D6A300E182A6 /* ExpensesVC.swift */,
 				E9B3FF912632D89B00E182A6 /* IncomesVC.swift */,
-				E9B3FFA82632E57B00E182A6 /* Cells */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -121,13 +126,22 @@
 			path = Supportings;
 			sourceTree = "<group>";
 		};
-		E9B3FFA82632E57B00E182A6 /* Cells */ = {
+		E9B3FFA82632E57B00E182A6 /* Support VCs */ = {
 			isa = PBXGroup;
 			children = (
 				E9B3FFA22632E56A00E182A6 /* IncomeCell.swift */,
 				E9B3FFA52632E57500E182A6 /* ExpenseCell.swift */,
+				E9B3FFAF2632EA7C00E182A6 /* MainContainerVC.swift */,
 			);
-			path = Cells;
+			path = "Support VCs";
+			sourceTree = "<group>";
+		};
+		E9B3FFAA2632EA0A00E182A6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E9B3FFAB2632EA1900E182A6 /* UIViewController.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,10 +216,12 @@
 			files = (
 				E9B3FF922632D89B00E182A6 /* IncomesVC.swift in Sources */,
 				E9B3FF732632D5E300E182A6 /* AppDelegate.swift in Sources */,
+				E9B3FFAC2632EA1900E182A6 /* UIViewController.swift in Sources */,
 				E9B3FF8E2632D6E300E182A6 /* DataManager.swift in Sources */,
 				E9B3FF8B2632D6A300E182A6 /* ExpensesVC.swift in Sources */,
 				E9B3FFA62632E57500E182A6 /* ExpenseCell.swift in Sources */,
 				E9B3FF952632D9A500E182A6 /* TabBarVC.swift in Sources */,
+				E9B3FFB02632EA7C00E182A6 /* MainContainerVC.swift in Sources */,
 				E9B3FF752632D5E300E182A6 /* SceneDelegate.swift in Sources */,
 				E9B3FFA32632E56A00E182A6 /* IncomeCell.swift in Sources */,
 			);

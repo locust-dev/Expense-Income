@@ -493,6 +493,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Expenses" image="arrow.down.square" catalog="system" id="KMB-m4-9k0"/>
                     <connections>
+                        <outlet property="tableView" destination="Ycc-CA-3wY" id="evu-az-qSh"/>
                         <outlet property="youSpentLabel" destination="xdQ-4Q-chN" id="5bC-Bp-CQW"/>
                     </connections>
                 </viewController>

@@ -10,6 +10,7 @@ import UIKit
 class IncomesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var earnedLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
     var currentGroup: ExpensesAndIncomes!
     
@@ -23,6 +24,7 @@ class IncomesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.topItem?.title = "Incomes"
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source

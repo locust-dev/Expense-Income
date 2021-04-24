@@ -396,6 +396,7 @@
                     <tabBarItem key="tabBarItem" title="Incomes" image="arrow.up.square" catalog="system" id="dol-JW-y8X"/>
                     <connections>
                         <outlet property="earnedLabel" destination="ZYT-pX-XR3" id="fH1-rC-zxj"/>
+                        <outlet property="tableView" destination="RFJ-NH-I5H" id="7Ix-hO-ZvH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tmy-32-Gj4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

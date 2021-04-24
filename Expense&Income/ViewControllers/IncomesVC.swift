@@ -39,7 +39,8 @@ class IncomesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "incomeCell", for: indexPath) as! IncomeCell
         
         cell.categoryLabel.text = currentGroup.catForIncomes[indexPath.row]
-        cell.incomeLabel.text = "\(String(currentGroup.incomes[indexPath.row])) rub."
+        cell.incomeLabel.text = "+\(String(currentGroup.incomes[indexPath.row])) rub."
+        cell.incomeLabel.textColor = .green
 
         return cell
     }

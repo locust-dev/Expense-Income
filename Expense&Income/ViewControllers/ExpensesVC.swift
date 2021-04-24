@@ -42,7 +42,8 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "expenseCell", for: indexPath) as! ExpenseCell
 
         cell.categoryLabel.text = currentGroup.catForExpenses[indexPath.row]
-        cell.expenseLabel.text = "\(String(currentGroup.expenses[indexPath.row])) rub."
+        cell.expenseLabel.text = "-\(String(currentGroup.expenses[indexPath.row])) rub."
+        cell.expenseLabel.textColor = .red
 
         return cell
     }

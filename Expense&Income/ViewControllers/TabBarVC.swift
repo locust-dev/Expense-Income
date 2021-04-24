@@ -25,16 +25,24 @@ class TabBarVC: UITabBarController {
     
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
-        guard let tabBarVC = segue.source as? AddExpenseVC else { return }
-        currentGroup.catForExpenses.append(tabBarVC.categoryTextField.text ?? "")
+        guard let addExpensesVC = segue.source as? AddExpenseVC else { return }
+        currentGroup.catForExpenses.append(addExpensesVC.categoryTextField.text ?? "")
         
-        guard let text = Int(tabBarVC.sumTextField.text ?? "") else { return }
+        guard let text = Int(addExpensesVC.sumTextField.text ?? "") else { return }
         currentGroup.expenses.append(text)
         transferDataToChild()
         
-       
         
+    }
+    
+    
+    @IBAction func unwin(for segueFrom: UIStoryboardSegue) {
+        guard let addIncomeVC = segueFrom.source as? AddIncomeVC else { return }
+        currentGroup.catForIncomes.append(addIncomeVC.categoryIncomeTextField.text ?? "")
         
+        guard let text = Int(addIncomeVC.sumIncomeTexField.text ?? "") else { return }
+        currentGroup.incomes.append(text)
+        transferDataToChild()
     }
     
     private func transferDataToChild() {

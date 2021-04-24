@@ -10,6 +10,7 @@ import UIKit
 class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var youSpentLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
     var currentGroup: ExpensesAndIncomes!
     
@@ -23,6 +24,9 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.topItem?.title = "Expenses"
+        tableView.reloadData()
+        
+
     }
 
     // MARK: - Table view data source
@@ -38,7 +42,8 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "expenseCell", for: indexPath) as! ExpenseCell
 
         cell.categoryLabel.text = currentGroup.catForExpenses[indexPath.row]
-        cell.expenseLabel.text = "\(String(currentGroup.expenses[indexPath.row])) rub."
+        cell.expenseLabel.text = "-\(String(currentGroup.expenses[indexPath.row])) rub."
+        cell.expenseLabel.textColor = .red
 
         return cell
     }

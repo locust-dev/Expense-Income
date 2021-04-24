@@ -16,16 +16,14 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setBackgroundImage(with: "Back", for: view)
-        youSpentLabel.text = "\(String(currentGroup.allExpenses)) rub."
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.topItem?.title = "Expenses"
         tableView.reloadData()
-        
+        youSpentLabel.text = "\(String(currentGroup.allExpenses)) rub."
 
     }
 

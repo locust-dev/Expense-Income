@@ -16,15 +16,14 @@ class IncomesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setBackgroundImage(with: "Back", for: view)
-        earnedLabel.text = "\(String(currentGroup.allIncomes)) rub."
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.topItem?.title = "Incomes"
         tableView.reloadData()
+        earnedLabel.text = "\(String(currentGroup.allIncomes)) rub."
     }
 
     // MARK: - Table view data source

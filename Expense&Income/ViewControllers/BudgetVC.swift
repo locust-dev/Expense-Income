@@ -16,14 +16,13 @@ class BudgetVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.topItem?.title = "Budget"
+        budgetValue.text = "\(String(currentGroup.budget)) rub."
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setBackgroundImage(with: "Back", for: view)
-        budgetValue.text = "\(String(currentGroup.budget)) rub."
     }
-   
+
     
 }

@@ -8,10 +8,10 @@
 import UIKit
 
 class AddIncomeVC: UIViewController, UITextFieldDelegate{
-
-    @IBOutlet weak var catButton: UIButton!
+    
     @IBOutlet weak var sumIncomeTexField: UITextField!
-    @IBOutlet weak var done: UIButton!
+    @IBOutlet weak var catButton: UIButton!
+    @IBOutlet weak var doneButton: UIButton!
     
     var defaultCategory = "Другое"
     
@@ -19,9 +19,8 @@ class AddIncomeVC: UIViewController, UITextFieldDelegate{
         super.viewDidLoad()
         
         navigationController?.navigationBar.tintColor = .white
-        setCornerRadiusToCircle(sumIncomeTexField, done)
+        setCornerRadiusToCircle(sumIncomeTexField, doneButton, catButton)
         setBackgroundImage(with: "Back", for: view)
-        sumIncomeTexField.delegate = self
         setupGestures()
     }
 
@@ -54,7 +53,7 @@ class AddIncomeVC: UIViewController, UITextFieldDelegate{
         let popOverVC = popVC.popoverPresentationController
         popOverVC?.delegate = self
         popOverVC?.sourceView = self.catButton
-        popOverVC?.sourceRect = CGRect(x: catButton.bounds.midX, y: catButton.bounds.maxY, width: 0, height: 0)
+        popOverVC?.sourceRect = CGRect(x: catButton.bounds.midX - 30, y: catButton.bounds.maxY + 10, width: 0, height: 0)
         
         popVC.preferredContentSize = CGSize(width: 250, height: 250)
         self.present(popVC, animated: true)

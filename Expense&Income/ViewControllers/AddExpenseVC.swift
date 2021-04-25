@@ -23,7 +23,7 @@ class AddExpenseVC: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         navigationController?.navigationBar.tintColor = .white
-        setCornerRadiusToCircle(sumTextField, doneButton)
+        setCornerRadiusToCircle(sumTextField, doneButton, catButton)
         setBackgroundImage(with: "Back", for: view)
         setupGestures()
     }
@@ -58,7 +58,7 @@ class AddExpenseVC: UIViewController, UITextFieldDelegate {
         let popOverVC = popVC.popoverPresentationController
         popOverVC?.delegate = self
         popOverVC?.sourceView = self.catButton
-        popOverVC?.sourceRect = CGRect(x: catButton.bounds.midX, y: catButton.bounds.maxY, width: 0, height: 0)
+        popOverVC?.sourceRect = CGRect(x: catButton.bounds.midX - 30, y: catButton.bounds.maxY + 10, width: 0, height: 0)
         
         popVC.preferredContentSize = CGSize(width: 250, height: 250)
         self.present(popVC, animated: true)

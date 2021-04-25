@@ -35,7 +35,7 @@ struct ExpensesAndIncomes {
     }
     
     static func getGroup() -> ExpensesAndIncomes {
-        ExpensesAndIncomes(expenses: [1000, 500, 777, 300], incomes: [900, 3500, 4200, 300], catForExpenses: ["Машина", "Досуг", "Косметология", "Для дома"], catForIncomes: ["С фриланса", "Долг", "Зарплата", "Другое"])
+        ExpensesAndIncomes(expenses: [1000, 500, 777, 300, 100], incomes: [900, 3500, 4200, 300, 400], catForExpenses: ["Машина", "Лекарства", "Косметология", "Для дома", "Хотелки"], catForIncomes: ["С фриланса", "Долг", "Зарплата", "Другое", "Депозит"])
     }
     
 }

@@ -19,7 +19,7 @@ class DetailVC: UIViewController {
         super.viewDidLoad()
         
         catLabel.text = category
-        summLabel.text = String("Сумма: \(value ?? 0) руб.")
+        summLabel.text = String("\(value ?? 0) руб.")
         navigationController?.navigationBar.tintColor = .white
         setBackgroundImage(with: "Back", for: view)
     }

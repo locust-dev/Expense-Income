@@ -39,7 +39,6 @@
 		3D3AB87B2C3B69B4DA859BFC23C89D1B /* DataApproximator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE66F544F44B200277B7033744D96B19 /* DataApproximator.swift */; };
 		3F470BD9C026791FA4D6F2A4BFFBE252 /* PieChartDataEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC2EAE0C0D68136BAB5737D26078868 /* PieChartDataEntry.swift */; };
 		42FBD8982636161F00A87C92 /* PieChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FBD8972636161F00A87C92 /* PieChartData.swift */; };
-		42FBD89D2636163400A87C92 /* PieChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FBD89C2636163400A87C92 /* PieChartData.swift */; };
 		471765FAA2682D51F13723EEE307D17D /* CombinedChartRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E6F47E1AFA1CC053850D7422C14322 /* CombinedChartRenderer.swift */; };
 		49E31573C141CC34E93DC9A3A9BE5217 /* IHighlighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C9C263DD365EC83EFFAE0EC986875B /* IHighlighter.swift */; };
 		4AC1EE3F8A788596F19B60D9CA4DBFC2 /* Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C0D7EC831B8DE9DC08EA2318F3E686 /* Description.swift */; };
@@ -636,7 +635,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1240;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 9.3";
@@ -800,7 +799,6 @@
 				A19BFF119BE533A63C825310D9F5A24B /* Platform+Gestures.swift in Sources */,
 				722E009B70FC17826693BDD40AA70691 /* Platform+Graphics.swift in Sources */,
 				9623FDA47A70C6BB1C0232FCB6D48021 /* Platform+Touch Handling.swift in Sources */,
-				42FBD89D2636163400A87C92 /* PieChartData.swift in Sources */,
 				F919D7308CFE54826069F5AAAD381E33 /* Platform.swift in Sources */,
 				C83A17C74003CA6BBC5780F486D8339B /* RadarChartData.swift in Sources */,
 				B2E609E395687617478B76584DB2CCEA /* RadarChartDataEntry.swift in Sources */,
@@ -885,7 +883,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/Charts/Charts-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MODULEMAP_FILE = Headers/Public/Charts/Charts.modulemap;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -1038,7 +1036,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/Charts/Charts-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MODULEMAP_FILE = Headers/Public/Charts/Charts.modulemap;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";

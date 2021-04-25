@@ -58,6 +58,7 @@ class AddExpenseVC: UIViewController, UITextFieldDelegate {
         let popOverVC = popVC.popoverPresentationController
         popOverVC?.delegate = self
         popOverVC?.sourceView = self.catButton
+        popOverVC?.permittedArrowDirections = .up
         popOverVC?.sourceRect = CGRect(x: catButton.bounds.midX - 30, y: catButton.bounds.maxY + 10, width: 0, height: 0)
         
         popVC.preferredContentSize = CGSize(width: 250, height: 250)

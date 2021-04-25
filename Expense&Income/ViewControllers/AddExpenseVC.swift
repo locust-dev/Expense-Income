@@ -7,23 +7,26 @@
 
 import UIKit
 
+protocol AddCategoryDelegate {
+    func addCategory(category: String)
+}
+
 class AddExpenseVC: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var sumTextField: UITextField!
     @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var catButton: UIButton!
+    
+    var defaultCategory = "Другое"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         navigationController?.navigationBar.tintColor = .white
-        setCornerRadiusToCircle(categoryTextField, sumTextField, doneButton)
+        setCornerRadiusToCircle(sumTextField, doneButton)
         setBackgroundImage(with: "Back", for: view)
-        sumTextField.delegate = self
+        setupGestures()
     }
-    
-    
-    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super .touchesBegan(touches, with: event)
@@ -41,4 +44,39 @@ class AddExpenseVC: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    private func setupGestures() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        tapGesture.numberOfTapsRequired = 1
+        catButton.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func tapped() {
+        guard let popVC = storyboard?.instantiateViewController(identifier: "popVC") as? TablePopoverVC else { return }
+        popVC.modalPresentationStyle = .popover
+        popVC.delegate = self
+        
+        let popOverVC = popVC.popoverPresentationController
+        popOverVC?.delegate = self
+        popOverVC?.sourceView = self.catButton
+        popOverVC?.sourceRect = CGRect(x: catButton.bounds.midX, y: catButton.bounds.maxY, width: 0, height: 0)
+        
+        popVC.preferredContentSize = CGSize(width: 250, height: 250)
+        self.present(popVC, animated: true)
+    }
+    
+}
+
+extension AddExpenseVC: UIPopoverPresentationControllerDelegate {
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    
+}
+
+extension AddExpenseVC: AddCategoryDelegate {
+    func addCategory(category: String) {
+        catButton.setTitle(category, for: .normal)
+        defaultCategory = category
+    }
 }

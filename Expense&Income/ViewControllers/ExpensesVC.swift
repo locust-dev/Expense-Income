@@ -11,6 +11,7 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var youSpentLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
     var currentGroup: ExpensesAndIncomes!
     
@@ -24,7 +25,8 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         navigationController?.navigationBar.topItem?.title = "Расходы"
         tableView.reloadData()
         youSpentLabel.text = "\(String(currentGroup.allExpenses)) руб."
-
+        
+        heightConstraint.constant = CGFloat(currentGroup.expenses.count) * tableView.rowHeight + 200
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

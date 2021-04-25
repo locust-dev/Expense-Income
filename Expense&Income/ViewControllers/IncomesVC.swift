@@ -11,6 +11,7 @@ class IncomesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var earnedLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
     var currentGroup: ExpensesAndIncomes!
     
@@ -24,6 +25,8 @@ class IncomesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         navigationController?.navigationBar.topItem?.title = "Доходы"
         tableView.reloadData()
         earnedLabel.text = "\(String(currentGroup.allIncomes)) руб."
+        
+        heightConstraint.constant = CGFloat(currentGroup.incomes.count) * tableView.rowHeight + 200
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

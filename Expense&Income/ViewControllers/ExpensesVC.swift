@@ -26,8 +26,16 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         youSpentLabel.text = "\(String(currentGroup.allExpenses)) руб."
 
     }
-
-    // MARK: - Table view data source
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let indexPath = tableView.indexPathForSelectedRow {
+            let detailVC = segue.destination as! DetailVC
+            detailVC.value = currentGroup.expenses[indexPath.row]
+            detailVC.category = currentGroup.catForExpenses[indexPath.row]
+        }
+        
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         1
     }
@@ -38,7 +46,7 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "expenseCell", for: indexPath) as! ExpenseCell
-
+        
         cell.categoryLabel.text = currentGroup.catForExpenses[indexPath.row]
         cell.expenseLabel.text = "-\(String(currentGroup.expenses[indexPath.row])) rub."
 

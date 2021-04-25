@@ -26,7 +26,14 @@ class IncomesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         earnedLabel.text = "\(String(currentGroup.allIncomes)) руб."
     }
 
-    // MARK: - Table view data source
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let indexPath = tableView.indexPathForSelectedRow {
+            let detailVC = segue.destination as! DetailVC
+            detailVC.value = currentGroup.incomes[indexPath.row]
+            detailVC.category = currentGroup.catForIncomes[indexPath.row]
+        }
+        
+    }
 
     func numberOfSections(in tableView: UITableView) -> Int {
         1

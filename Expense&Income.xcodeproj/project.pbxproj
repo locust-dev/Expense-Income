@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		80D6141E6B2BD4C43C017C3F /* libPods-Expense&Income.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8EBDECA7CE29B40F2713C73 /* libPods-Expense&Income.a */; };
 		E95C1CCA2635AEC6002786DA /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C1CC92635AEC6002786DA /* DetailVC.swift */; };
 		E95C1CCE263601C9002786DA /* TablePopoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C1CCD263601C9002786DA /* TablePopoverVC.swift */; };
 		E95C1CD4263606F3002786DA /* PopoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C1CD3263606F3002786DA /* PopoverCell.swift */; };
@@ -30,6 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		34B769994457518423AB8B05 /* Pods-Expense&Income.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expense&Income.release.xcconfig"; path = "Target Support Files/Pods-Expense&Income/Pods-Expense&Income.release.xcconfig"; sourceTree = "<group>"; };
+		98CA1D14361377375EAA96C6 /* Pods-Expense&Income.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expense&Income.debug.xcconfig"; path = "Target Support Files/Pods-Expense&Income/Pods-Expense&Income.debug.xcconfig"; sourceTree = "<group>"; };
+		D8EBDECA7CE29B40F2713C73 /* libPods-Expense&Income.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Expense&Income.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E95C1CC92635AEC6002786DA /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		E95C1CCD263601C9002786DA /* TablePopoverVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablePopoverVC.swift; sourceTree = "<group>"; };
 		E95C1CD3263606F3002786DA /* PopoverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverCell.swift; sourceTree = "<group>"; };
@@ -59,19 +63,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80D6141E6B2BD4C43C017C3F /* libPods-Expense&Income.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1090CFE32F621FDB152FB2CD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				98CA1D14361377375EAA96C6 /* Pods-Expense&Income.debug.xcconfig */,
+				34B769994457518423AB8B05 /* Pods-Expense&Income.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D9C7682D56BF9A4B783812FE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8EBDECA7CE29B40F2713C73 /* libPods-Expense&Income.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E9B3FF662632D5E300E182A6 = {
 			isa = PBXGroup;
 			children = (
 				E9B3FF712632D5E300E182A6 /* Expense&Income */,
 				E9B3FF702632D5E300E182A6 /* Products */,
+				1090CFE32F621FDB152FB2CD /* Pods */,
+				D9C7682D56BF9A4B783812FE /* Frameworks */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		E9B3FF702632D5E300E182A6 /* Products */ = {
 			isa = PBXGroup;
@@ -180,6 +205,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E9B3FF832632D5E400E182A6 /* Build configuration list for PBXNativeTarget "Expense&Income" */;
 			buildPhases = (
+				1DF8A6BD07DB1934EBD85705 /* [CP] Check Pods Manifest.lock */,
 				E9B3FF6B2632D5E300E182A6 /* Sources */,
 				E9B3FF6C2632D5E300E182A6 /* Frameworks */,
 				E9B3FF6D2632D5E300E182A6 /* Resources */,
@@ -237,6 +263,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1DF8A6BD07DB1934EBD85705 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Expense&Income-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E9B3FF6B2632D5E300E182A6 /* Sources */ = {
@@ -403,6 +454,7 @@
 		};
 		E9B3FF842632D5E400E182A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98CA1D14361377375EAA96C6 /* Pods-Expense&Income.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -422,6 +474,7 @@
 		};
 		E9B3FF852632D5E400E182A6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34B769994457518423AB8B05 /* Pods-Expense&Income.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

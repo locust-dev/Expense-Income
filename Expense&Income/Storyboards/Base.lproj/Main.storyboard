@@ -506,36 +506,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Budget value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dfr-x0-bSP">
-                                <rect key="frame" x="127" y="432" width="160.5" height="32"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="27"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="У вас осталось:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fal-M3-Bps">
-                                <rect key="frame" x="92" y="345.5" width="230" height="39.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="MjN-NZ-Gew">
+                                <rect key="frame" x="92" y="93.5" width="230" height="98"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="У вас осталось:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fal-M3-Bps">
+                                        <rect key="frame" x="0.0" y="0.0" width="230" height="39.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Budget value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dfr-x0-bSP">
+                                        <rect key="frame" x="35" y="65.5" width="160.5" height="32.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="27"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rti-K3-eKh" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="241.5" width="374" height="486.5"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZCv-Qg-f9h"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Dfr-x0-bSP" firstAttribute="top" secondItem="fal-M3-Bps" secondAttribute="bottom" constant="47" id="9Gc-qR-047"/>
-                            <constraint firstItem="fal-M3-Bps" firstAttribute="centerX" secondItem="etn-ql-Tmg" secondAttribute="centerX" id="KXd-rj-UWI"/>
-                            <constraint firstItem="Dfr-x0-bSP" firstAttribute="centerY" secondItem="etn-ql-Tmg" secondAttribute="centerY" id="rRM-X9-BhW"/>
-                            <constraint firstItem="Dfr-x0-bSP" firstAttribute="centerX" secondItem="etn-ql-Tmg" secondAttribute="centerX" id="ydm-cU-Txe"/>
+                            <constraint firstItem="ZCv-Qg-f9h" firstAttribute="trailing" secondItem="MjN-NZ-Gew" secondAttribute="trailing" constant="92" id="ARf-3s-Xdg"/>
+                            <constraint firstItem="MjN-NZ-Gew" firstAttribute="top" secondItem="ZCv-Qg-f9h" secondAttribute="top" constant="49.5" id="Djk-aI-lSm"/>
+                            <constraint firstItem="MjN-NZ-Gew" firstAttribute="leading" secondItem="ZCv-Qg-f9h" secondAttribute="leading" constant="92" id="Eb7-IH-gPc"/>
+                            <constraint firstItem="ZCv-Qg-f9h" firstAttribute="trailing" secondItem="rti-K3-eKh" secondAttribute="trailing" constant="20" id="JBg-yS-gqp"/>
+                            <constraint firstItem="rti-K3-eKh" firstAttribute="leading" secondItem="ZCv-Qg-f9h" secondAttribute="leading" constant="20" id="KCJ-rG-dWP"/>
+                            <constraint firstItem="ZCv-Qg-f9h" firstAttribute="bottom" secondItem="rti-K3-eKh" secondAttribute="bottom" constant="85" id="jJR-5D-5dR"/>
+                            <constraint firstItem="rti-K3-eKh" firstAttribute="top" secondItem="MjN-NZ-Gew" secondAttribute="bottom" constant="50" id="uJ7-ZK-WH6"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Бюджет" image="case" catalog="system" id="vHY-rY-Q4E"/>
                     <connections>
                         <outlet property="budgetValue" destination="Dfr-x0-bSP" id="oun-bJ-fiU"/>
+                        <outlet property="pie" destination="rti-K3-eKh" id="Rl1-Wa-J0a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zDI-AQ-iqX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1071" y="270"/>
+            <point key="canvasLocation" x="-1071.0144927536232" y="269.19642857142856"/>
         </scene>
         <!--DetailVC-->
         <scene sceneID="cif-ly-RvB">

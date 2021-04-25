@@ -11,17 +11,17 @@ class AddIncomeVC: UIViewController, UITextFieldDelegate{
 
     @IBOutlet weak var categoryIncomeTextField: UITextField!
     @IBOutlet weak var sumIncomeTexField: UITextField!
-    
+    @IBOutlet weak var done: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        navigationController?.navigationBar.tintColor = .white
+        setCornerRadiusToCircle(categoryIncomeTextField, sumIncomeTexField, done)
+        setBackgroundImage(with: "Back", for: view)
         sumIncomeTexField.delegate = self
-      
     }
-    
 
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super .touchesBegan(touches, with: event)
         view.endEditing(true)

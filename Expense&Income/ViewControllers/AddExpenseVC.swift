@@ -13,15 +13,13 @@ class AddExpenseVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var sumTextField: UITextField!
     @IBOutlet weak var doneButton: UIButton!
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.tintColor = .white
+        setCornerRadiusToCircle(categoryTextField, sumTextField, doneButton)
+        setBackgroundImage(with: "Back", for: view)
         sumTextField.delegate = self
-        
-        
     }
     
     

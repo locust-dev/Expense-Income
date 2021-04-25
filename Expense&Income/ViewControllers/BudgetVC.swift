@@ -15,8 +15,8 @@ class BudgetVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.topItem?.title = "Budget"
-        budgetValue.text = "\(String(currentGroup.budget)) rub."
+        navigationController?.navigationBar.topItem?.title = "Бюджет"
+        budgetValue.text = "\(String(currentGroup.budget)) руб."
     }
     
     override func viewDidLoad() {

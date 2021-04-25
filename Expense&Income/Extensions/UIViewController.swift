@@ -9,9 +9,9 @@ import UIKit
 
 extension UIViewController {
     
-    func setCornerRadiusToCircle(_ button: UIButton...) {
-        button.forEach{ button in
-            button.layer.cornerRadius = button.frame.height / 2
+    func setCornerRadiusToCircle(_ views: UIView...) {
+        views.forEach{ view in
+            view.layer.cornerRadius = view.frame.height / 2
         }
     }
     

@@ -11,15 +11,10 @@ class TabBarVC: UITabBarController {
 
     var currentGroup = ExpensesAndIncomes.getGroup()
    
-    
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         transferDataToChild()
-       
-
     }
     
     
@@ -35,7 +30,6 @@ class TabBarVC: UITabBarController {
         
     }
     
-    
     @IBAction func unwin(for segueFrom: UIStoryboardSegue) {
         guard let addIncomeVC = segueFrom.source as? AddIncomeVC else { return }
         currentGroup.catForIncomes.append(addIncomeVC.categoryIncomeTextField.text ?? "")
@@ -46,7 +40,6 @@ class TabBarVC: UITabBarController {
     }
     
     private func transferDataToChild() {
-        print(#function)
         guard let viewControllers = self.viewControllers else { return }
         
         for viewController in viewControllers {

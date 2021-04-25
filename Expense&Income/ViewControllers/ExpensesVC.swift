@@ -21,9 +21,9 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.topItem?.title = "Expenses"
+        navigationController?.navigationBar.topItem?.title = "Расходы"
         tableView.reloadData()
-        youSpentLabel.text = "\(String(currentGroup.allExpenses)) rub."
+        youSpentLabel.text = "\(String(currentGroup.allExpenses)) руб."
 
     }
 
@@ -41,7 +41,6 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
         cell.categoryLabel.text = currentGroup.catForExpenses[indexPath.row]
         cell.expenseLabel.text = "-\(String(currentGroup.expenses[indexPath.row])) rub."
-        cell.expenseLabel.textColor = .red
 
         return cell
     }

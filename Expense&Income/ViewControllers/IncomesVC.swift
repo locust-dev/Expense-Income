@@ -21,9 +21,9 @@ class IncomesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.topItem?.title = "Incomes"
+        navigationController?.navigationBar.topItem?.title = "Доходы"
         tableView.reloadData()
-        earnedLabel.text = "\(String(currentGroup.allIncomes)) rub."
+        earnedLabel.text = "\(String(currentGroup.allIncomes)) руб."
     }
 
     // MARK: - Table view data source
@@ -41,7 +41,6 @@ class IncomesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         cell.categoryLabel.text = currentGroup.catForIncomes[indexPath.row]
         cell.incomeLabel.text = "+\(String(currentGroup.incomes[indexPath.row])) rub."
-        cell.incomeLabel.textColor = .green
 
         return cell
     }

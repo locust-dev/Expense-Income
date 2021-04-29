@@ -130,7 +130,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BU4-Y3-xXQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2690" y="1627"/>
+            <point key="canvasLocation" x="-2690" y="1649"/>
         </scene>
         <!--Add ExpenseVC-->
         <scene sceneID="H9C-bd-qxH">
@@ -226,8 +226,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="Odg-a7-4gM">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Eyb-uZ-obT">
-                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="33"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Eyb-uZ-obT">
+                            <rect key="frame" x="142.5" y="5.5" width="129" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Расход"/>

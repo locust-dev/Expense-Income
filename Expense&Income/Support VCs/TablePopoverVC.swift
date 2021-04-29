@@ -23,13 +23,13 @@ class TablePopoverVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        categories.allCategories.count
+        categories.categoriesForExpenses.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "catCell", for: indexPath) as! PopoverCell
         
-        cell.categoryLabel.text = categories.allCategories[indexPath.row]
+        cell.categoryLabel.text = categories.categoriesForExpenses[indexPath.row]
         cell.categoryLabel.textColor = .white
         
         return cell

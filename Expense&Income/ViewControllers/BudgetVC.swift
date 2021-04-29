@@ -14,14 +14,13 @@ class BudgetVC: UIViewController {
     @IBOutlet weak var pie: PieChartView!
     @IBOutlet weak var budgetValue: UILabel!
     
-    
-    var currentGroup: ExpensesAndIncomes!
+    var currentGroup: UserProfile!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.topItem?.title = "Бюджет"
         budgetValue.text = "\(String(currentGroup.budget)) руб."
-        customizeChart(dataPoints: currentGroup.catForExpenses, values: currentGroup.expenses.map { Double($0) })
+        //customizeChart(dataPoints: currentGroup.catForExpenses, values: currentGroup.expenses.map { Double($0) })
     }
     
     override func viewDidLoad() {

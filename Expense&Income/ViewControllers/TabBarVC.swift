@@ -9,7 +9,7 @@ import UIKit
 
 class TabBarVC: UITabBarController {
 
-    var currentGroup = ExpensesAndIncomes.getGroup()
+    var currentGroup = UserProfile.getGroup()
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,18 +17,15 @@ class TabBarVC: UITabBarController {
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
-        if let addExpensesVC = segue.source as? AddExpenseVC {
-            currentGroup.catForExpenses.append(addExpensesVC.defaultCategory)
-            guard let text = Int(addExpensesVC.sumTextField.text ?? "") else { return }
-            currentGroup.expenses.append(text)
+        guard let addExpensesVC = segue.source as? AddExpenseVC else { return }
+            guard let summ = Int(addExpensesVC.sumTextField.text ?? "") else { return }
+            
+            currentGroup.expenses?.append(Expense(summ: summ,
+                                                  category: addExpensesVC.defaultCategory,
+                                                  date: Date(timeIntervalSince1970: 100.0),
+                                                  account: Account.getAccounts()[0]))
             transferDataToChild()
-        } else {
-            guard let addIncomeVC = segue.source as? AddIncomeVC else { return }
-            currentGroup.catForIncomes.append(addIncomeVC.defaultCategory)
-            guard let text = Int(addIncomeVC.sumIncomeTexField.text ?? "") else { return }
-            currentGroup.incomes.append(text)
-            transferDataToChild()
-        }
+    
     }
     
     private func transferDataToChild() {
@@ -37,8 +34,6 @@ class TabBarVC: UITabBarController {
         for viewController in viewControllers {
             if let expenseVC = viewController as? ExpensesVC {
                 expenseVC.currentGroup = currentGroup
-            } else if let incomesVC = viewController as? IncomesVC {
-                incomesVC.currentGroup = currentGroup
             } else if let budgetVC = viewController as? BudgetVC {
                 budgetVC.currentGroup = currentGroup
             }

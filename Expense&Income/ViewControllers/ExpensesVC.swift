@@ -10,21 +10,27 @@ import UIKit
 class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var youSpentLabel: UILabel!
+    @IBOutlet weak var remainValue: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var viewAboveLabels: UIView!
     
     var currentGroup: ExpensesAndIncomes!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackgroundImage(with: "Back", for: view)
+        addShadows(viewAboveLabels)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.topItem?.title = "Расходы"
         tableView.reloadData()
+        
         youSpentLabel.text = "\(String(currentGroup.allExpenses)) руб."
+        remainValue.text = "\(String(currentGroup.budget)) руб."
         
         heightConstraint.constant = CGFloat(currentGroup.expenses.count) * tableView.rowHeight + 200
     }

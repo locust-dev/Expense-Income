@@ -27,11 +27,7 @@ class BudgetVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackgroundImage(with: "Back", for: view)
-        
         pie.holeColor = .clear
-        
-        
-        
     }
     
     

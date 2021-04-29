@@ -11,6 +11,8 @@
 		E95C1CCA2635AEC6002786DA /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C1CC92635AEC6002786DA /* DetailVC.swift */; };
 		E95C1CCE263601C9002786DA /* TablePopoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C1CCD263601C9002786DA /* TablePopoverVC.swift */; };
 		E95C1CD4263606F3002786DA /* PopoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C1CD3263606F3002786DA /* PopoverCell.swift */; };
+		E9954337263B14CD00FAC473 /* o_Montserrat.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E9954336263B139900FAC473 /* o_Montserrat.ttf */; };
+		E9954338263B14CF00FAC473 /* o_MontserratBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E9954335263B139900FAC473 /* o_MontserratBold.ttf */; };
 		E9B3FF732632D5E300E182A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FF722632D5E300E182A6 /* AppDelegate.swift */; };
 		E9B3FF752632D5E300E182A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FF742632D5E300E182A6 /* SceneDelegate.swift */; };
 		E9B3FF7A2632D5E300E182A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9B3FF782632D5E300E182A6 /* Main.storyboard */; };
@@ -37,6 +39,8 @@
 		E95C1CC92635AEC6002786DA /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		E95C1CCD263601C9002786DA /* TablePopoverVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablePopoverVC.swift; sourceTree = "<group>"; };
 		E95C1CD3263606F3002786DA /* PopoverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverCell.swift; sourceTree = "<group>"; };
+		E9954335263B139900FAC473 /* o_MontserratBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = o_MontserratBold.ttf; sourceTree = "<group>"; };
+		E9954336263B139900FAC473 /* o_Montserrat.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = o_Montserrat.ttf; sourceTree = "<group>"; };
 		E9B3FF6F2632D5E300E182A6 /* Expense&Income.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Expense&Income.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B3FF722632D5E300E182A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9B3FF742632D5E300E182A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +91,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E9954334263B137B00FAC473 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E9954336263B139900FAC473 /* o_Montserrat.ttf */,
+				E9954335263B139900FAC473 /* o_MontserratBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		E9B3FF662632D5E300E182A6 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +122,7 @@
 		E9B3FF712632D5E300E182A6 /* Expense&Income */ = {
 			isa = PBXGroup;
 			children = (
+				E9954334263B137B00FAC473 /* Fonts */,
 				E9B3FFAA2632EA0A00E182A6 /* Extensions */,
 				E9B3FF9F2632DD0A00E182A6 /* Supportings */,
 				E9B3FF9B2632DCEA00E182A6 /* DataModel */,
@@ -257,6 +271,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9B3FF7F2632D5E400E182A6 /* LaunchScreen.storyboard in Resources */,
+				E9954338263B14CF00FAC473 /* o_MontserratBold.ttf in Resources */,
+				E9954337263B14CD00FAC473 /* o_Montserrat.ttf in Resources */,
 				E9B3FF7C2632D5E400E182A6 /* Assets.xcassets in Resources */,
 				E9B3FF7A2632D5E300E182A6 /* Main.storyboard in Resources */,
 			);

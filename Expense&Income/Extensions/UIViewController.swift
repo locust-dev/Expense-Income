@@ -34,6 +34,15 @@ extension UIViewController {
         }
     }
     
+    func addShadows(_ outlets: UIView...) {
+        outlets.forEach { outlet in
+            outlet.layer.shadowOpacity = 0.4
+            outlet.layer.shadowOffset = CGSize(width: 3, height: 3)
+            outlet.layer.shadowColor = UIColor.black.cgColor
+            outlet.layer.shadowRadius = 10.0
+        }
+    }
+    
     func alert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default)

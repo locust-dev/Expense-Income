@@ -7,6 +7,14 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="o_Montserrat.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+        <array key="o_MontserratBold.ttf">
+            <string>Montserrat-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="l53-lt-gzE">
@@ -124,7 +132,7 @@
             </objects>
             <point key="canvasLocation" x="-2690" y="1627"/>
         </scene>
-        <!--Добавить расход-->
+        <!--Add ExpenseVC-->
         <scene sceneID="H9C-bd-qxH">
             <objects>
                 <viewController id="d96-fu-Jzk" customClass="AddExpenseVC" customModule="Expense_Income" customModuleProvider="target" sceneMemberID="viewController">
@@ -216,7 +224,17 @@
                             <constraint firstItem="dxC-9A-IMS" firstAttribute="leading" secondItem="5PZ-ew-R4E" secondAttribute="leading" constant="40" id="taQ-uP-mhi"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Добавить расход" id="Odg-a7-4gM"/>
+                    <navigationItem key="navigationItem" id="Odg-a7-4gM">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Eyb-uZ-obT">
+                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Расход"/>
+                                <segment title="Доход"/>
+                            </segments>
+                        </segmentedControl>
+                    </navigationItem>
                     <connections>
                         <outlet property="catButton" destination="NtS-1F-db2" id="Jt6-JF-Qxp"/>
                         <outlet property="doneButton" destination="85L-JI-aeG" id="aeq-x7-2T3"/>
@@ -337,7 +355,7 @@
             <objects>
                 <tabBarController id="Vab-Ry-eDo" customClass="TabBarVC" customModule="Expense_Income" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="of9-Eg-gdK"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="5vB-wA-reH">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" itemPositioning="centered" itemSpacing="160" id="5vB-wA-reH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -345,7 +363,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="LeH-TF-sR3" kind="relationship" relationship="viewControllers" id="4ba-td-CXG"/>
-                        <segue destination="MkN-HO-Iun" kind="relationship" relationship="viewControllers" id="ver-kB-ALg"/>
                         <segue destination="E1M-dk-aJH" kind="relationship" relationship="viewControllers" id="Px5-et-cNb"/>
                     </connections>
                 </tabBarController>
@@ -479,9 +496,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tmy-32-Gj4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1071" y="995"/>
+            <point key="canvasLocation" x="-265" y="32"/>
         </scene>
-        <!--Бюджет-->
+        <!--Аналитика-->
         <scene sceneID="GIV-1I-F6e">
             <objects>
                 <viewController id="E1M-dk-aJH" customClass="BudgetVC" customModule="Expense_Income" customModuleProvider="target" sceneMemberID="viewController">
@@ -522,7 +539,7 @@
                             <constraint firstItem="rti-K3-eKh" firstAttribute="top" secondItem="MjN-NZ-Gew" secondAttribute="bottom" constant="50" id="uJ7-ZK-WH6"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Бюджет" image="case" catalog="system" id="vHY-rY-Q4E"/>
+                    <tabBarItem key="tabBarItem" title="Аналитика" image="arrow.triangle.branch" catalog="system" id="vHY-rY-Q4E"/>
                     <connections>
                         <outlet property="budgetValue" destination="Dfr-x0-bSP" id="oun-bJ-fiU"/>
                         <outlet property="pie" destination="rti-K3-eKh" id="Rl1-Wa-J0a"/>
@@ -530,7 +547,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zDI-AQ-iqX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1071.0144927536232" y="269.19642857142856"/>
+            <point key="canvasLocation" x="-1070" y="746"/>
         </scene>
         <!--DetailVC-->
         <scene sceneID="cif-ly-RvB">
@@ -617,7 +634,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nPy-ql-b2y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="182.60869565217394" y="132.58928571428572"/>
+            <point key="canvasLocation" x="533" y="31"/>
         </scene>
         <!--Расходы-->
         <scene sceneID="Zmk-OS-ACY">
@@ -636,31 +653,91 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PeV-RV-3eQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="roe-6W-3cl">
-                                                        <rect key="frame" x="0.0" y="50" width="414" height="150"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vad-gm-UCb">
+                                                        <rect key="frame" x="15" y="15" width="384" height="170"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="За последний месяц вы потратили:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2um-Xp-PVi">
-                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdQ-4Q-chN">
-                                                                <rect key="frame" x="0.0" y="75" width="414" height="75"/>
-                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
-                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backForViewMainScreen" translatesAutoresizingMaskIntoConstraints="NO" id="wbO-VV-iHT">
+                                                                <rect key="frame" x="0.0" y="0.0" width="384" height="170"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <integer key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </imageView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="roe-6W-3cl">
+                                                                <rect key="frame" x="20" y="30" width="344" height="110"/>
+                                                                <subviews>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="O60-Md-EBz">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="169.5" height="110"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Расходы" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2um-Xp-PVi">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="169.5" height="55"/>
+                                                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="23"/>
+                                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdQ-4Q-chN">
+                                                                                <rect key="frame" x="0.0" y="55" width="169.5" height="55"/>
+                                                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
+                                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.55000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Line" translatesAutoresizingMaskIntoConstraints="NO" id="K5B-LS-20H">
+                                                                        <rect key="frame" x="169.5" y="0.0" width="5" height="110"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="5" id="gCY-pB-Uwf"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Qta-Cz-eIO">
+                                                                        <rect key="frame" x="174.5" y="0.0" width="169.5" height="110"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Остаток" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIf-cn-P9c">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="169.5" height="54.5"/>
+                                                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="23"/>
+                                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s4h-ZD-FBn">
+                                                                                <rect key="frame" x="0.0" y="55.5" width="169.5" height="54.5"/>
+                                                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
+                                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="O60-Md-EBz" firstAttribute="width" secondItem="Qta-Cz-eIO" secondAttribute="width" id="dRp-9V-dAn"/>
+                                                                </constraints>
+                                                            </stackView>
                                                         </subviews>
-                                                    </stackView>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstItem="roe-6W-3cl" firstAttribute="top" secondItem="Vad-gm-UCb" secondAttribute="top" constant="30" id="30E-j7-uev"/>
+                                                            <constraint firstItem="wbO-VV-iHT" firstAttribute="top" secondItem="Vad-gm-UCb" secondAttribute="top" id="Rzu-q7-BAa"/>
+                                                            <constraint firstAttribute="trailing" secondItem="wbO-VV-iHT" secondAttribute="trailing" id="XOk-Jd-YLM"/>
+                                                            <constraint firstAttribute="bottom" secondItem="roe-6W-3cl" secondAttribute="bottom" constant="30" id="Xol-0y-6WB"/>
+                                                            <constraint firstAttribute="trailing" secondItem="roe-6W-3cl" secondAttribute="trailing" constant="20" id="bDG-Ty-VTR"/>
+                                                            <constraint firstItem="roe-6W-3cl" firstAttribute="leading" secondItem="Vad-gm-UCb" secondAttribute="leading" constant="20" id="g2I-f9-Wxo"/>
+                                                            <constraint firstAttribute="bottom" secondItem="wbO-VV-iHT" secondAttribute="bottom" id="hVD-Ps-rOB"/>
+                                                            <constraint firstItem="wbO-VV-iHT" firstAttribute="leading" secondItem="Vad-gm-UCb" secondAttribute="leading" id="iN5-UA-r6e"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <integer key="value" value="20"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="Vad-gm-UCb" secondAttribute="trailing" constant="15" id="380-JS-1Ec"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Vad-gm-UCb" secondAttribute="bottom" constant="15" id="GDf-wd-Z0y"/>
                                                     <constraint firstAttribute="height" constant="200" id="SPv-Uc-rUu"/>
-                                                    <constraint firstAttribute="trailing" secondItem="roe-6W-3cl" secondAttribute="trailing" id="fTQ-UL-BNa"/>
-                                                    <constraint firstItem="roe-6W-3cl" firstAttribute="top" secondItem="PeV-RV-3eQ" secondAttribute="top" constant="50" id="tzU-IW-BoM"/>
-                                                    <constraint firstItem="roe-6W-3cl" firstAttribute="leading" secondItem="PeV-RV-3eQ" secondAttribute="leading" id="u9V-6u-teo"/>
-                                                    <constraint firstAttribute="bottom" secondItem="roe-6W-3cl" secondAttribute="bottom" id="yRR-gr-v33"/>
+                                                    <constraint firstItem="Vad-gm-UCb" firstAttribute="top" secondItem="PeV-RV-3eQ" secondAttribute="top" constant="15" id="lTw-xi-PLA"/>
+                                                    <constraint firstItem="Vad-gm-UCb" firstAttribute="leading" secondItem="PeV-RV-3eQ" secondAttribute="leading" constant="15" id="mff-eT-B8m"/>
                                                 </constraints>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="75" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ycc-CA-3wY">
@@ -682,13 +759,13 @@
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Wz-k9-XoF">
                                                                             <rect key="frame" x="0.0" y="0.0" width="155.5" height="53"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="19"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000 rub." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6AV-Py-YLS">
                                                                             <rect key="frame" x="161.5" y="0.0" width="155" height="53"/>
-                                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                                            <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -739,22 +816,26 @@
                     <tabBarItem key="tabBarItem" title="Расходы" image="arrow.down.square" catalog="system" id="KMB-m4-9k0"/>
                     <connections>
                         <outlet property="heightConstraint" destination="pac-05-J4i" id="bsL-c3-5dl"/>
+                        <outlet property="remainValue" destination="s4h-ZD-FBn" id="bNZ-G1-jdu"/>
                         <outlet property="tableView" destination="Ycc-CA-3wY" id="evu-az-qSh"/>
+                        <outlet property="viewAboveLabels" destination="Vad-gm-UCb" id="Cst-oK-V3e"/>
                         <outlet property="youSpentLabel" destination="xdQ-4Q-chN" id="5bC-Bp-CQW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GxK-GS-mhW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1071" y="-443"/>
+            <point key="canvasLocation" x="-1070" y="32"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="IyK-O2-Q4z"/>
-        <segue reference="XPK-A5-DXH"/>
+        <segue reference="JHG-3H-QKW"/>
+        <segue reference="Bpp-RD-hYN"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="Line" width="11" height="397"/>
         <image name="arrow.down.square" catalog="system" width="128" height="114"/>
-        <image name="case" catalog="system" width="128" height="98"/>
+        <image name="arrow.triangle.branch" catalog="system" width="128" height="108"/>
+        <image name="backForViewMainScreen" width="527" height="237"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -15,10 +15,7 @@ class MainContainerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setCornerRadiusToCircle(
-            minusButton,
-            plusButton
-        )
+        setCornerRadiusToCircle(minusButton)
     }
     
     

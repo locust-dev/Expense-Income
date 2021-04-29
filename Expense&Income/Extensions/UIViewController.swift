@@ -9,9 +9,9 @@ import UIKit
 
 extension UIViewController {
     
-    func setCornerRadiusToCircle(_ button: UIButton...) {
-        button.forEach{ button in
-            button.layer.cornerRadius = button.frame.height / 2
+    func setCornerRadiusToCircle(_ views: UIView...) {
+        views.forEach{ view in
+            view.layer.cornerRadius = view.frame.height / 2
         }
     }
     
@@ -33,4 +33,21 @@ extension UIViewController {
             view.sendSubviewToBack(imageView)
         }
     }
+    
+    func addShadows(_ outlets: UIView...) {
+        outlets.forEach { outlet in
+            outlet.layer.shadowOpacity = 0.4
+            outlet.layer.shadowOffset = CGSize(width: 3, height: 3)
+            outlet.layer.shadowColor = UIColor.black.cgColor
+            outlet.layer.shadowRadius = 10.0
+        }
+    }
+    
+    func alert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+    
 }

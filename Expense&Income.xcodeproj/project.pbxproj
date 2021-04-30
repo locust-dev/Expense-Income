@@ -13,6 +13,7 @@
 		E95C1CD4263606F3002786DA /* PopoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C1CD3263606F3002786DA /* PopoverCell.swift */; };
 		E9954337263B14CD00FAC473 /* o_Montserrat.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E9954336263B139900FAC473 /* o_Montserrat.ttf */; };
 		E9954338263B14CF00FAC473 /* o_MontserratBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E9954335263B139900FAC473 /* o_MontserratBold.ttf */; };
+		E9A9C39E263B63A200E910B7 /* AccountsPopoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A9C39D263B63A200E910B7 /* AccountsPopoverVC.swift */; };
 		E9B3FF732632D5E300E182A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FF722632D5E300E182A6 /* AppDelegate.swift */; };
 		E9B3FF752632D5E300E182A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FF742632D5E300E182A6 /* SceneDelegate.swift */; };
 		E9B3FF7A2632D5E300E182A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9B3FF782632D5E300E182A6 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 		E95C1CD3263606F3002786DA /* PopoverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverCell.swift; sourceTree = "<group>"; };
 		E9954335263B139900FAC473 /* o_MontserratBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = o_MontserratBold.ttf; sourceTree = "<group>"; };
 		E9954336263B139900FAC473 /* o_Montserrat.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = o_Montserrat.ttf; sourceTree = "<group>"; };
+		E9A9C39D263B63A200E910B7 /* AccountsPopoverVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsPopoverVC.swift; sourceTree = "<group>"; };
 		E9B3FF6F2632D5E300E182A6 /* Expense&Income.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Expense&Income.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B3FF722632D5E300E182A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9B3FF742632D5E300E182A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				E9B3FFA52632E57500E182A6 /* ExpenseCell.swift */,
 				E9B3FFAF2632EA7C00E182A6 /* MainContainerVC.swift */,
 				E95C1CCD263601C9002786DA /* TablePopoverVC.swift */,
+				E9A9C39D263B63A200E910B7 /* AccountsPopoverVC.swift */,
 				E95C1CD3263606F3002786DA /* PopoverCell.swift */,
 			);
 			path = "Support VCs";
@@ -314,6 +317,7 @@
 				E9B3FF922632D89B00E182A6 /* IncomesVC.swift in Sources */,
 				E9B3FF732632D5E300E182A6 /* AppDelegate.swift in Sources */,
 				E9B3FFAC2632EA1900E182A6 /* UIViewController.swift in Sources */,
+				E9A9C39E263B63A200E910B7 /* AccountsPopoverVC.swift in Sources */,
 				E9B3FF8E2632D6E300E182A6 /* DataModel.swift in Sources */,
 				E95C1CCA2635AEC6002786DA /* DetailVC.swift in Sources */,
 				E9B3FF8B2632D6A300E182A6 /* ExpensesVC.swift in Sources */,

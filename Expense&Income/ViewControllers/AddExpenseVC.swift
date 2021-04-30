@@ -44,6 +44,17 @@ class AddExpenseVC: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    
+    
+}
+
+// MARK: - Configure Popover
+extension AddExpenseVC: UIPopoverPresentationControllerDelegate {
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    
     private func setupGestures() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapped))
         tapGesture.numberOfTapsRequired = 1
@@ -64,17 +75,9 @@ class AddExpenseVC: UIViewController, UITextFieldDelegate {
         popVC.preferredContentSize = CGSize(width: 250, height: 250)
         self.present(popVC, animated: true)
     }
-    
 }
 
-extension AddExpenseVC: UIPopoverPresentationControllerDelegate {
-    
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .none
-    }
-    
-}
-
+// MARK: - Delegate
 extension AddExpenseVC: AddCategoryDelegate {
     func addCategory(category: String) {
         catButton.setTitle(category, for: .normal)

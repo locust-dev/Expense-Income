@@ -15,7 +15,7 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var viewAboveLabels: UIView!
     
-    var currentGroup: ExpensesAndIncomes!
+    var currentGroup: UserProfile!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,14 +32,14 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         youSpentLabel.text = "\(String(currentGroup.allExpenses)) руб."
         remainValue.text = "\(String(currentGroup.budget)) руб."
         
-        heightConstraint.constant = CGFloat(currentGroup.expenses.count) * tableView.rowHeight + 200
+        heightConstraint.constant = CGFloat(currentGroup.expenses?.count ?? 1) * tableView.rowHeight + 200
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let indexPath = tableView.indexPathForSelectedRow {
             let detailVC = segue.destination as! DetailVC
-            detailVC.value = currentGroup.expenses[indexPath.row]
-            detailVC.category = currentGroup.catForExpenses[indexPath.row]
+            detailVC.value = currentGroup.expenses?[indexPath.row].summ
+            detailVC.category = currentGroup.expenses?[indexPath.row].category
         }
         
     }
@@ -49,14 +49,14 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        currentGroup.expenses.count
+        currentGroup.expenses?.count ?? 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "expenseCell", for: indexPath) as! ExpenseCell
         
-        cell.categoryLabel.text = currentGroup.catForExpenses[indexPath.row]
-        cell.expenseLabel.text = "-\(String(currentGroup.expenses[indexPath.row])) rub."
+        cell.categoryLabel.text = currentGroup.expenses?[indexPath.row].category
+        cell.expenseLabel.text = "-\(String(currentGroup.expenses?[indexPath.row].summ ?? 0)) rub."
 
         return cell
     }

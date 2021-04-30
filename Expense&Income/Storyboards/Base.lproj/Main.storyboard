@@ -155,6 +155,59 @@
                                     <segue destination="ecO-Rv-TBF" kind="unwind" unwindAction="unwindFor:" id="WHM-4c-zfy"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4Rg-ZR-E5X">
+                                <rect key="frame" x="20" y="202" width="374" height="120"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3lL-72-m4V">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сумма" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zHH-h1-jk3">
+                                                <rect key="frame" x="0.0" y="0.0" width="90" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="xNg-1s-aNF"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bRd-MK-ga8">
+                                                <rect key="frame" x="110" y="0.0" width="264" height="50"/>
+                                                <color key="backgroundColor" red="0.83069190039999996" green="0.83069190039999996" blue="0.83069190039999996" alpha="0.3975669765" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="ZM5-q8-48X" id="3dq-lw-ED2"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8pY-kk-e4M">
+                                        <rect key="frame" x="0.0" y="70" width="374" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Категория" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0Y-x2-2uy">
+                                                <rect key="frame" x="0.0" y="0.0" width="90" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="wbh-uw-wVs"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="96d-Xw-YSC">
+                                                <rect key="frame" x="110" y="0.0" width="264" height="50"/>
+                                                <color key="backgroundColor" red="0.83069190039999996" green="0.83069190039999996" blue="0.83069190039999996" alpha="0.3975669765" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Выбрать">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="DwB-5A-Ylp"/>
+                                </constraints>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dxC-9A-IMS">
                                 <rect key="frame" x="40" y="215" width="334" height="120"/>
                                 <subviews>
@@ -221,7 +274,11 @@
                             <constraint firstItem="dxC-9A-IMS" firstAttribute="top" secondItem="5PZ-ew-R4E" secondAttribute="top" constant="75" id="IJh-OB-9Ot"/>
                             <constraint firstItem="85L-JI-aeG" firstAttribute="centerX" secondItem="9a5-ZD-MKp" secondAttribute="centerX" id="N7v-19-FKq"/>
                             <constraint firstItem="5PZ-ew-R4E" firstAttribute="trailing" secondItem="dxC-9A-IMS" secondAttribute="trailing" constant="40" id="Tlw-MJ-aDM"/>
+                            <constraint firstItem="85L-JI-aeG" firstAttribute="top" secondItem="4Rg-ZR-E5X" secondAttribute="bottom" constant="83" id="WbM-N4-ffF"/>
+                            <constraint firstItem="5PZ-ew-R4E" firstAttribute="trailing" secondItem="4Rg-ZR-E5X" secondAttribute="trailing" constant="20" id="i6C-Sf-Za2"/>
+                            <constraint firstItem="4Rg-ZR-E5X" firstAttribute="top" secondItem="5PZ-ew-R4E" secondAttribute="top" constant="62" id="j6G-tt-AnT"/>
                             <constraint firstItem="dxC-9A-IMS" firstAttribute="leading" secondItem="5PZ-ew-R4E" secondAttribute="leading" constant="40" id="taQ-uP-mhi"/>
+                            <constraint firstItem="4Rg-ZR-E5X" firstAttribute="leading" secondItem="5PZ-ew-R4E" secondAttribute="leading" constant="20" id="viD-S4-hVU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Odg-a7-4gM">
@@ -233,12 +290,20 @@
                                 <segment title="Расход"/>
                                 <segment title="Доход"/>
                             </segments>
+                            <connections>
+                                <action selector="segmentControlSlide:" destination="d96-fu-Jzk" eventType="valueChanged" id="0jE-c1-BRi"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
                     <connections>
                         <outlet property="catButton" destination="NtS-1F-db2" id="Jt6-JF-Qxp"/>
+                        <outlet property="catButtonForIncome" destination="96d-Xw-YSC" id="OuV-Am-X4s"/>
                         <outlet property="doneButton" destination="85L-JI-aeG" id="aeq-x7-2T3"/>
+                        <outlet property="segmentControl" destination="Eyb-uZ-obT" id="icE-sW-dha"/>
+                        <outlet property="stackViewForExspenses" destination="dxC-9A-IMS" id="Fqt-U8-mNX"/>
+                        <outlet property="stackViewForIncome" destination="4Rg-ZR-E5X" id="vxm-an-XDO"/>
                         <outlet property="sumTextField" destination="Q6o-DQ-n88" id="2l4-fN-PIP"/>
+                        <outlet property="sumTextFieldsForIncome" destination="bRd-MK-ga8" id="IiQ-8S-xku"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s9T-Dy-cAD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

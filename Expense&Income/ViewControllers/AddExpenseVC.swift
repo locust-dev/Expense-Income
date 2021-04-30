@@ -17,10 +17,19 @@ class AddExpenseVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var catButton: UIButton!
     
+    @IBOutlet weak var sumTextFieldsForIncome: UITextField!
+    @IBOutlet weak var catButtonForIncome: UIButton!
+    
+    @IBOutlet weak var stackViewForExspenses: UIStackView!
+    @IBOutlet weak var stackViewForIncome: UIStackView!
+    
+    @IBOutlet weak var segmentControl: UISegmentedControl!
     var defaultCategory = "Другое"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        stackViewForExspenses.isHidden = false
+        stackViewForIncome.isHidden = true
 
         navigationController?.navigationBar.tintColor = .white
         setCornerRadiusToCircle(sumTextField, doneButton, catButton)
@@ -28,6 +37,17 @@ class AddExpenseVC: UIViewController, UITextFieldDelegate {
         setupGestures()
     }
     
+    @IBAction func segmentControlSlide(_ sender: Any) {
+        switch segmentControl.selectedSegmentIndex {
+        case 0:
+            stackViewForExspenses.isHidden = false
+            stackViewForIncome.isHidden = true
+            
+        default:
+            stackViewForExspenses.isHidden.toggle()
+            stackViewForIncome.isHidden.toggle()
+        }
+    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super .touchesBegan(touches, with: event)
         view.endEditing(true)

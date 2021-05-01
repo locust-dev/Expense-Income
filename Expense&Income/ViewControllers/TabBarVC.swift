@@ -15,7 +15,6 @@ class TabBarVC: UITabBarController {
         super.viewDidLoad()
         transferDataToChild()
         
-        
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {

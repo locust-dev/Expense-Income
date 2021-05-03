@@ -51,7 +51,7 @@ class AddExpenseVC: UIViewController, UITextFieldDelegate {
 // MARK: - Configure Popover
 extension AddExpenseVC: UIPopoverPresentationControllerDelegate {
     
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+    internal func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
     }
     

@@ -13,7 +13,6 @@ struct UserProfile {
     var incomes: [Income]?
     var accounts: [Account]?
     
-    
     var allExpenses: Int {
         var expenses = 0
         
@@ -53,12 +52,27 @@ struct Expense {
     
     static func getExpenses() -> [Expense] {
         let categories = Categories()
+        let currentDate = Date()
+    
+        var dateComponentsCustom = DateComponents()
+        dateComponentsCustom.year = 2021
+        dateComponentsCustom.month = 4
+        dateComponentsCustom.day = 29
+        let customDate = Calendar.current.date(from: dateComponentsCustom)
+        
         var expenses: [Expense] = []
         
-        for _ in 1...5 {
+        for _ in 1...3 {
             expenses.append(Expense(summ: Int.random(in: 500...4000),
                                     category: categories.categoriesForExpenses.randomElement(),
-                                    date: Date(timeIntervalSince1970: 100.0),
+                                    date: currentDate,
+                                    account: Account.getAccounts()[0]))
+        }
+        
+        for _ in 1...2 {
+            expenses.append(Expense(summ: Int.random(in: 500...4000),
+                                    category: categories.categoriesForExpenses.randomElement(),
+                                    date: customDate,
                                     account: Account.getAccounts()[0]))
         }
         return expenses
@@ -83,6 +97,7 @@ struct Income {
         }
         return incomes
     }
+    
 }
 
 struct Account {
@@ -90,8 +105,6 @@ struct Account {
     var balance: Int?
     
     static func getAccounts() -> [Account] {
-        [Account(name: "Банковская карта", balance: 65000)]
+        [Account(name: "Банковская карта", balance: 60000)]
     }
-    
-    
 }

@@ -14,10 +14,11 @@ class TabBarVC: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         transferDataToChild()
+        
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
-        guard let addExpensesVC = segue.source as? AddExpenseVC else { return }
+        if let addExpensesVC = segue.source as? AddExpenseVC {
             guard let summ = Int(addExpensesVC.sumTextField.text ?? "") else { return }
             
             currentGroup.expenses?.append(Expense(summ: summ,
@@ -25,8 +26,15 @@ class TabBarVC: UITabBarController {
                                                   date: Date(timeIntervalSince1970: 100.0),
                                                   account: Account.getAccounts()[0]))
             transferDataToChild()
-    
+        } else if let addIncomeVC = segue.source as? AddExpenseVC {
+            guard let sumIncome = Int(addIncomeVC.sumTextFieldsForIncome.text ?? "") else { return }
+            
+            currentGroup.incomes?.append(Income(summ: sumIncome, category: addIncomeVC.defaultCategory, date: Date(timeIntervalSince1970: 100.0), account: Account.getAccounts()[0]))
+            transferDataToChild()
+            
+        }
     }
+    
     
     private func transferDataToChild() {
         guard let viewControllers = self.viewControllers else { return }

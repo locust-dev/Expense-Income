@@ -5,7 +5,7 @@
 //  Created by Илья Тюрин on 23.04.2021.
 //
 
-class Categories {
+struct Categories {
     
     var categoriesForExpenses = [
         "Авто",
@@ -38,4 +38,8 @@ class Categories {
         "Спорт",
         "Транспорт"
     ]
+    
+    static func getDefautlCategories() -> Categories {
+        Categories()
+    }
 }

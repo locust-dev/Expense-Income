@@ -9,44 +9,44 @@ import UIKit
 
 class TabBarVC: UITabBarController {
 
-    var currentGroup = UserProfile.getGroup()
+    var currentUser: UserProfile!
+    static var userInfo: UserProfile?
    
     override func viewDidLoad() {
         super.viewDidLoad()
         transferDataToChild()
-        
+        TabBarVC.userInfo = currentUser
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
-        if let addExpensesVC = segue.source as? AddExpenseVC {
-            guard let summ = Int(addExpensesVC.sumTextField.text ?? "") else { return }
-            
-            currentGroup.expenses?.append(Expense(summ: summ,
-                                                  category: addExpensesVC.defaultCategory,
-                                                  date: Date(timeIntervalSince1970: 100.0),
-                                                  account: Account.getAccounts()[0]))
-            transferDataToChild()
-        } else if let addIncomeVC = segue.source as? AddExpenseVC {
-            guard let sumIncome = Int(addIncomeVC.sumTextFieldsForIncome.text ?? "") else { return }
-            
-            currentGroup.incomes?.append(Income(summ: sumIncome, category: addIncomeVC.defaultCategory, date: Date(timeIntervalSince1970: 100.0), account: Account.getAccounts()[0]))
-            transferDataToChild()
-            
-        }
+        guard let addExpensesVC = segue.source as? AddExpenseVC else { return }
+        guard let summ = Int(addExpensesVC.sumTextField.text ?? "") else { return }
+        
+        currentUser
+            .accounts![0]
+            .balance -= summ
+        
+        currentUser
+            .accounts![0]
+            .expenses?
+            .append(Expense(summ: summ,
+                            category: addExpensesVC.defaultCategory,
+                            date: addExpensesVC.datePicker.date,
+                            account: addExpensesVC.defaultAccount))
+        
+        transferDataToChild()
     }
-    
     
     private func transferDataToChild() {
         guard let viewControllers = self.viewControllers else { return }
         
         for viewController in viewControllers {
             if let expenseVC = viewController as? ExpensesVC {
-                expenseVC.currentGroup = currentGroup
+                expenseVC.currentUser = currentUser
             } else if let budgetVC = viewController as? BudgetVC {
-                budgetVC.currentGroup = currentGroup
+                budgetVC.currentUser = currentUser
             }
         }
     }
     
-
 }

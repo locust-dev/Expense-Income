@@ -1,11 +1,15 @@
 //
-//  DataManager.swift
+//  Categories.swift
 //  Expense&Income
 //
 //  Created by Илья Тюрин on 23.04.2021.
 //
 
-struct Categories {
+import RealmSwift
+
+class Categories {
+    
+    static let shared = Categories()
     
     var categoriesForExpenses = [
         "Авто",
@@ -39,7 +43,5 @@ struct Categories {
         "Транспорт"
     ]
     
-    static func getDefautlCategories() -> Categories {
-        Categories()
-    }
+    private init() {}
 }

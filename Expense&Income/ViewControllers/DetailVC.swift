@@ -23,12 +23,12 @@ class DetailVC: UIViewController {
         setBackgroundImage(with: "Back", for: view)
         
         catLabel.text = expense.category
-        summLabel.text = String("\(expense.summ ?? 0) руб.")
+        summLabel.text = String("\(expense.summ) руб.")
         accountLabel.text = expense.account
         
         let df = DateFormatter()
         df.dateFormat = "MMM d, h:mm a"
-        dateLabel.text = df.string(from: expense.date!)
+        dateLabel.text = df.string(from: expense.date)
     }
     
     

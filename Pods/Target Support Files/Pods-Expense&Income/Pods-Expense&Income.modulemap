@@ -1,4 +1,4 @@
-module Pods_Expense_Income {
+framework module Pods_Expense_Income {
   umbrella header "Pods-Expense&Income-umbrella.h"
 
   export *

@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		80D6141E6B2BD4C43C017C3F /* libPods-Expense&Income.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8EBDECA7CE29B40F2713C73 /* libPods-Expense&Income.a */; };
+		AE097C28A900407DAB195186 /* Pods_Expense_Income.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA5B2FA1BAEA56C1B636472 /* Pods_Expense_Income.framework */; };
 		E95C1CCA2635AEC6002786DA /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C1CC92635AEC6002786DA /* DetailVC.swift */; };
 		E95C1CCE263601C9002786DA /* PopoverAddExpenseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C1CCD263601C9002786DA /* PopoverAddExpenseVC.swift */; };
 		E95C1CD4263606F3002786DA /* PopoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C1CD3263606F3002786DA /* PopoverCell.swift */; };
@@ -20,20 +20,22 @@
 		E9B3FF7C2632D5E400E182A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9B3FF7B2632D5E400E182A6 /* Assets.xcassets */; };
 		E9B3FF7F2632D5E400E182A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9B3FF7D2632D5E400E182A6 /* LaunchScreen.storyboard */; };
 		E9B3FF8B2632D6A300E182A6 /* ExpensesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FF8A2632D6A300E182A6 /* ExpensesVC.swift */; };
-		E9B3FF8E2632D6E300E182A6 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FF8D2632D6E300E182A6 /* DataModel.swift */; };
+		E9B3FF8E2632D6E300E182A6 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FF8D2632D6E300E182A6 /* UserProfile.swift */; };
 		E9B3FF952632D9A500E182A6 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FF942632D9A500E182A6 /* TabBarVC.swift */; };
 		E9B3FFA62632E57500E182A6 /* ExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FFA52632E57500E182A6 /* ExpenseCell.swift */; };
 		E9B3FFAC2632EA1900E182A6 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FFAB2632EA1900E182A6 /* UIViewController.swift */; };
 		E9B3FFB02632EA7C00E182A6 /* ContainerForTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FFAF2632EA7C00E182A6 /* ContainerForTabBarVC.swift */; };
 		E9B3FFB42632EBE000E182A6 /* AddExpenseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FFB32632EBE000E182A6 /* AddExpenseVC.swift */; };
 		E9B3FFBA2632EC4C00E182A6 /* BudgetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FFB92632EC4C00E182A6 /* BudgetVC.swift */; };
-		E9B3FFC526333EF600E182A6 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FFC426333EF600E182A6 /* DataManager.swift */; };
+		E9B3FFC526333EF600E182A6 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FFC426333EF600E182A6 /* Categories.swift */; };
+		E9C49098264FD81E004C6834 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C49097264FD81E004C6834 /* StorageManager.swift */; };
+		E9C4909A2650445F004C6834 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C490992650445F004C6834 /* Array.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		34B769994457518423AB8B05 /* Pods-Expense&Income.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expense&Income.release.xcconfig"; path = "Target Support Files/Pods-Expense&Income/Pods-Expense&Income.release.xcconfig"; sourceTree = "<group>"; };
 		98CA1D14361377375EAA96C6 /* Pods-Expense&Income.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expense&Income.debug.xcconfig"; path = "Target Support Files/Pods-Expense&Income/Pods-Expense&Income.debug.xcconfig"; sourceTree = "<group>"; };
-		D8EBDECA7CE29B40F2713C73 /* libPods-Expense&Income.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Expense&Income.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEA5B2FA1BAEA56C1B636472 /* Pods_Expense_Income.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Expense_Income.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E95C1CC92635AEC6002786DA /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		E95C1CCD263601C9002786DA /* PopoverAddExpenseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverAddExpenseVC.swift; sourceTree = "<group>"; };
 		E95C1CD3263606F3002786DA /* PopoverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverCell.swift; sourceTree = "<group>"; };
@@ -48,14 +50,16 @@
 		E9B3FF7E2632D5E400E182A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E9B3FF802632D5E400E182A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9B3FF8A2632D6A300E182A6 /* ExpensesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesVC.swift; sourceTree = "<group>"; };
-		E9B3FF8D2632D6E300E182A6 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		E9B3FF8D2632D6E300E182A6 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		E9B3FF942632D9A500E182A6 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		E9B3FFA52632E57500E182A6 /* ExpenseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCell.swift; sourceTree = "<group>"; };
 		E9B3FFAB2632EA1900E182A6 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		E9B3FFAF2632EA7C00E182A6 /* ContainerForTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerForTabBarVC.swift; sourceTree = "<group>"; };
 		E9B3FFB32632EBE000E182A6 /* AddExpenseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseVC.swift; sourceTree = "<group>"; };
 		E9B3FFB92632EC4C00E182A6 /* BudgetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetVC.swift; sourceTree = "<group>"; };
-		E9B3FFC426333EF600E182A6 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		E9B3FFC426333EF600E182A6 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		E9C49097264FD81E004C6834 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		E9C490992650445F004C6834 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80D6141E6B2BD4C43C017C3F /* libPods-Expense&Income.a in Frameworks */,
+				AE097C28A900407DAB195186 /* Pods_Expense_Income.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +86,7 @@
 		D9C7682D56BF9A4B783812FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D8EBDECA7CE29B40F2713C73 /* libPods-Expense&Income.a */,
+				CEA5B2FA1BAEA56C1B636472 /* Pods_Expense_Income.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -120,6 +124,7 @@
 			children = (
 				E9954334263B137B00FAC473 /* Fonts */,
 				E9B3FFAA2632EA0A00E182A6 /* Extensions */,
+				E9C49096264FD80B004C6834 /* Service */,
 				E9B3FF9F2632DD0A00E182A6 /* Supportings */,
 				E9B3FF9B2632DCEA00E182A6 /* DataModel */,
 				E9B3FFC326333EE900E182A6 /* DataManager */,
@@ -147,7 +152,7 @@
 		E9B3FF9B2632DCEA00E182A6 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				E9B3FF8D2632D6E300E182A6 /* DataModel.swift */,
+				E9B3FF8D2632D6E300E182A6 /* UserProfile.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -194,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				E9B3FFAB2632EA1900E182A6 /* UIViewController.swift */,
+				E9C490992650445F004C6834 /* Array.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -201,9 +207,17 @@
 		E9B3FFC326333EE900E182A6 /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
-				E9B3FFC426333EF600E182A6 /* DataManager.swift */,
+				E9B3FFC426333EF600E182A6 /* Categories.swift */,
 			);
 			path = DataManager;
+			sourceTree = "<group>";
+		};
+		E9C49096264FD80B004C6834 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E9C49097264FD81E004C6834 /* StorageManager.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +231,7 @@
 				E9B3FF6B2632D5E300E182A6 /* Sources */,
 				E9B3FF6C2632D5E300E182A6 /* Frameworks */,
 				E9B3FF6D2632D5E300E182A6 /* Resources */,
+				883D4DADDBC28724B7073E25 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -297,6 +312,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		883D4DADDBC28724B7073E25 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Expense&Income/Pods-Expense&Income-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Expense&Income/Pods-Expense&Income-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Expense&Income/Pods-Expense&Income-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -307,18 +339,20 @@
 				E9B3FFBA2632EC4C00E182A6 /* BudgetVC.swift in Sources */,
 				E9652E22264D6AB100F21A6F /* CreateAccountVC.swift in Sources */,
 				E9B3FF732632D5E300E182A6 /* AppDelegate.swift in Sources */,
+				E9C4909A2650445F004C6834 /* Array.swift in Sources */,
 				E9B3FFAC2632EA1900E182A6 /* UIViewController.swift in Sources */,
-				E9B3FF8E2632D6E300E182A6 /* DataModel.swift in Sources */,
+				E9B3FF8E2632D6E300E182A6 /* UserProfile.swift in Sources */,
 				E95C1CCA2635AEC6002786DA /* DetailVC.swift in Sources */,
 				E9B3FF8B2632D6A300E182A6 /* ExpensesVC.swift in Sources */,
 				E95C1CD4263606F3002786DA /* PopoverCell.swift in Sources */,
 				E9B3FFA62632E57500E182A6 /* ExpenseCell.swift in Sources */,
 				E9B3FF952632D9A500E182A6 /* TabBarVC.swift in Sources */,
-				E9B3FFC526333EF600E182A6 /* DataManager.swift in Sources */,
+				E9B3FFC526333EF600E182A6 /* Categories.swift in Sources */,
 				E95C1CCE263601C9002786DA /* PopoverAddExpenseVC.swift in Sources */,
 				E9B3FFB02632EA7C00E182A6 /* ContainerForTabBarVC.swift in Sources */,
 				E9B3FFB42632EBE000E182A6 /* AddExpenseVC.swift in Sources */,
 				E9B3FF752632D5E300E182A6 /* SceneDelegate.swift in Sources */,
+				E9C49098264FD81E004C6834 /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

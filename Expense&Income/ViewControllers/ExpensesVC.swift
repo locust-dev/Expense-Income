@@ -28,10 +28,10 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.topItem?.title = "Расходы"
         tableView.reloadData()
-        youSpentLabel.text = "\(String(currentUser.accounts![0].allExpenses)) руб."
-        remainValue.text = "\(String(currentUser.accounts![0].balance)) руб."
+        youSpentLabel.text = "\(String(currentUser.accounts[0].allExpenses)) руб."
+        remainValue.text = "\(String(currentUser.accounts[0].balance)) руб."
     
-        if currentUser.accounts![0].expenses?.count == 0 {
+        if currentUser.accounts[0].expenses.count == 0 {
             tableView.isHidden = true
             notExpensesYet.isHidden = false
         } else {
@@ -41,9 +41,13 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let section = tableView.indexPathForSelectedRow?.section else { return }
+        
+        
         if let indexPath = tableView.indexPathForSelectedRow {
             let detailVC = segue.destination as! DetailVC
-            detailVC.expense = currentUser.accounts![0].expenses?[indexPath.row]
+            detailVC.expense = currentUser.accounts[0].expenses[indexPath.row]
         }
         
     }
@@ -56,12 +60,13 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let date = convertDatesToString(dates: getAllDates())[section]
         var rows = 0
         
-        for expense in currentUser.accounts![0].expenses! {
-            let convertedDate = convertDateToString(date: expense.date!)
+        for expense in currentUser.accounts[0].expenses {
+            let convertedDate = convertDateToString(date: expense.date)
             if convertedDate == date {
                 rows += 1
             }
         }
+        
         return rows
     }
     
@@ -70,15 +75,15 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let date = convertDatesToString(dates: getAllDates())[indexPath.section]
         var expenses: [Expense] = []
         
-        for expense in currentUser.accounts![0].expenses! {
-            let convertedDate = convertDateToString(date: expense.date!)
+        for expense in currentUser.accounts[0].expenses {
+            let convertedDate = convertDateToString(date: expense.date)
             if convertedDate == date {
                 expenses.append(expense)
             }
         }
-        
+    
         cell.categoryLabel.text = expenses[indexPath.row].category
-        cell.expenseLabel.text = "-\(String(expenses[indexPath.row].summ ?? 0)) rub."
+        cell.expenseLabel.text = "-\(String(expenses[indexPath.row].summ)) rub."
         
         return cell
     }
@@ -114,8 +119,8 @@ extension ExpensesVC {
         var dates: Set<Date> = []
         var uniqueDatesSorted: [Date] = []
         
-        for expense in currentUser.accounts![0].expenses! {
-            dates.insert(expense.date!)
+        for expense in currentUser.accounts[0].expenses {
+            dates.insert(expense.date)
         }
         uniqueDatesSorted = Array(dates)
         uniqueDatesSorted.sort(by: >)
@@ -123,17 +128,13 @@ extension ExpensesVC {
     }
     
     private func convertDatesToString(dates: [Date]) -> [String] {
-        var datesConverted: Set<String> = []
+        var datesConverted: [String] = []
         
         for date in dates {
-            datesConverted.insert(convertDateToString(date: date))
+            datesConverted.append(convertDateToString(date: date))
         }
-
-        let uniqueDatesConverted = Array(datesConverted)
-        let df = DateFormatter()
-        df.dateFormat = "MMM d, Y"
-        let sortedArray = uniqueDatesConverted.sorted {df.date(from: $0)! > df.date(from: $1)!}
-    
+        
+        let sortedArray = datesConverted.removingDuplicates()
         return sortedArray
     }
     

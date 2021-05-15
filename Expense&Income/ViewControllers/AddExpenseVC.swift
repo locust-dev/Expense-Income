@@ -23,7 +23,7 @@ class AddExpenseVC: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     
     var defaultCategory = "Другое"
-    var defaultAccount = TabBarVC.userInfo?.accounts?.first?.name
+    var defaultAccount = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()

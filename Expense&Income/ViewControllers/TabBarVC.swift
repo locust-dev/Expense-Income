@@ -9,30 +9,28 @@ import UIKit
 
 class TabBarVC: UITabBarController {
 
-    var currentUser: UserProfile!
-    static var userInfo: UserProfile?
-   
+    var currentUser = StorageManager.shared.realm.objects(UserProfile.self).first
+
     override func viewDidLoad() {
         super.viewDidLoad()
         transferDataToChild()
-        TabBarVC.userInfo = currentUser
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
         guard let addExpensesVC = segue.source as? AddExpenseVC else { return }
         guard let summ = Int(addExpensesVC.sumTextField.text ?? "") else { return }
         
-        currentUser
-            .accounts![0]
-            .balance -= summ
+        let newExpense = Expense(
+            value: [summ,
+                    addExpensesVC.defaultCategory,
+                    addExpensesVC.datePicker.date,
+                    addExpensesVC.defaultAccount])
         
-        currentUser
-            .accounts![0]
-            .expenses?
-            .append(Expense(summ: summ,
-                            category: addExpensesVC.defaultCategory,
-                            date: addExpensesVC.datePicker.date,
-                            account: addExpensesVC.defaultAccount))
+        try! StorageManager.shared.realm.write({
+            let user = StorageManager.shared.realm.objects(UserProfile.self)[0].accounts[0]
+            user.expenses.append(newExpense)
+            user.balance -= summ
+        })
         
         transferDataToChild()
     }

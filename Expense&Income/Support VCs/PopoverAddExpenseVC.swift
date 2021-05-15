@@ -14,14 +14,14 @@ enum Popover {
 
 class PopoverAddExpenseVC: UITableViewController {
 
-    let categories = TabBarVC.userInfo?.categories
-    let accounts = TabBarVC.userInfo?.accounts
+    var userProfile: UserProfile!
     var type = Popover.categories
     var delegate: AddInfoDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundView = UIImageView(image: UIImage(named: "Back"))
+        userProfile = StorageManager.shared.realm.objects(UserProfile.self).first
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -30,8 +30,8 @@ class PopoverAddExpenseVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch type {
-        case .account: return accounts!.count
-        case .categories: return categories!.categoriesForExpenses.count
+        case .account: return userProfile.accounts.count
+        case .categories: return userProfile.expensesCats.count
         }
     }
     
@@ -40,9 +40,9 @@ class PopoverAddExpenseVC: UITableViewController {
         
         switch type {
         case .account:
-            cell.categoryLabel.text = accounts![indexPath.row].name
+            cell.categoryLabel.text = userProfile.accounts[indexPath.row].name
         case .categories:
-            cell.categoryLabel.text = categories!.categoriesForExpenses[indexPath.row]
+            cell.categoryLabel.text = userProfile.expensesCats[indexPath.row]
         }
         cell.categoryLabel.textColor = .white
         

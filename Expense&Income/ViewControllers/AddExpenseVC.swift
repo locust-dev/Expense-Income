@@ -12,6 +12,11 @@ protocol AddInfoDelegate {
     func addAccount(account: String)
 }
 
+enum OperationType {
+    case expense
+    case income
+}
+
 class AddExpenseVC: UIViewController {
     
     @IBOutlet weak var sumTextField: UITextField!
@@ -20,8 +25,11 @@ class AddExpenseVC: UIViewController {
     @IBOutlet weak var catButton: UIButton!
     @IBOutlet weak var accountButton: UIButton!
     
+    @IBOutlet weak var segment: UISegmentedControl!
+    
     @IBOutlet weak var datePicker: UIDatePicker!
     
+    var operationType = OperationType.expense
     var defaultCategory = "Другое"
     var defaultAccount = ""
     
@@ -42,6 +50,12 @@ class AddExpenseVC: UIViewController {
         view.endEditing(true)
     }
     
+    @IBAction func changeOperationType(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0: operationType = .expense
+        default: operationType = .income
+        }
+    }
 }
 
 // MARK: - TextField Delegate

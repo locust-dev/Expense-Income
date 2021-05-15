@@ -14,7 +14,7 @@ class DetailVC: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var accountLabel: UILabel!
     
-    var expense: Expense!
+    var expense: Operation!
     
     override func viewDidLoad() {
         super.viewDidLoad()

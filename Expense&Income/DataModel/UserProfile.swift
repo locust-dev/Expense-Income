@@ -16,8 +16,8 @@ class UserProfile: Object {
 class Account: Object {
     @objc dynamic var name = "Новый кошелек"
     @objc dynamic var balance = 0
-    var expenses = List<Expense>()
-    var incomes = List<Income>()
+    var expenses = List<Operation>()
+    var incomes = List<Operation>()
     
     var allExpenses: Int {
         var allExpenses = 0
@@ -29,14 +29,7 @@ class Account: Object {
     }
 }
 
-class Expense: Object {
-    @objc dynamic var summ = 0
-    @objc dynamic var category = ""
-    @objc dynamic var date = Date()
-    @objc dynamic var account = ""
-}
-
-class Income: Object {
+class Operation: Object {
     @objc dynamic var summ = 0
     @objc dynamic var category = ""
     @objc dynamic var date = Date()

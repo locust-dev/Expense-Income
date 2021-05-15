@@ -13,6 +13,8 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var remainValue: UILabel!
     @IBOutlet weak var notExpensesYet: UILabel!
     
+    @IBOutlet weak var chooseTableView: UISegmentedControl!
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var viewAboveLabels: UIView!
     
@@ -40,16 +42,17 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    // НЕПРАВИЛЬНО ЭТО ХУЙНЯ ПЕРЕДЕЛЫВАЙ
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        guard let section = tableView.indexPathForSelectedRow?.section else { return }
-        
-        
         if let indexPath = tableView.indexPathForSelectedRow {
             let detailVC = segue.destination as! DetailVC
             detailVC.expense = currentUser.accounts[0].expenses[indexPath.row]
         }
         
+    }
+    
+    @IBAction func segmented(_ sender: UISegmentedControl) {
+        tableView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -60,10 +63,20 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let date = convertDatesToString(dates: getAllDates())[section]
         var rows = 0
         
-        for expense in currentUser.accounts[0].expenses {
-            let convertedDate = convertDateToString(date: expense.date)
-            if convertedDate == date {
-                rows += 1
+        switch chooseTableView.selectedSegmentIndex {
+        case 0:
+            for expense in currentUser.accounts[0].expenses {
+                let convertedDate = convertDateToString(date: expense.date)
+                if convertedDate == date {
+                    rows += 1
+                }
+            }
+        default:
+            for income in currentUser.accounts[0].incomes {
+                let convertedDate = convertDateToString(date: income.date)
+                if convertedDate == date {
+                    rows += 1
+                }
             }
         }
         
@@ -73,17 +86,28 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "expenseCell", for: indexPath) as! ExpenseCell
         let date = convertDatesToString(dates: getAllDates())[indexPath.section]
-        var expenses: [Expense] = []
+        var operations: [Operation] = []
         
-        for expense in currentUser.accounts[0].expenses {
-            let convertedDate = convertDateToString(date: expense.date)
-            if convertedDate == date {
-                expenses.append(expense)
+        switch chooseTableView.selectedSegmentIndex {
+        case 0:
+            for expense in currentUser.accounts[0].expenses {
+                let convertedDate = convertDateToString(date: expense.date)
+                if convertedDate == date {
+                    operations.append(expense)
+                }
+            }
+        default:
+            for income in currentUser.accounts[0].incomes {
+                let convertedDate = convertDateToString(date: income.date)
+                if convertedDate == date {
+                    operations.append(income)
+                }
             }
         }
+        
     
-        cell.categoryLabel.text = expenses[indexPath.row].category
-        cell.expenseLabel.text = "-\(String(expenses[indexPath.row].summ)) rub."
+        cell.categoryLabel.text = operations[indexPath.row].category
+        cell.expenseLabel.text = "-\(String(operations[indexPath.row].summ)) rub."
         
         return cell
     }
@@ -118,10 +142,18 @@ extension ExpensesVC {
     private func getAllDates() -> [Date] {
         var dates: Set<Date> = []
         var uniqueDatesSorted: [Date] = []
-        
-        for expense in currentUser.accounts[0].expenses {
-            dates.insert(expense.date)
+    
+        switch chooseTableView.selectedSegmentIndex {
+        case 0:
+            for expense in currentUser.accounts[0].expenses {
+                dates.insert(expense.date)
+            }
+        default:
+            for income in currentUser.accounts[0].incomes {
+                dates.insert(income.date)
+            }
         }
+
         uniqueDatesSorted = Array(dates)
         uniqueDatesSorted.sort(by: >)
         return uniqueDatesSorted

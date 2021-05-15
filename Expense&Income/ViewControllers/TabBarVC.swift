@@ -20,7 +20,7 @@ class TabBarVC: UITabBarController {
         guard let addExpensesVC = segue.source as? AddExpenseVC else { return }
         guard let summ = Int(addExpensesVC.sumTextField.text ?? "") else { return }
         
-        let newExpense = Expense(
+        let newOperation = Operation(
             value: [summ,
                     addExpensesVC.defaultCategory,
                     addExpensesVC.datePicker.date,
@@ -28,8 +28,15 @@ class TabBarVC: UITabBarController {
         
         try! StorageManager.shared.realm.write({
             let user = StorageManager.shared.realm.objects(UserProfile.self)[0].accounts[0]
-            user.expenses.append(newExpense)
-            user.balance -= summ
+            
+            switch addExpensesVC.operationType {
+            case .expense:
+                user.expenses.append(newOperation)
+                user.balance -= summ
+            case .income:
+                user.incomes.append(newOperation)
+                user.balance += summ
+            }
         })
         
         transferDataToChild()

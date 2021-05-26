@@ -12,16 +12,8 @@ class CreateAccountVC: UIViewController {
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var summTF: UITextField!
     
-    let defaults = UserDefaults.standard
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        if defaults.bool(forKey: "notFirstInApp") == false {
-//            defaults.set(true, forKey: "notFirstInApp")
-//        } else {
-//            print("not first")
-//        }
         
         setCornerRadiusToCircle(nameTF, summTF)
         setBackgroundImage(with: "Back", for: view)
@@ -35,7 +27,6 @@ class CreateAccountVC: UIViewController {
     
     @IBAction func go(_ sender: Any) {
         performSegue(withIdentifier: "toTabBarVC", sender: nil)
-        print("hui")
     }
     
     @IBAction func createUser(_ sender: Any) {

@@ -12,6 +12,7 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var youSpentLabel: UILabel!
     @IBOutlet weak var remainValue: UILabel!
     @IBOutlet weak var notExpensesYet: UILabel!
+    @IBOutlet weak var expenseOrIncomeLabel: UILabel!
     
     @IBOutlet weak var chooseTableView: UISegmentedControl!
     
@@ -24,15 +25,14 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
         setBackgroundImage(with: "Back", for: view)
         addShadows(viewAboveLabels)
+        setInitialLabels(index: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.topItem?.title = "Расходы"
-        tableView.reloadData()
-        youSpentLabel.text = "\(String(currentUser.accounts[0].allExpenses)) руб."
-        remainValue.text = "\(String(currentUser.accounts[0].balance)) руб."
     
+        tableView.reloadData()
+        
         if currentUser.accounts[0].expenses.count == 0 {
             tableView.isHidden = true
             notExpensesYet.isHidden = false
@@ -53,7 +53,9 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBAction func segmented(_ sender: UISegmentedControl) {
         tableView.reloadData()
+        setInitialLabels(index: sender.selectedSegmentIndex)
     }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         convertDatesToString(dates: getAllDates()).count
@@ -105,7 +107,6 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
         }
         
-    
         cell.categoryLabel.text = operations[indexPath.row].category
         cell.expenseLabel.text = "-\(String(operations[indexPath.row].summ)) rub."
         
@@ -133,6 +134,25 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         40
+    }
+}
+
+// MARK: - Private Methods
+extension ExpensesVC {
+    private func setInitialLabels(index: Int) {
+        switch index {
+        case 0:
+            navigationController?.navigationBar.topItem?.title = "Расходы"
+            youSpentLabel.text = "\(String(currentUser.accounts[0].allExpenses)) руб."
+            remainValue.text = "\(String(currentUser.accounts[0].balance)) руб."
+            expenseOrIncomeLabel.text = "Расходы"
+        default:
+            navigationController?.navigationBar.topItem?.title = "Доходы"
+            youSpentLabel.text = "\(String(currentUser.accounts[0].allIncomes)) руб."
+            remainValue.text = "\(String(currentUser.accounts[0].balance)) руб."
+            expenseOrIncomeLabel.text = "Доходы"
+        }
+        
     }
 }
 

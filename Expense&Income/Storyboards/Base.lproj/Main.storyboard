@@ -84,17 +84,20 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="fVU-VR-VTu">
-                                <rect key="frame" x="142" y="585" width="130" height="84"/>
+                                <rect key="frame" x="120" y="585" width="174" height="92"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ae4-rb-gsG">
-                                        <rect key="frame" x="0.0" y="0.0" width="130" height="30"/>
-                                        <state key="normal" title="Уже есть кошелек"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="174" height="38"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <state key="normal" title="Уже есть кошелек">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="go:" destination="YbX-pD-6V3" eventType="touchUpInside" id="SwH-LE-qz4"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMH-gk-t6o">
-                                        <rect key="frame" x="0.0" y="46" width="130" height="38"/>
+                                        <rect key="frame" x="0.0" y="54" width="174" height="38"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="76" id="jqT-oY-Vaj"/>
                                         </constraints>
@@ -446,10 +449,6 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMa-vO-E5b">
-                                <rect key="frame" x="179" y="433" width="56" height="30"/>
-                                <state key="normal" title="Доходы"/>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZCv-Qg-f9h"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -457,8 +456,6 @@
                             <constraint firstItem="ZCv-Qg-f9h" firstAttribute="trailing" secondItem="MjN-NZ-Gew" secondAttribute="trailing" constant="20" id="ARf-3s-Xdg"/>
                             <constraint firstItem="MjN-NZ-Gew" firstAttribute="top" secondItem="ZCv-Qg-f9h" secondAttribute="top" constant="49.5" id="Djk-aI-lSm"/>
                             <constraint firstItem="MjN-NZ-Gew" firstAttribute="leading" secondItem="ZCv-Qg-f9h" secondAttribute="leading" constant="20" id="Eb7-IH-gPc"/>
-                            <constraint firstItem="nMa-vO-E5b" firstAttribute="centerX" secondItem="etn-ql-Tmg" secondAttribute="centerX" id="Uo6-IO-mze"/>
-                            <constraint firstItem="nMa-vO-E5b" firstAttribute="centerY" secondItem="etn-ql-Tmg" secondAttribute="centerY" id="yXd-JN-OYR"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Аналитика" image="arrow.triangle.branch" catalog="system" id="vHY-rY-Q4E"/>
@@ -579,8 +576,8 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="S70-qt-cZE">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="261"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="S70-qt-cZE">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="246"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PeV-RV-3eQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
@@ -672,18 +669,28 @@
                                                     <constraint firstItem="Vad-gm-UCb" firstAttribute="leading" secondItem="PeV-RV-3eQ" secondAttribute="leading" constant="15" id="mff-eT-B8m"/>
                                                 </constraints>
                                             </view>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iRM-4i-Sxb">
-                                                <rect key="frame" x="0.0" y="230" width="414" height="32"/>
-                                                <segments>
-                                                    <segment title="Расходы"/>
-                                                    <segment title="Доходы"/>
-                                                </segments>
-                                                <connections>
-                                                    <action selector="segmented:" destination="LeH-TF-sR3" eventType="valueChanged" id="GlZ-oz-Iag"/>
-                                                </connections>
-                                            </segmentedControl>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nnD-yq-adf">
+                                                <rect key="frame" x="0.0" y="215" width="414" height="31"/>
+                                                <subviews>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iRM-4i-Sxb">
+                                                        <rect key="frame" x="50" y="0.0" width="314" height="32"/>
+                                                        <segments>
+                                                            <segment title="Расходы"/>
+                                                            <segment title="Доходы"/>
+                                                        </segments>
+                                                        <color key="selectedSegmentTintColor" red="0.65617209669999998" green="0.71297222380000003" blue="0.94524401430000005" alpha="0.63537501081635683" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="segmented:" destination="LeH-TF-sR3" eventType="valueChanged" id="GlZ-oz-Iag"/>
+                                                        </connections>
+                                                    </segmentedControl>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="iRM-4i-Sxb" firstAttribute="leading" secondItem="nnD-yq-adf" secondAttribute="leading" constant="50" id="OqM-V6-sX2"/>
+                                                    <constraint firstAttribute="trailing" secondItem="iRM-4i-Sxb" secondAttribute="trailing" constant="50" id="c41-3y-7VP"/>
+                                                </constraints>
+                                            </stackView>
                                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="75" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ycc-CA-3wY">
-                                                <rect key="frame" x="0.0" y="261" width="414" height="1500"/>
+                                                <rect key="frame" x="0.0" y="246" width="414" height="1500"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1500" id="pac-05-J4i"/>
@@ -760,6 +767,7 @@
                     <tabBarItem key="tabBarItem" title="Расходы" image="arrow.down.square" catalog="system" id="KMB-m4-9k0"/>
                     <connections>
                         <outlet property="chooseTableView" destination="iRM-4i-Sxb" id="MiW-Ar-kRw"/>
+                        <outlet property="expenseOrIncomeLabel" destination="2um-Xp-PVi" id="7lS-vo-z1i"/>
                         <outlet property="notExpensesYet" destination="1o3-LH-yX2" id="YQZ-2L-7d4"/>
                         <outlet property="remainValue" destination="s4h-ZD-FBn" id="bNZ-G1-jdu"/>
                         <outlet property="tableView" destination="Ycc-CA-3wY" id="evu-az-qSh"/>

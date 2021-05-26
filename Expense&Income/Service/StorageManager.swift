@@ -16,9 +16,16 @@ class StorageManager {
     private init() {}
     
     func save(profile: UserProfile) {
-        try! realm.write {
+        write {
             realm.add(profile)
         }
     }
     
+    private func write(_ completion: () -> Void) {
+        do {
+            try realm.write { completion() }
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
 }

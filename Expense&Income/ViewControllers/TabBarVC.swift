@@ -18,13 +18,13 @@ class TabBarVC: UITabBarController {
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
         guard let addExpensesVC = segue.source as? AddExpenseVC else { return }
-        guard let summ = Int(addExpensesVC.sumTextField.text ?? "") else { return }
+        guard let summ = Int(addExpensesVC.sumTextField.text!) else { return }
         
         let newOperation = Operation(
             value: [summ,
                     addExpensesVC.defaultCategory,
                     addExpensesVC.datePicker.date,
-                    addExpensesVC.defaultAccount])
+                    addExpensesVC.defaultAccount ?? "Not found"])
         
         try! StorageManager.shared.realm.write({
             let user = StorageManager.shared.realm.objects(UserProfile.self)[0].accounts[0]

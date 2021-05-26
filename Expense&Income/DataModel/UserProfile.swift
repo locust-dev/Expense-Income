@@ -20,13 +20,23 @@ class Account: Object {
     var incomes = List<Operation>()
     
     var allExpenses: Int {
-        var allExpenses = 0
+        var summ = 0
         
         for expense in self.expenses {
-            allExpenses += expense.summ
+            summ += expense.summ
         }
-        return allExpenses
+        return summ
     }
+    
+    var allIncomes: Int {
+        var summ = 0
+        
+        for income in self.incomes {
+            summ += income.summ
+        }
+        return summ
+    }
+    
 }
 
 class Operation: Object {

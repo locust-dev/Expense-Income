@@ -29,9 +29,10 @@ class AddExpenseVC: UIViewController {
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
+    let currentUser = StorageManager.shared.realm.objects(UserProfile.self).first
     var operationType = OperationType.expense
     var defaultCategory = "Другое"
-    var defaultAccount = ""
+    var defaultAccount: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,7 @@ class AddExpenseVC: UIViewController {
         setCornerRadiusToCircle(sumTextField, doneButton, catButton, accountButton)
         setBackgroundImage(with: "Back", for: view)
         
+        defaultAccount = currentUser?.accounts[0].name
         catButton.setTitle(defaultCategory, for: .normal)
         accountButton.setTitle(defaultAccount, for: .normal)
         

@@ -11,7 +11,7 @@ class Categories {
     
     static let shared = Categories()
     
-    var categoriesForExpenses = [
+    let categoriesForExpenses = [
         "Авто",
         "Досуг",
         "Дом",
@@ -27,7 +27,7 @@ class Categories {
         "Транспорт"
     ]
     
-    var categoriesForIncomes = [
+    let categoriesForIncomes = [
         "Авто",
         "Досуг",
         "Дом",

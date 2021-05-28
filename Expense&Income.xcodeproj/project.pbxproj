@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E93202852660E9CC00561427 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93202842660E9CC00561427 /* SettingsVC.swift */; };
+		E93202872660EA1200561427 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93202862660EA1200561427 /* Settings.swift */; };
+		E93202892660EB1000561427 /* DetailSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93202882660EB1000561427 /* DetailSettingsVC.swift */; };
 		E95C1CCA2635AEC6002786DA /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C1CC92635AEC6002786DA /* DetailVC.swift */; };
 		E95C1CCE263601C9002786DA /* PopoverAddExpenseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C1CCD263601C9002786DA /* PopoverAddExpenseVC.swift */; };
 		E95C1CD4263606F3002786DA /* PopoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C1CD3263606F3002786DA /* PopoverCell.swift */; };
@@ -36,6 +39,9 @@
 		34B769994457518423AB8B05 /* Pods-Expense&Income.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expense&Income.release.xcconfig"; path = "Target Support Files/Pods-Expense&Income/Pods-Expense&Income.release.xcconfig"; sourceTree = "<group>"; };
 		8A12317636FE302261697F98 /* Pods_Expense_Income.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Expense_Income.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98CA1D14361377375EAA96C6 /* Pods-Expense&Income.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expense&Income.debug.xcconfig"; path = "Target Support Files/Pods-Expense&Income/Pods-Expense&Income.debug.xcconfig"; sourceTree = "<group>"; };
+		E93202842660E9CC00561427 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		E93202862660EA1200561427 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		E93202882660EB1000561427 /* DetailSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSettingsVC.swift; sourceTree = "<group>"; };
 		E95C1CC92635AEC6002786DA /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		E95C1CCD263601C9002786DA /* PopoverAddExpenseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverAddExpenseVC.swift; sourceTree = "<group>"; };
 		E95C1CD3263606F3002786DA /* PopoverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverCell.swift; sourceTree = "<group>"; };
@@ -91,6 +97,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E932028A2660EB1900561427 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E93202842660E9CC00561427 /* SettingsVC.swift */,
+				E93202882660EB1000561427 /* DetailSettingsVC.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		E932028B2660EB2800561427 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				E95C1CC92635AEC6002786DA /* DetailVC.swift */,
+				E9B3FF8A2632D6A300E182A6 /* ExpensesVC.swift */,
+				E9B3FFB32632EBE000E182A6 /* AddExpenseVC.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
 		E9954334263B137B00FAC473 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,10 +166,9 @@
 			children = (
 				E9652E21264D6AB100F21A6F /* CreateAccountVC.swift */,
 				E9B3FF942632D9A500E182A6 /* TabBarVC.swift */,
-				E95C1CC92635AEC6002786DA /* DetailVC.swift */,
-				E9B3FF8A2632D6A300E182A6 /* ExpensesVC.swift */,
 				E9B3FFB92632EC4C00E182A6 /* BudgetVC.swift */,
-				E9B3FFB32632EBE000E182A6 /* AddExpenseVC.swift */,
+				E932028B2660EB2800561427 /* Operations */,
+				E932028A2660EB1900561427 /* Settings */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -208,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				E9B3FFC426333EF600E182A6 /* Categories.swift */,
+				E93202862660EA1200561427 /* Settings.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -341,6 +366,7 @@
 				E9B3FF732632D5E300E182A6 /* AppDelegate.swift in Sources */,
 				E9C4909A2650445F004C6834 /* Array.swift in Sources */,
 				E9B3FFAC2632EA1900E182A6 /* UIViewController.swift in Sources */,
+				E93202892660EB1000561427 /* DetailSettingsVC.swift in Sources */,
 				E9B3FF8E2632D6E300E182A6 /* UserProfile.swift in Sources */,
 				E95C1CCA2635AEC6002786DA /* DetailVC.swift in Sources */,
 				E9B3FF8B2632D6A300E182A6 /* ExpensesVC.swift in Sources */,
@@ -353,6 +379,8 @@
 				E9B3FFB42632EBE000E182A6 /* AddExpenseVC.swift in Sources */,
 				E9B3FF752632D5E300E182A6 /* SceneDelegate.swift in Sources */,
 				E9C49098264FD81E004C6834 /* StorageManager.swift in Sources */,
+				E93202852660E9CC00561427 /* SettingsVC.swift in Sources */,
+				E93202872660EA1200561427 /* Settings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

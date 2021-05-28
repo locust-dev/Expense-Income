@@ -5,11 +5,7 @@
 //  Created by Илья Тюрин on 23.04.2021.
 //
 
-import RealmSwift
-
-class Categories {
-    
-    static let shared = Categories()
+struct Categories {
     
     let categoriesForExpenses = [
         "Авто",
@@ -42,6 +38,5 @@ class Categories {
         "Спорт",
         "Транспорт"
     ]
-    
-    private init() {}
+
 }

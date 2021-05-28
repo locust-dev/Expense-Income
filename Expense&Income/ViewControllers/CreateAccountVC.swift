@@ -34,14 +34,14 @@ class CreateAccountVC: UIViewController {
         guard let balance = Int(summ) else { return }
         
         let createdUser = UserProfile()
-        let defaultCats = Categories.shared.categoriesForExpenses
+        let defaultCats = Categories()
         let account = Account()
         account.balance = balance
         account.name = name
             
         createdUser.accounts.append(account)
-        createdUser.expensesCats.append(objectsIn: defaultCats)
-        createdUser.incomesCats.append(objectsIn: defaultCats)
+        createdUser.expensesCats.append(objectsIn: defaultCats.categoriesForExpenses)
+        createdUser.incomesCats.append(objectsIn: defaultCats.categoriesForIncomes)
         StorageManager.shared.save(profile: createdUser)
         
         performSegue(withIdentifier: "toTabBarVC", sender: nil)

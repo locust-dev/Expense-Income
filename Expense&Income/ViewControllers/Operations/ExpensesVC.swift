@@ -15,7 +15,6 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var expenseOrIncomeLabel: UILabel!
     
     @IBOutlet weak var chooseTableView: UISegmentedControl!
-    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -25,8 +24,6 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         
         setBackgroundImage(with: "Back", for: view)
         addShadows(viewAboveLabels)

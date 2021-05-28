@@ -17,29 +17,32 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var chooseTableView: UISegmentedControl!
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var viewAboveLabels: UIView!
     
     var currentUser: UserProfile!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
         setBackgroundImage(with: "Back", for: view)
         addShadows(viewAboveLabels)
         setInitialLabels(index: 0)
+        
+        tableViewHeight.constant = view.frame.height-64
+        tableView.isScrollEnabled = false
+        tableView.bounces = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-    
-        tableView.reloadData()
         
-        if currentUser.accounts[0].expenses.count == 0 {
-            tableView.isHidden = true
-            notExpensesYet.isHidden = false
-        } else {
-            tableView.isHidden = false
-            notExpensesYet.isHidden = true
-        }
+        tableView.reloadData()
+        showNotExpensesYetLabel()
+        setInitialLabels(index: chooseTableView.selectedSegmentIndex)
     }
     
     // НЕПРАВИЛЬНО ЭТО ХУЙНЯ ПЕРЕДЕЛЫВАЙ
@@ -48,14 +51,12 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let detailVC = segue.destination as! DetailVC
             detailVC.expense = currentUser.accounts[0].expenses[indexPath.row]
         }
-        
     }
     
     @IBAction func segmented(_ sender: UISegmentedControl) {
         tableView.reloadData()
         setInitialLabels(index: sender.selectedSegmentIndex)
     }
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         convertDatesToString(dates: getAllDates()).count
@@ -152,7 +153,25 @@ extension ExpensesVC {
             remainValue.text = "\(String(currentUser.accounts[0].balance)) руб."
             expenseOrIncomeLabel.text = "Доходы"
         }
+    }
+    
+    private func showNotExpensesYetLabel() {
+        var countZero = true
         
+        for account in currentUser.accounts {
+            if account.expenses.count != 0 {
+                countZero = false
+                break
+            }
+        }
+        
+        if countZero {
+            tableView.isHidden = true
+            notExpensesYet.isHidden = false
+        } else {
+            tableView.isHidden = false
+            notExpensesYet.isHidden = true
+        }
     }
 }
 
@@ -162,7 +181,7 @@ extension ExpensesVC {
     private func getAllDates() -> [Date] {
         var dates: Set<Date> = []
         var uniqueDatesSorted: [Date] = []
-    
+        
         switch chooseTableView.selectedSegmentIndex {
         case 0:
             for expense in currentUser.accounts[0].expenses {
@@ -173,7 +192,7 @@ extension ExpensesVC {
                 dates.insert(income.date)
             }
         }
-
+        
         uniqueDatesSorted = Array(dates)
         uniqueDatesSorted.sort(by: >)
         return uniqueDatesSorted
@@ -196,5 +215,18 @@ extension ExpensesVC {
         dateFormatter.dateFormat = "MMM d, Y"
         let dateNow = Calendar.current.date(from: dateComponents)
         return dateFormatter.string(from: dateNow!)
+    }
+}
+
+// MARK: - Scroll view delegate
+extension ExpensesVC: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView == self.scrollView {
+            tableView.isScrollEnabled = (self.scrollView.contentOffset.y >= 200)
+        }
+        
+        if scrollView == self.tableView {
+            self.tableView.isScrollEnabled = (tableView.contentOffset.y > 0)
+        }
     }
 }

@@ -46,8 +46,10 @@ class TabBarVC: UITabBarController {
         guard let viewControllers = self.viewControllers else { return }
         
         for viewController in viewControllers {
-            if let expenseVC = viewController as? ExpensesVC {
-                expenseVC.currentUser = currentUser
+            if let navigationVC = viewController as? UINavigationController {
+                if let expenseVC = navigationVC.topViewController as? ExpensesVC {
+                    expenseVC.currentUser = currentUser
+                }
             } else if let budgetVC = viewController as? BudgetVC {
                 budgetVC.currentUser = currentUser
             }

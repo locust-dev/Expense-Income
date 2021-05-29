@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		E93202852660E9CC00561427 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93202842660E9CC00561427 /* SettingsVC.swift */; };
 		E93202872660EA1200561427 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93202862660EA1200561427 /* Settings.swift */; };
-		E93202892660EB1000561427 /* DetailSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93202882660EB1000561427 /* DetailSettingsVC.swift */; };
+		E93202892660EB1000561427 /* CategoriesSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93202882660EB1000561427 /* CategoriesSettingsTableViewController.swift */; };
+		E93ACA11266172E000A23F48 /* AccountsSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93ACA10266172E000A23F48 /* AccountsSettingsTableViewController.swift */; };
 		E95C1CCA2635AEC6002786DA /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C1CC92635AEC6002786DA /* DetailVC.swift */; };
 		E95C1CCE263601C9002786DA /* PopoverAddExpenseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C1CCD263601C9002786DA /* PopoverAddExpenseVC.swift */; };
 		E95C1CD4263606F3002786DA /* PopoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C1CD3263606F3002786DA /* PopoverCell.swift */; };
@@ -41,7 +42,8 @@
 		98CA1D14361377375EAA96C6 /* Pods-Expense&Income.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expense&Income.debug.xcconfig"; path = "Target Support Files/Pods-Expense&Income/Pods-Expense&Income.debug.xcconfig"; sourceTree = "<group>"; };
 		E93202842660E9CC00561427 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		E93202862660EA1200561427 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		E93202882660EB1000561427 /* DetailSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSettingsVC.swift; sourceTree = "<group>"; };
+		E93202882660EB1000561427 /* CategoriesSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesSettingsTableViewController.swift; sourceTree = "<group>"; };
+		E93ACA10266172E000A23F48 /* AccountsSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsSettingsTableViewController.swift; sourceTree = "<group>"; };
 		E95C1CC92635AEC6002786DA /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		E95C1CCD263601C9002786DA /* PopoverAddExpenseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverAddExpenseVC.swift; sourceTree = "<group>"; };
 		E95C1CD3263606F3002786DA /* PopoverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverCell.swift; sourceTree = "<group>"; };
@@ -101,7 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				E93202842660E9CC00561427 /* SettingsVC.swift */,
-				E93202882660EB1000561427 /* DetailSettingsVC.swift */,
+				E93ACA0F266172AD00A23F48 /* DetailSettings */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -114,6 +116,15 @@
 				E9B3FFB32632EBE000E182A6 /* AddExpenseVC.swift */,
 			);
 			path = Operations;
+			sourceTree = "<group>";
+		};
+		E93ACA0F266172AD00A23F48 /* DetailSettings */ = {
+			isa = PBXGroup;
+			children = (
+				E93202882660EB1000561427 /* CategoriesSettingsTableViewController.swift */,
+				E93ACA10266172E000A23F48 /* AccountsSettingsTableViewController.swift */,
+			);
+			path = DetailSettings;
 			sourceTree = "<group>";
 		};
 		E9954334263B137B00FAC473 /* Fonts */ = {
@@ -362,11 +373,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9B3FFBA2632EC4C00E182A6 /* BudgetVC.swift in Sources */,
+				E93ACA11266172E000A23F48 /* AccountsSettingsTableViewController.swift in Sources */,
 				E9652E22264D6AB100F21A6F /* CreateAccountVC.swift in Sources */,
 				E9B3FF732632D5E300E182A6 /* AppDelegate.swift in Sources */,
 				E9C4909A2650445F004C6834 /* Array.swift in Sources */,
 				E9B3FFAC2632EA1900E182A6 /* UIViewController.swift in Sources */,
-				E93202892660EB1000561427 /* DetailSettingsVC.swift in Sources */,
+				E93202892660EB1000561427 /* CategoriesSettingsTableViewController.swift in Sources */,
 				E9B3FF8E2632D6E300E182A6 /* UserProfile.swift in Sources */,
 				E95C1CCA2635AEC6002786DA /* DetailVC.swift in Sources */,
 				E9B3FF8B2632D6A300E182A6 /* ExpensesVC.swift in Sources */,

@@ -34,6 +34,12 @@ extension UIViewController {
         }
     }
     
+    func setBackgroundForTable(_ image: String,_ tableView: UITableView) {
+        let image = UIImage(named: image)
+        let imageView = UIImageView(image: image)
+        tableView.backgroundView = imageView
+    }
+    
     func addShadows(_ outlets: UIView...) {
         outlets.forEach { outlet in
             outlet.layer.shadowOpacity = 0.4

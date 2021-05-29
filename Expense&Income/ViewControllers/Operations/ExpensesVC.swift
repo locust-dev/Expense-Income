@@ -13,7 +13,9 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var remainValue: UILabel!
     @IBOutlet weak var notExpensesYet: UILabel!
     @IBOutlet weak var expenseOrIncomeLabel: UILabel!
+    @IBOutlet weak var nameOfAccount: UILabel!
     
+    @IBOutlet weak var changeAccount: UIButton!
     @IBOutlet weak var chooseTableView: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
@@ -21,38 +23,46 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var viewAboveLabels: UIView!
     
     var currentUser: UserProfile!
+    var currentAccount: Account!
+    var currentIndexOfAccount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setBackgroundImage(with: "Back", for: view)
         addShadows(viewAboveLabels)
-        setInitialLabels(index: 0)
-        
-        tableViewHeight.constant = view.frame.height-64
-        tableView.isScrollEnabled = false
-        tableView.bounces = true
+        setupAccount()
+        setupUI(index: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         tableView.reloadData()
-        showNotExpensesYetLabel()
-        setInitialLabels(index: chooseTableView.selectedSegmentIndex)
+        setupLabels()
+        setupUI(index: chooseTableView.selectedSegmentIndex)
     }
     
     // НЕПРАВИЛЬНО ЭТО ХУЙНЯ ПЕРЕДЕЛЫВАЙ
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let indexPath = tableView.indexPathForSelectedRow {
-            let detailVC = segue.destination as! DetailVC
-            detailVC.expense = currentUser.accounts[0].expenses[indexPath.row]
+            guard let detailVC = segue.destination as? DetailVC else { return }
+            detailVC.expense = currentAccount.expenses[indexPath.row]
         }
     }
     
     @IBAction func segmented(_ sender: UISegmentedControl) {
         tableView.reloadData()
-        setInitialLabels(index: sender.selectedSegmentIndex)
+        setupUI(index: sender.selectedSegmentIndex)
+    }
+    
+    @IBAction func changeAccountPressed() {
+        currentIndexOfAccount += 1
+        if currentIndexOfAccount + 1 > currentUser.accounts.count {
+            currentIndexOfAccount = 0
+        }
+        currentAccount = currentUser.accounts[currentIndexOfAccount]
+        setupUI(index: chooseTableView.selectedSegmentIndex)
+        setupLabels()
+        tableView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -65,14 +75,14 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         switch chooseTableView.selectedSegmentIndex {
         case 0:
-            for expense in currentUser.accounts[0].expenses {
+            for expense in currentAccount.expenses {
                 let convertedDate = convertDateToString(date: expense.date)
                 if convertedDate == date {
                     rows += 1
                 }
             }
         default:
-            for income in currentUser.accounts[0].incomes {
+            for income in currentAccount.incomes {
                 let convertedDate = convertDateToString(date: income.date)
                 if convertedDate == date {
                     rows += 1
@@ -90,14 +100,14 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         switch chooseTableView.selectedSegmentIndex {
         case 0:
-            for expense in currentUser.accounts[0].expenses {
+            for expense in currentAccount.expenses {
                 let convertedDate = convertDateToString(date: expense.date)
                 if convertedDate == date {
                     operations.append(expense)
                 }
             }
         default:
-            for income in currentUser.accounts[0].incomes {
+            for income in currentAccount.incomes {
                 let convertedDate = convertDateToString(date: income.date)
                 if convertedDate == date {
                     operations.append(income)
@@ -137,38 +147,52 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - Private Methods
 extension ExpensesVC {
-    private func setInitialLabels(index: Int) {
+    private func setupUI(index: Int) {
         switch index {
         case 0:
             navigationController?.navigationBar.topItem?.title = "Расходы"
-            youSpentLabel.text = "\(String(currentUser.accounts[0].allExpenses)) руб."
-            remainValue.text = "\(String(currentUser.accounts[0].balance)) руб."
+            youSpentLabel.text = "\(String(currentAccount.allExpenses)) руб."
+            remainValue.text = "\(String(currentAccount.balance)) руб."
             expenseOrIncomeLabel.text = "Расходы"
         default:
             navigationController?.navigationBar.topItem?.title = "Доходы"
-            youSpentLabel.text = "\(String(currentUser.accounts[0].allIncomes)) руб."
-            remainValue.text = "\(String(currentUser.accounts[0].balance)) руб."
+            youSpentLabel.text = "\(String(currentAccount.allIncomes)) руб."
+            remainValue.text = "\(String(currentAccount.balance)) руб."
             expenseOrIncomeLabel.text = "Доходы"
+        }
+        tableViewHeight.constant = view.frame.height-64
+        tableView.isScrollEnabled = false
+        tableView.bounces = true
+    }
+    
+    private func setupAccount() {
+        if currentUser.accounts.isEmpty {
+            notExpensesYet.text = "У вас еще нет ни одного кошелька, чтобы добавить кошелек, щелкните по кнопки настроек!"
+            currentAccount = nil
+            tableView.isHidden = true
+            notExpensesYet.isHidden = false
+        } else {
+            currentAccount = currentUser.accounts.first
+            setupLabels()
         }
     }
     
-    private func showNotExpensesYetLabel() {
+    private func setupLabels() {
+        nameOfAccount.text = currentAccount.name
         var countZero = true
-        
-        for account in currentUser.accounts {
-            if account.expenses.count != 0 {
-                countZero = false
-                break
-            }
+        if currentAccount.expenses.count != 0 {
+            countZero = false
         }
         
         if countZero {
+            notExpensesYet.text = "У вас еще нет ни одной операции, чтобы добавить нажмите + !"
             tableView.isHidden = true
             notExpensesYet.isHidden = false
         } else {
             tableView.isHidden = false
             notExpensesYet.isHidden = true
         }
+        
     }
 }
 
@@ -181,11 +205,11 @@ extension ExpensesVC {
         
         switch chooseTableView.selectedSegmentIndex {
         case 0:
-            for expense in currentUser.accounts[0].expenses {
+            for expense in currentAccount.expenses {
                 dates.insert(expense.date)
             }
         default:
-            for income in currentUser.accounts[0].incomes {
+            for income in currentAccount.incomes {
                 dates.insert(income.date)
             }
         }

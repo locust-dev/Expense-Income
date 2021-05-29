@@ -9,7 +9,7 @@ import UIKit
 
 protocol AddInfoDelegate {
     func addCategory(category: String)
-    func addAccount(account: String)
+    func addAccount(account: String, index: Int)
 }
 
 enum OperationType {
@@ -33,6 +33,7 @@ class AddExpenseVC: UIViewController {
     var operationType = OperationType.expense
     var defaultCategory = "Другое"
     var defaultAccount: String?
+    var indexAccountWasChoose: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,8 +124,9 @@ extension AddExpenseVC: UIPopoverPresentationControllerDelegate {
 
 // MARK: - Delegate
 extension AddExpenseVC: AddInfoDelegate {
-    func addAccount(account: String) {
+    func addAccount(account: String, index: Int) {
         accountButton.setTitle(account, for: .normal)
+        indexAccountWasChoose = index
         defaultAccount = account
     }
     

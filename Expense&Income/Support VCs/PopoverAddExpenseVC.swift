@@ -53,7 +53,7 @@ class PopoverAddExpenseVC: UITableViewController {
         let cell = tableView.cellForRow(at: indexPath) as! PopoverCell
         
         switch type {
-        case .account: delegate.addAccount(account: cell.categoryLabel.text ?? "")
+        case .account: delegate.addAccount(account: cell.categoryLabel.text ?? "", index: indexPath.row)
         case .categories: delegate.addCategory(category: cell.categoryLabel.text ?? "")
         }
         

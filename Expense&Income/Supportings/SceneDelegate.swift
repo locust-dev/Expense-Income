@@ -13,9 +13,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        guard let _ = (scene as? UIWindowScene) else { return }
-   
-
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: windowScene)
+        
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        window?.makeKeyAndVisible()
+        
+        if StorageManager.shared.realm.objects(UserProfile.self).isEmpty {
+            window?.rootViewController = mainStoryboard.instantiateViewController(identifier: "createProfile")
+        } else {
+            window?.rootViewController = mainStoryboard.instantiateViewController(identifier: "startContainer")
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

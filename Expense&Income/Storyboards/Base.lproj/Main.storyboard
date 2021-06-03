@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YbX-pD-6V3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -41,17 +41,17 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="2lM-dC-8kW">
                                 <rect key="frame" x="40" y="344" width="334" height="250"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Mwd-Wg-wI7">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Mwd-Wg-wI7">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="120"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Давайте добавим ваш первый кошелек!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b39-J2-vH2">
-                                                <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Создадим ваш первый кошелек!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b39-J2-vH2">
+                                                <rect key="frame" x="0.0" y="0.0" width="334" height="60"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите название кошелька и сумму бюджета:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KU0-oM-bCI">
-                                                <rect key="frame" x="0.0" y="70" width="334" height="50"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите название кошелька и начальный баланс:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KU0-oM-bCI">
+                                                <rect key="frame" x="0.0" y="60" width="334" height="60"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -84,20 +84,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="fVU-VR-VTu">
-                                <rect key="frame" x="120" y="635" width="174" height="92"/>
+                                <rect key="frame" x="169" y="635" width="76" height="38"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ae4-rb-gsG">
-                                        <rect key="frame" x="0.0" y="0.0" width="174" height="38"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <state key="normal" title="Уже есть кошелек">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="go:" destination="YbX-pD-6V3" eventType="touchUpInside" id="SwH-LE-qz4"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMH-gk-t6o">
-                                        <rect key="frame" x="0.0" y="54" width="174" height="38"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="76" height="38"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="76" id="jqT-oY-Vaj"/>
                                         </constraints>
@@ -139,7 +129,7 @@
         <!--Container For Tab BarVC-->
         <scene sceneID="cal-HE-Uw1">
             <objects>
-                <viewController id="9VB-FG-RLd" customClass="ContainerForTabBarVC" customModule="Expense_Income" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="startContainer" id="9VB-FG-RLd" customClass="ContainerForTabBarVC" customModule="Expense_Income" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ttt-i0-0Cu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -162,7 +152,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="d96-fu-Jzk" kind="presentation" modalPresentationStyle="fullScreen" id="vh0-eW-22n"/>
+                                    <segue destination="d96-fu-Jzk" kind="show" id="vh0-eW-22n"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -238,11 +228,11 @@
             <objects>
                 <viewController id="d96-fu-Jzk" customClass="AddExpenseVC" customModule="Expense_Income" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9a5-ZD-MKp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="85L-JI-aeG">
-                                <rect key="frame" x="130" y="712" width="154" height="50"/>
+                                <rect key="frame" x="130" y="658" width="154" height="50"/>
                                 <color key="backgroundColor" red="0.83069190039999996" green="0.83069190039999996" blue="0.83069190039999996" alpha="0.3975669765" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="154" id="acb-ij-2zN"/>
@@ -257,7 +247,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dxC-9A-IMS">
-                                <rect key="frame" x="40" y="144" width="334" height="180"/>
+                                <rect key="frame" x="40" y="100" width="334" height="180"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="UKA-Fu-0iC">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="46.5"/>
@@ -336,14 +326,14 @@
                                 </constraints>
                             </stackView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="WHP-Y1-pAX">
-                                <rect key="frame" x="0.0" y="334" width="414" height="150"/>
+                                <rect key="frame" x="0.0" y="290" width="414" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="2vg-a3-3x7"/>
                                 </constraints>
                                 <locale key="locale" localeIdentifier="ru"/>
                             </datePicker>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="Gta-n6-qxl">
-                                <rect key="frame" x="143" y="76" width="129" height="33"/>
+                                <rect key="frame" x="143" y="37" width="129" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Расход"/>
@@ -367,6 +357,7 @@
                             <constraint firstItem="dxC-9A-IMS" firstAttribute="leading" secondItem="5PZ-ew-R4E" secondAttribute="leading" constant="40" id="taQ-uP-mhi"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="46P-fV-tAI"/>
                     <connections>
                         <outlet property="accountButton" destination="Tpb-qJ-zDa" id="QVH-6R-yKd"/>
                         <outlet property="catButton" destination="NtS-1F-db2" id="Jt6-JF-Qxp"/>
@@ -782,11 +773,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Расходы" id="0KW-5d-Knj">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="pencil" catalog="system" id="5ap-OC-yAq">
-                            <color key="tintColor" systemColor="labelColor"/>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="gearshape" catalog="system" id="aGu-8G-iKR">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="yeN-Mh-FUX" kind="show" id="ZRg-82-0Wv"/>
                             </connections>
@@ -857,7 +845,7 @@
         <scene sceneID="dst-Mn-p6v">
             <objects>
                 <tableViewController id="9SS-wt-Bma" customClass="AccountsSettingsTableViewController" customModule="Expense_Income" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="HPZ-K3-ITF">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="35" estimatedSectionHeaderHeight="-1" sectionFooterHeight="35" estimatedSectionFooterHeight="-1" id="HPZ-K3-ITF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.83069190039999996" green="0.83069190039999996" blue="0.83069190039999996" alpha="0.3975669765" colorSpace="custom" customColorSpace="sRGB"/>
@@ -953,8 +941,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JDV-h9-KK7">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.63272058959999999" green="0.68066424130000003" blue="0.94603663680000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -975,10 +966,6 @@
         <image name="arrow.triangle.branch" catalog="system" width="128" height="108"/>
         <image name="backForViewMainScreen" width="527" height="237"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
-        <image name="pencil" catalog="system" width="128" height="113"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

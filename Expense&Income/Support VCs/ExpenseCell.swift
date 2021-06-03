@@ -12,4 +12,6 @@ class ExpenseCell: UITableViewCell {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var expenseLabel: UILabel!
     
+    var operation: Operation?
+    
 }

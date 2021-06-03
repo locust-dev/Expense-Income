@@ -14,14 +14,13 @@ class UserProfile: Object {
 }
 
 class Account: Object {
-    @objc dynamic var name = "Новый кошелек"
+    @objc dynamic var name = "Unnamed account"
     @objc dynamic var balance = 0
     var expenses = List<Operation>()
     var incomes = List<Operation>()
     
     var allExpenses: Int {
         var summ = 0
-        
         for expense in self.expenses {
             summ += expense.summ
         }
@@ -30,7 +29,6 @@ class Account: Object {
     
     var allIncomes: Int {
         var summ = 0
-        
         for income in self.incomes {
             summ += income.summ
         }

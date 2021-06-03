@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ExpensesVC: UIViewController {
     
     @IBOutlet weak var youSpentLabel: UILabel!
     @IBOutlet weak var remainValue: UILabel!
@@ -23,8 +23,8 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var viewAboveLabels: UIView!
     
     var currentUser: UserProfile!
-    var currentAccount: Account!
-    var currentIndexOfAccount = 0
+    private var currentAccount: Account!
+    private var currentIndexOfAccount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,11 +41,11 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         setupUI(index: chooseTableView.selectedSegmentIndex)
     }
     
-    // НЕПРАВИЛЬНО ЭТО ХУЙНЯ ПЕРЕДЕЛЫВАЙ
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let indexPath = tableView.indexPathForSelectedRow {
+            guard let cell = tableView.cellForRow(at: indexPath) as? ExpenseCell else { return }
             guard let detailVC = segue.destination as? DetailVC else { return }
-            detailVC.expense = currentAccount.expenses[indexPath.row]
+            detailVC.operation = cell.operation
         }
     }
     
@@ -64,6 +64,10 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         setupLabels()
         tableView.reloadData()
     }
+}
+
+// MARK: - Table View Methods
+extension ExpensesVC: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         convertDatesToString(dates: getAllDates()).count
@@ -117,6 +121,7 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         cell.categoryLabel.text = operations[indexPath.row].category
         cell.expenseLabel.text = "-\(String(operations[indexPath.row].summ)) rub."
+        cell.operation = operations[indexPath.row]
         
         return cell
     }
@@ -139,10 +144,11 @@ class ExpensesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         contentView.addSubview(fullNameLabel)
         return contentView
     }
-    
+
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         40
     }
+    
 }
 
 // MARK: - Private Methods
@@ -198,7 +204,6 @@ extension ExpensesVC {
 
 // MARK: - Configure Date
 extension ExpensesVC {
-    
     private func getAllDates() -> [Date] {
         var dates: Set<Date> = []
         var uniqueDatesSorted: [Date] = []

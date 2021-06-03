@@ -5,9 +5,9 @@
 //  Created by Илья Тюрин on 23.04.2021.
 //
 
-struct Categories {
+struct DefaultCategories {
     
-    let categoriesForExpenses = [
+    static let categoriesForExpenses = [
         "Авто",
         "Досуг",
         "Дом",
@@ -23,7 +23,7 @@ struct Categories {
         "Транспорт"
     ]
     
-    let categoriesForIncomes = [
+    static let categoriesForIncomes = [
         "Авто",
         "Досуг",
         "Дом",

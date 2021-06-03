@@ -9,14 +9,13 @@ import UIKit
 
 class CategoriesSettingsTableViewController: UITableViewController {
     
-    var currentUser: UserProfile!
-    let sections = ["Категории расходов", "Категории доходов"]
+    private var currentUser = StorageManager.shared.user
+    private let sections = ["Категории расходов", "Категории доходов"]
     private let realm = StorageManager.shared.realm
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.contentInset.top = 25
-        currentUser = StorageManager.shared.realm.objects(UserProfile.self).first
         setBackgroundForTable("Back", tableView)
     }
     
@@ -38,7 +37,6 @@ class CategoriesSettingsTableViewController: UITableViewController {
         case 0: cell.textLabel?.text = currentUser.expensesCats[indexPath.row]
         default: cell.textLabel?.text = currentUser.incomesCats[indexPath.row]
         }
-        
         return cell
     }
     
@@ -47,7 +45,7 @@ class CategoriesSettingsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        editAlert(title: "Редактировать", message: "Как вы хотите изменить категорию?", section: indexPath.section, indexPath: indexPath)
+        editAlert(title: "Редактировать", message: "Как вы хотите изменить категорию?", indexPath: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -65,21 +63,12 @@ class CategoriesSettingsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let contentView = UIView()
-        let label = UILabel(
-            frame: CGRect(
-                x: 16,
-                y: -6,
-                width: tableView.frame.width,
-                height: 20
-            )
-        )
+        let label = UILabel(frame: CGRect(x: 16, y: -6, width: tableView.frame.width, height: 20))
         label.text = sections[section]
         label.font = UIFont(name: "Montserrat", size: 20)
         label.textColor = .white
-        
         contentView.addSubview(label)
         return contentView
-        
     }
     
     @IBAction func addCategory(_ sender: Any) {
@@ -88,7 +77,7 @@ class CategoriesSettingsTableViewController: UITableViewController {
     
 }
 
-// MARK: - Private Methods
+// MARK: - Confugure Add, Edit Methods
 extension CategoriesSettingsTableViewController {
     
     enum TypeOfAdd {
@@ -97,7 +86,6 @@ extension CategoriesSettingsTableViewController {
     
     private func insertNewCategory(section: Int) {
         var cellIndex = IndexPath()
-        
         switch section {
         case 0: cellIndex = IndexPath(row: currentUser.expensesCats.count - 1, section: section)
         default: cellIndex = IndexPath(row: currentUser.incomesCats.count - 1, section: section)
@@ -108,6 +96,7 @@ extension CategoriesSettingsTableViewController {
     private func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Отмена", style: .destructive)
+        
         let expenseAction = UIAlertAction(title: "Расходы", style: .default) { _ in
             self.addAlert(title: "Добавить новую категорию", message: "", type: .expense)
         }
@@ -155,36 +144,37 @@ extension CategoriesSettingsTableViewController {
         present(alert, animated: true)
     }
     
-    private func editAlert(title: String, message: String, section: Int, indexPath: IndexPath) {
+    private func editAlert(title: String, message: String, indexPath: IndexPath) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Отмена", style: .destructive)
+        var saveAction = UIAlertAction()
         
-        switch section {
+        switch indexPath.section {
         case 0:
-            let saveAction = UIAlertAction(title: "Сохранить", style: .default) { _ in
+            saveAction = UIAlertAction(title: "Сохранить", style: .default) { _ in
                 guard let category = alert.textFields?.first?.text, !category.isEmpty else { return }
                 try! self.realm.write({
                     self.realm.objects(UserProfile.self).first?.expensesCats[indexPath.row] = category
                     self.tableView.reloadRows(at: [indexPath], with: .automatic)
                 })
             }
-            alert.addAction(saveAction)
             alert.addTextField { textField in
                 textField.text = self.currentUser.expensesCats[indexPath.row]
             }
         default:
-            let saveAction = UIAlertAction(title: "Сохранить", style: .default) { _ in
+            saveAction = UIAlertAction(title: "Сохранить", style: .default) { _ in
                 guard let category = alert.textFields?.first?.text, !category.isEmpty else { return }
                 try! self.realm.write({
                     self.realm.objects(UserProfile.self).first?.incomesCats[indexPath.row] = category
                     self.tableView.reloadRows(at: [indexPath], with: .automatic)
                 })
             }
-            alert.addAction(saveAction)
             alert.addTextField { textField in
                 textField.text = self.currentUser.incomesCats[indexPath.row]
             }
         }
+        
+        alert.addAction(saveAction)
         alert.addAction(cancelAction)
         present(alert, animated: true)
     }

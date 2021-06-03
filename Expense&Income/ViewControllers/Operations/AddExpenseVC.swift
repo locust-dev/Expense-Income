@@ -19,17 +19,15 @@ enum OperationType {
 
 class AddExpenseVC: UIViewController {
     
-    @IBOutlet weak var sumTextField: UITextField!
-    
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var catButton: UIButton!
     @IBOutlet weak var accountButton: UIButton!
     
     @IBOutlet weak var segment: UISegmentedControl!
-    
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var sumTextField: UITextField!
     
-    let currentUser = StorageManager.shared.realm.objects(UserProfile.self).first
+    let currentUser = StorageManager.shared.user
     var operationType = OperationType.expense
     var defaultCategory = "Другое"
     var defaultAccount: String?
@@ -37,14 +35,8 @@ class AddExpenseVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.tintColor = .white
-        setCornerRadiusToCircle(sumTextField, doneButton, catButton, accountButton)
-        setBackgroundImage(with: "Back", for: view)
-        
-        defaultAccount = currentUser?.accounts[0].name
-        catButton.setTitle(defaultCategory, for: .normal)
-        accountButton.setTitle(defaultAccount, for: .normal)
-        
+        defaultAccount = currentUser.accounts.first?.name
+        setupUI()
         setupGestures()
     }
     
@@ -58,6 +50,13 @@ class AddExpenseVC: UIViewController {
         case 0: operationType = .expense
         default: operationType = .income
         }
+    }
+    
+    private func setupUI() {
+        catButton.setTitle(defaultCategory, for: .normal)
+        accountButton.setTitle(defaultAccount, for: .normal)
+        setCornerRadiusToCircle(sumTextField, doneButton, catButton, accountButton)
+        setBackgroundImage(with: "Back", for: view)
     }
 }
 
@@ -89,34 +88,32 @@ extension AddExpenseVC: UIPopoverPresentationControllerDelegate {
         accountButton.addGestureRecognizer(tapAccount)
     }
     
-    @objc private func tappedCat() {
-        guard let popVC = storyboard?.instantiateViewController(identifier: "popVC") as? PopoverAddExpenseVC else { return }
-        popVC.modalPresentationStyle = .popover
-        popVC.delegate = self
-        popVC.type = Popover.categories
-        
-        let popOverVC = popVC.popoverPresentationController
-        popOverVC?.delegate = self
-        popOverVC?.sourceView = self.catButton
-        popOverVC?.permittedArrowDirections = .up
-        popOverVC?.sourceRect = CGRect(x: catButton.bounds.midX - 30, y: catButton.bounds.maxY + 10, width: 0, height: 0)
-        
-        popVC.preferredContentSize = CGSize(width: 250, height: 250)
-        self.present(popVC, animated: true)
+    @objc private func tappedCat(button: UIButton) {
+        createPopoverFrom(button: catButton)
     }
     
     @objc private func tappedAccount() {
+        createPopoverFrom(button: accountButton)
+    }
+    
+    private func createPopoverFrom(button: UIButton) {
         guard let popVC = storyboard?.instantiateViewController(identifier: "popVC") as? PopoverAddExpenseVC else { return }
         popVC.modalPresentationStyle = .popover
         popVC.delegate = self
-        popVC.type = Popover.account
         
         let popOverVC = popVC.popoverPresentationController
         popOverVC?.delegate = self
-        popOverVC?.sourceView = self.accountButton
         popOverVC?.permittedArrowDirections = .up
-        popOverVC?.sourceRect = CGRect(x: accountButton.bounds.midX - 30, y: accountButton.bounds.maxY + 10, width: 0, height: 0)
         
+        if button == catButton {
+            popVC.type = Popover.categories
+            popOverVC?.sourceView = catButton
+            popOverVC?.sourceRect = CGRect(x: catButton.bounds.midX - 30, y: catButton.bounds.maxY + 10, width: 0, height: 0)
+        } else {
+            popVC.type = Popover.account
+            popOverVC?.sourceView = accountButton
+            popOverVC?.sourceRect = CGRect(x: accountButton.bounds.midX - 30, y: accountButton.bounds.maxY + 10, width: 0, height: 0)
+        }
         popVC.preferredContentSize = CGSize(width: 250, height: 250)
         self.present(popVC, animated: true)
     }

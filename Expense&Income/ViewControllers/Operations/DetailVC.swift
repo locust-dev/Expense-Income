@@ -14,7 +14,7 @@ class DetailVC: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var accountLabel: UILabel!
     
-    var expense: Operation!
+    var operation: Operation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,13 +22,13 @@ class DetailVC: UIViewController {
         navigationController?.navigationBar.tintColor = .white
         setBackgroundImage(with: "Back", for: view)
         
-        catLabel.text = expense.category
-        summLabel.text = String("\(expense.summ) руб.")
-        accountLabel.text = expense.account
+        catLabel.text = operation.category
+        summLabel.text = String("\(operation.summ) руб.")
+        accountLabel.text = operation.account
         
         let df = DateFormatter()
         df.dateFormat = "MMM d, h:mm a"
-        dateLabel.text = df.string(from: expense.date)
+        dateLabel.text = df.string(from: operation.date)
     }
     
     

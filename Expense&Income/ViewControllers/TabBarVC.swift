@@ -9,7 +9,7 @@ import UIKit
 
 class TabBarVC: UITabBarController {
 
-    var currentUser = StorageManager.shared.realm.objects(UserProfile.self).first
+    var currentUser = StorageManager.shared.user
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +30,11 @@ class TabBarVC: UITabBarController {
         try! StorageManager.shared.realm.write({
             switch addExpensesVC.operationType {
             case .expense:
-                currentUser?.accounts[index].expenses.append(newOperation)
-                currentUser?.accounts[index].balance -= summ
+                currentUser.accounts[index].expenses.append(newOperation)
+                currentUser.accounts[index].balance -= summ
             case .income:
-                currentUser?.accounts[index].incomes.append(newOperation)
-                currentUser?.accounts[index].balance += summ
+                currentUser.accounts[index].incomes.append(newOperation)
+                currentUser.accounts[index].balance += summ
             }
         })
         

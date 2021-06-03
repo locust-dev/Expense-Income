@@ -10,5 +10,4 @@ import UIKit
 class PopoverCell: UITableViewCell {
 
     @IBOutlet weak var categoryLabel: UILabel!
-    
 }

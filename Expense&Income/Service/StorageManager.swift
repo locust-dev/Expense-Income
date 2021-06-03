@@ -12,6 +12,9 @@ class StorageManager {
     static let shared = StorageManager()
     
     let realm = try! Realm()
+    var user: UserProfile {
+        realm.objects(UserProfile.self).first!
+    }
     
     private init() {}
     

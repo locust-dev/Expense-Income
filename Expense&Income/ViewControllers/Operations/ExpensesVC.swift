@@ -16,21 +16,21 @@ class ExpensesVC: UIViewController {
     @IBOutlet weak var nameOfAccount: UILabel!
     
     @IBOutlet weak var changeAccount: UIButton!
-    @IBOutlet weak var chooseTableView: UISegmentedControl!
+    @IBOutlet weak var segmented: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var viewAboveLabels: UIView!
     
-    var currentUser: UserProfile!
+    var currentUser = StorageManager.shared.user
     private var currentAccount: Account!
     private var currentIndexOfAccount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        currentAccount = currentUser.accounts.first
         setBackgroundImage(with: "Back", for: view)
         addShadows(viewAboveLabels)
-        setupAccount()
         setupUI(index: 0)
     }
     
@@ -38,7 +38,7 @@ class ExpensesVC: UIViewController {
         super.viewWillAppear(animated)
         tableView.reloadData()
         setupLabels()
-        setupUI(index: chooseTableView.selectedSegmentIndex)
+        setupUI(index: segmented.selectedSegmentIndex)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -50,6 +50,7 @@ class ExpensesVC: UIViewController {
     }
     
     @IBAction func segmented(_ sender: UISegmentedControl) {
+        setupLabels()
         tableView.reloadData()
         setupUI(index: sender.selectedSegmentIndex)
     }
@@ -60,10 +61,11 @@ class ExpensesVC: UIViewController {
             currentIndexOfAccount = 0
         }
         currentAccount = currentUser.accounts[currentIndexOfAccount]
-        setupUI(index: chooseTableView.selectedSegmentIndex)
+        setupUI(index: segmented.selectedSegmentIndex)
         setupLabels()
         tableView.reloadData()
     }
+    
 }
 
 // MARK: - Table View Methods
@@ -77,7 +79,7 @@ extension ExpensesVC: UITableViewDelegate, UITableViewDataSource {
         let date = convertDatesToString(dates: getAllDates())[section]
         var rows = 0
         
-        switch chooseTableView.selectedSegmentIndex {
+        switch segmented.selectedSegmentIndex {
         case 0:
             for expense in currentAccount.expenses {
                 let convertedDate = convertDateToString(date: expense.date)
@@ -102,7 +104,7 @@ extension ExpensesVC: UITableViewDelegate, UITableViewDataSource {
         let date = convertDatesToString(dates: getAllDates())[indexPath.section]
         var operations: [Operation] = []
         
-        switch chooseTableView.selectedSegmentIndex {
+        switch segmented.selectedSegmentIndex {
         case 0:
             for expense in currentAccount.expenses {
                 let convertedDate = convertDateToString(date: expense.date)
@@ -122,31 +124,34 @@ extension ExpensesVC: UITableViewDelegate, UITableViewDataSource {
         cell.categoryLabel.text = operations[indexPath.row].category
         cell.expenseLabel.text = "-\(String(operations[indexPath.row].summ)) rub."
         cell.operation = operations[indexPath.row]
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let datesConverted = convertDatesToString(dates: getAllDates())
         let contentView = UIView()
-        let fullNameLabel = UILabel(
-            frame: CGRect(
-                x: 16,
-                y: 6,
-                width: tableView.frame.width,
-                height: 20
-            )
-        )
+        let fullNameLabel = UILabel(frame: CGRect(x: 16, y: 6, width: tableView.frame.width, height: 20))
         fullNameLabel.text = datesConverted[section]
         fullNameLabel.font = UIFont.boldSystemFont(ofSize: 17)
         fullNameLabel.textColor = .white
-        
         contentView.addSubview(fullNameLabel)
         return contentView
     }
-
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        40
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            guard let cell = tableView.cellForRow(at: indexPath) as? ExpenseCell else { return }
+            guard let operation = cell.operation else { return }
+            
+            StorageManager.shared.deleteOperation(operation, segmented.selectedSegmentIndex, account: currentIndexOfAccount)
+            
+            if tableView.numberOfRows(inSection: indexPath.section) == 1 {
+                tableView.deleteSections([indexPath.section], with: .automatic)
+            } else {
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+            setupUI(index: segmented.selectedSegmentIndex)
+        }
     }
     
 }
@@ -171,23 +176,20 @@ extension ExpensesVC {
         tableView.bounces = true
     }
     
-    private func setupAccount() {
-        if currentUser.accounts.isEmpty {
-            notExpensesYet.text = "У вас еще нет ни одного кошелька, чтобы добавить кошелек, щелкните по кнопки настроек!"
-            currentAccount = nil
-            tableView.isHidden = true
-            notExpensesYet.isHidden = false
-        } else {
-            currentAccount = currentUser.accounts.first
-            setupLabels()
-        }
-    }
-    
     private func setupLabels() {
         nameOfAccount.text = currentAccount.name
         var countZero = true
-        if currentAccount.expenses.count != 0 {
-            countZero = false
+        
+        
+        switch segmented.selectedSegmentIndex {
+        case 0:
+            if currentAccount.expenses.count != 0 {
+                countZero = false
+            }
+        default:
+            if currentAccount.incomes.count != 0 {
+                countZero = false
+            }
         }
         
         if countZero {
@@ -208,7 +210,7 @@ extension ExpensesVC {
         var dates: Set<Date> = []
         var uniqueDatesSorted: [Date] = []
         
-        switch chooseTableView.selectedSegmentIndex {
+        switch segmented.selectedSegmentIndex {
         case 0:
             for expense in currentAccount.expenses {
                 dates.insert(expense.date)

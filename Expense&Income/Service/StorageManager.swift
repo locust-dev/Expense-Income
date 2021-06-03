@@ -24,7 +24,17 @@ class StorageManager {
         }
     }
     
-    private func write(_ completion: () -> Void) {
+    func deleteOperation(_ operation: Operation, _ type: Int, account index: Int) {
+        write {
+            switch type {
+            case 0: user.accounts[index].balance += operation.summ
+            default: user.accounts[index].balance -= operation.summ
+            }
+            realm.delete(operation)
+        }
+    }
+    
+    func write(_ completion: () -> Void) {
         do {
             try realm.write { completion() }
         } catch let error {

@@ -152,7 +152,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="d96-fu-Jzk" kind="show" id="vh0-eW-22n"/>
+                                    <segue destination="d96-fu-Jzk" kind="presentation" modalPresentationStyle="fullScreen" id="vh0-eW-22n"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -228,26 +228,46 @@
             <objects>
                 <viewController id="d96-fu-Jzk" customClass="AddExpenseVC" customModule="Expense_Income" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9a5-ZD-MKp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="85L-JI-aeG">
-                                <rect key="frame" x="130" y="658" width="154" height="50"/>
-                                <color key="backgroundColor" red="0.83069190039999996" green="0.83069190039999996" blue="0.83069190039999996" alpha="0.3975669765" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="154" id="acb-ij-2zN"/>
-                                    <constraint firstAttribute="height" constant="50" id="mH3-hu-mD0"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Добавить">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="ecO-Rv-TBF" kind="unwind" unwindAction="unwindFor:" id="WHM-4c-zfy"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="DCW-dM-5ni">
+                                <rect key="frame" x="130" y="690" width="154" height="112"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="85L-JI-aeG">
+                                        <rect key="frame" x="0.0" y="0.0" width="154" height="50"/>
+                                        <color key="backgroundColor" red="0.83069190039999996" green="0.83069190039999996" blue="0.83069190039999996" alpha="0.3975669765" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="154" id="acb-ij-2zN"/>
+                                            <constraint firstAttribute="height" constant="50" id="mH3-hu-mD0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="Добавить">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addNewOperationPressed" destination="d96-fu-Jzk" eventType="touchUpInside" id="zrn-j2-Gxg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LUI-kJ-xbB">
+                                        <rect key="frame" x="0.0" y="62" width="154" height="50"/>
+                                        <color key="backgroundColor" red="0.83069190039999996" green="0.83069190039999996" blue="0.83069190039999996" alpha="0.3975669765" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="154" id="3lg-95-ggd"/>
+                                            <constraint firstAttribute="height" constant="50" id="wPB-5Z-81J"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="Отмена">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelButton" destination="d96-fu-Jzk" eventType="touchUpInside" id="XC9-iL-gmt"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dxC-9A-IMS">
-                                <rect key="frame" x="40" y="100" width="334" height="180"/>
+                                <rect key="frame" x="40" y="171" width="334" height="180"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="UKA-Fu-0iC">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="46.5"/>
@@ -326,33 +346,31 @@
                                 </constraints>
                             </stackView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="WHP-Y1-pAX">
-                                <rect key="frame" x="0.0" y="290" width="414" height="150"/>
+                                <rect key="frame" x="0.0" y="361" width="414" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="2vg-a3-3x7"/>
                                 </constraints>
                                 <locale key="locale" localeIdentifier="ru"/>
                             </datePicker>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="Gta-n6-qxl">
-                                <rect key="frame" x="143" y="37" width="129" height="33"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" id="Gta-n6-qxl">
+                                <rect key="frame" x="112" y="90" width="191" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Расход"/>
                                     <segment title="Доход"/>
                                 </segments>
-                                <connections>
-                                    <action selector="changeOperationType:" destination="d96-fu-Jzk" eventType="valueChanged" id="eYN-2p-gv6"/>
-                                </connections>
+                                <color key="selectedSegmentTintColor" red="0.62704067959048171" green="0.63490317262006157" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5PZ-ew-R4E"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="WHP-Y1-pAX" firstAttribute="leading" secondItem="5PZ-ew-R4E" secondAttribute="leading" id="5OJ-8f-cxZ"/>
-                            <constraint firstItem="5PZ-ew-R4E" firstAttribute="bottom" secondItem="85L-JI-aeG" secondAttribute="bottom" constant="100" id="9G3-TY-giD"/>
-                            <constraint firstItem="dxC-9A-IMS" firstAttribute="top" secondItem="5PZ-ew-R4E" secondAttribute="top" constant="100" id="IJh-OB-9Ot"/>
-                            <constraint firstItem="85L-JI-aeG" firstAttribute="centerX" secondItem="9a5-ZD-MKp" secondAttribute="centerX" id="N7v-19-FKq"/>
                             <constraint firstItem="WHP-Y1-pAX" firstAttribute="trailing" secondItem="5PZ-ew-R4E" secondAttribute="trailing" id="RM0-30-6RX"/>
                             <constraint firstItem="5PZ-ew-R4E" firstAttribute="trailing" secondItem="dxC-9A-IMS" secondAttribute="trailing" constant="40" id="Tlw-MJ-aDM"/>
+                            <constraint firstItem="5PZ-ew-R4E" firstAttribute="bottom" secondItem="DCW-dM-5ni" secondAttribute="bottom" constant="60" id="YkY-4Q-BOp"/>
+                            <constraint firstItem="DCW-dM-5ni" firstAttribute="centerX" secondItem="9a5-ZD-MKp" secondAttribute="centerX" id="Zct-Iy-pdP"/>
+                            <constraint firstItem="dxC-9A-IMS" firstAttribute="top" secondItem="Gta-n6-qxl" secondAttribute="bottom" constant="50" id="lUr-ih-eFL"/>
                             <constraint firstItem="WHP-Y1-pAX" firstAttribute="top" secondItem="dxC-9A-IMS" secondAttribute="bottom" constant="10" id="o5j-EI-EBA"/>
                             <constraint firstItem="dxC-9A-IMS" firstAttribute="leading" secondItem="5PZ-ew-R4E" secondAttribute="leading" constant="40" id="taQ-uP-mhi"/>
                         </constraints>
@@ -360,6 +378,7 @@
                     <navigationItem key="navigationItem" id="46P-fV-tAI"/>
                     <connections>
                         <outlet property="accountButton" destination="Tpb-qJ-zDa" id="QVH-6R-yKd"/>
+                        <outlet property="cancel" destination="LUI-kJ-xbB" id="I6J-Y0-cmU"/>
                         <outlet property="catButton" destination="NtS-1F-db2" id="Jt6-JF-Qxp"/>
                         <outlet property="datePicker" destination="WHP-Y1-pAX" id="sKN-Mk-EHD"/>
                         <outlet property="doneButton" destination="85L-JI-aeG" id="aeq-x7-2T3"/>
@@ -368,9 +387,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s9T-Dy-cAD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="ecO-Rv-TBF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-2630" y="973"/>
+            <point key="canvasLocation" x="-2630.434782608696" y="972.99107142857133"/>
         </scene>
         <!--Tab BarVC-->
         <scene sceneID="Q0i-Ah-TQq">
@@ -691,7 +709,7 @@
                                                     <constraint firstItem="iRM-4i-Sxb" firstAttribute="leading" secondItem="nnD-yq-adf" secondAttribute="leading" constant="50" id="WXC-Yh-3bQ"/>
                                                 </constraints>
                                             </stackView>
-                                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="75" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ycc-CA-3wY">
+                                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="75" estimatedRowHeight="-1" sectionHeaderHeight="40" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ycc-CA-3wY">
                                                 <rect key="frame" x="0.0" y="300" width="414" height="1000"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -782,12 +800,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="changeAccount" destination="XTn-1b-qPb" id="ERd-lK-CwO"/>
-                        <outlet property="chooseTableView" destination="iRM-4i-Sxb" id="MiW-Ar-kRw"/>
                         <outlet property="expenseOrIncomeLabel" destination="2um-Xp-PVi" id="7lS-vo-z1i"/>
                         <outlet property="nameOfAccount" destination="MLI-aa-8eH" id="iTk-ca-syy"/>
                         <outlet property="notExpensesYet" destination="1o3-LH-yX2" id="YQZ-2L-7d4"/>
                         <outlet property="remainValue" destination="s4h-ZD-FBn" id="bNZ-G1-jdu"/>
                         <outlet property="scrollView" destination="22k-4V-Cyr" id="2Sw-IE-RpJ"/>
+                        <outlet property="segmented" destination="iRM-4i-Sxb" id="MiW-Ar-kRw"/>
                         <outlet property="tableView" destination="Ycc-CA-3wY" id="evu-az-qSh"/>
                         <outlet property="tableViewHeight" destination="C0B-gz-kMA" id="whs-Dn-XrK"/>
                         <outlet property="viewAboveLabels" destination="Vad-gm-UCb" id="Cst-oK-V3e"/>
@@ -942,7 +960,7 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.63272058959999999" green="0.68066424130000003" blue="0.94603663680000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.41299321696619751" green="0.46845152179691618" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>

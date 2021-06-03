@@ -24,7 +24,6 @@
 		E9B3FF7F2632D5E400E182A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9B3FF7D2632D5E400E182A6 /* LaunchScreen.storyboard */; };
 		E9B3FF8B2632D6A300E182A6 /* ExpensesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FF8A2632D6A300E182A6 /* ExpensesVC.swift */; };
 		E9B3FF8E2632D6E300E182A6 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FF8D2632D6E300E182A6 /* UserProfile.swift */; };
-		E9B3FF952632D9A500E182A6 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FF942632D9A500E182A6 /* TabBarVC.swift */; };
 		E9B3FFA62632E57500E182A6 /* ExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FFA52632E57500E182A6 /* ExpenseCell.swift */; };
 		E9B3FFAC2632EA1900E182A6 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FFAB2632EA1900E182A6 /* UIViewController.swift */; };
 		E9B3FFB02632EA7C00E182A6 /* ContainerForTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FFAF2632EA7C00E182A6 /* ContainerForTabBarVC.swift */; };
@@ -59,7 +58,6 @@
 		E9B3FF802632D5E400E182A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9B3FF8A2632D6A300E182A6 /* ExpensesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesVC.swift; sourceTree = "<group>"; };
 		E9B3FF8D2632D6E300E182A6 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
-		E9B3FF942632D9A500E182A6 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		E9B3FFA52632E57500E182A6 /* ExpenseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCell.swift; sourceTree = "<group>"; };
 		E9B3FFAB2632EA1900E182A6 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		E9B3FFAF2632EA7C00E182A6 /* ContainerForTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerForTabBarVC.swift; sourceTree = "<group>"; };
@@ -111,8 +109,8 @@
 		E932028B2660EB2800561427 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
-				E95C1CC92635AEC6002786DA /* DetailVC.swift */,
 				E9B3FF8A2632D6A300E182A6 /* ExpensesVC.swift */,
+				E95C1CC92635AEC6002786DA /* DetailVC.swift */,
 				E9B3FFB32632EBE000E182A6 /* AddExpenseVC.swift */,
 			);
 			path = Operations;
@@ -176,7 +174,6 @@
 			isa = PBXGroup;
 			children = (
 				E9652E21264D6AB100F21A6F /* CreateAccountVC.swift */,
-				E9B3FF942632D9A500E182A6 /* TabBarVC.swift */,
 				E9B3FFB92632EC4C00E182A6 /* BudgetVC.swift */,
 				E932028B2660EB2800561427 /* Operations */,
 				E932028A2660EB1900561427 /* Settings */,
@@ -384,7 +381,6 @@
 				E9B3FF8B2632D6A300E182A6 /* ExpensesVC.swift in Sources */,
 				E95C1CD4263606F3002786DA /* PopoverCell.swift in Sources */,
 				E9B3FFA62632E57500E182A6 /* ExpenseCell.swift in Sources */,
-				E9B3FF952632D9A500E182A6 /* TabBarVC.swift in Sources */,
 				E9B3FFC526333EF600E182A6 /* DefaultCategories.swift in Sources */,
 				E95C1CCE263601C9002786DA /* PopoverAddExpenseVC.swift in Sources */,
 				E9B3FFB02632EA7C00E182A6 /* ContainerForTabBarVC.swift in Sources */,

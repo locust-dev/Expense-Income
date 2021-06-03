@@ -15,3 +15,7 @@ class Settings {
 enum TypeOfSettings: CaseIterable {
     case categories, accounts
 }
+
+enum TypeOfOperation: CaseIterable {
+    case expense, income
+}

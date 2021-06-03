@@ -12,14 +12,10 @@ protocol AddInfoDelegate {
     func addAccount(account: String, index: Int)
 }
 
-enum OperationType {
-    case expense
-    case income
-}
-
 class AddExpenseVC: UIViewController {
     
     @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var cancel: UIButton!
     @IBOutlet weak var catButton: UIButton!
     @IBOutlet weak var accountButton: UIButton!
     
@@ -28,10 +24,9 @@ class AddExpenseVC: UIViewController {
     @IBOutlet weak var sumTextField: UITextField!
     
     let currentUser = StorageManager.shared.user
-    var operationType = OperationType.expense
     var defaultCategory = "Другое"
     var defaultAccount: String?
-    var indexAccountWasChoose: Int?
+    var indexAccountWasChoose = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,17 +40,53 @@ class AddExpenseVC: UIViewController {
         view.endEditing(true)
     }
     
-    @IBAction func changeOperationType(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0: operationType = .expense
-        default: operationType = .income
+    @IBAction func addNewOperationPressed() {
+        addNewOperation()
+        dismiss(animated: true)
+    }
+    
+    @IBAction func cancelButton() {
+        dismiss(animated: true)
+    }
+    
+}
+
+// MARK: - Private methods
+extension AddExpenseVC {
+    private func addNewOperation() {
+        guard let summ = sumTextField.text, !sumTextField.text!.isEmpty else {
+            alert(title: "Ошибка", message: "Пожалуйста, заполните сумму!")
+            return
+        }
+        guard let summInt = Int(summ) else {
+            alert(title: "Ошибка", message: "Используйте только цифры 0-9")
+            return
+        }
+        
+        let newOperation = Operation()
+        newOperation.summ = summInt
+        newOperation.account = defaultAccount ?? "Not found"
+        newOperation.category = defaultCategory
+        newOperation.date = datePicker.date
+        
+        StorageManager.shared.write {
+            switch segment.selectedSegmentIndex {
+            case 0:
+                let account = currentUser.accounts[indexAccountWasChoose]
+                account.expenses.append(newOperation)
+                account.balance -= summInt
+            default:
+                let account = currentUser.accounts[indexAccountWasChoose]
+                account.incomes.append(newOperation)
+                account.balance += summInt
+            }
         }
     }
     
     private func setupUI() {
         catButton.setTitle(defaultCategory, for: .normal)
         accountButton.setTitle(defaultAccount, for: .normal)
-        setCornerRadiusToCircle(sumTextField, doneButton, catButton, accountButton)
+        setCornerRadiusToCircle(sumTextField, doneButton, catButton, accountButton, cancel)
         setBackgroundImage(with: "Back", for: view)
     }
 }

@@ -11,7 +11,7 @@ class BudgetVC: UIViewController {
     
     @IBOutlet weak var budgetValue: UILabel!
     
-    var currentUser: UserProfile!
+    let currentUser = StorageManager.shared.user
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

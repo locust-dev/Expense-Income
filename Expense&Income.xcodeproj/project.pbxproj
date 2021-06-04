@@ -32,6 +32,7 @@
 		E9B3FFC526333EF600E182A6 /* DefaultCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B3FFC426333EF600E182A6 /* DefaultCategories.swift */; };
 		E9C49098264FD81E004C6834 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C49097264FD81E004C6834 /* StorageManager.swift */; };
 		E9C4909A2650445F004C6834 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C490992650445F004C6834 /* Array.swift */; };
+		E9F51CE4266A5A5A000ACA66 /* RealmCascadeDeletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F51CE3266A5A5A000ACA66 /* RealmCascadeDeletion.swift */; };
 		EDD248DE4FB4BE4BCA23D43C /* Pods_Expense_Income.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A12317636FE302261697F98 /* Pods_Expense_Income.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		E9B3FFC426333EF600E182A6 /* DefaultCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCategories.swift; sourceTree = "<group>"; };
 		E9C49097264FD81E004C6834 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		E9C490992650445F004C6834 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		E9F51CE3266A5A5A000ACA66 /* RealmCascadeDeletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCascadeDeletion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,16 +106,6 @@
 				E93ACA0F266172AD00A23F48 /* DetailSettings */,
 			);
 			path = Settings;
-			sourceTree = "<group>";
-		};
-		E932028B2660EB2800561427 /* Operations */ = {
-			isa = PBXGroup;
-			children = (
-				E9B3FF8A2632D6A300E182A6 /* ExpensesVC.swift */,
-				E95C1CC92635AEC6002786DA /* DetailVC.swift */,
-				E9B3FFB32632EBE000E182A6 /* AddExpenseVC.swift */,
-			);
-			path = Operations;
 			sourceTree = "<group>";
 		};
 		E93ACA0F266172AD00A23F48 /* DetailSettings */ = {
@@ -156,16 +148,12 @@
 		E9B3FF712632D5E300E182A6 /* Expense&Income */ = {
 			isa = PBXGroup;
 			children = (
-				E9B3FF9F2632DD0A00E182A6 /* Supportings */,
-				E9954334263B137B00FAC473 /* Fonts */,
-				E9B3FFAA2632EA0A00E182A6 /* Extensions */,
+				E9F51CDD266A58BA000ACA66 /* Supporting files */,
 				E9C49096264FD80B004C6834 /* Service */,
 				E9B3FF9B2632DCEA00E182A6 /* DataModel */,
 				E9B3FFC326333EE900E182A6 /* DataManager */,
 				E9B3FF992632DCE200E182A6 /* ViewControllers */,
-				E9B3FFA82632E57B00E182A6 /* Support VCs */,
 				E9B3FF9D2632DCFA00E182A6 /* Storyboards */,
-				E9B3FF9E2632DD0200E182A6 /* Files */,
 			);
 			path = "Expense&Income";
 			sourceTree = "<group>";
@@ -173,10 +161,12 @@
 		E9B3FF992632DCE200E182A6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E9652E21264D6AB100F21A6F /* CreateAccountVC.swift */,
-				E9B3FFB92632EC4C00E182A6 /* BudgetVC.swift */,
-				E932028B2660EB2800561427 /* Operations */,
+				E9F51CE1266A5985000ACA66 /* Start screen */,
+				E9F51CDE266A5930000ACA66 /* Main screen */,
+				E9F51CE0266A5963000ACA66 /* Add new operation */,
+				E9F51CDF266A5950000ACA66 /* Detail operation info */,
 				E932028A2660EB1900561427 /* Settings */,
+				E9F51CE2266A598E000ACA66 /* Analytics */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -198,14 +188,6 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		E9B3FF9E2632DD0200E182A6 /* Files */ = {
-			isa = PBXGroup;
-			children = (
-				E9B3FF7B2632D5E400E182A6 /* Assets.xcassets */,
-			);
-			path = Files;
-			sourceTree = "<group>";
-		};
 		E9B3FF9F2632DD0A00E182A6 /* Supportings */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,21 +198,11 @@
 			path = Supportings;
 			sourceTree = "<group>";
 		};
-		E9B3FFA82632E57B00E182A6 /* Support VCs */ = {
-			isa = PBXGroup;
-			children = (
-				E9B3FFA52632E57500E182A6 /* ExpenseCell.swift */,
-				E9B3FFAF2632EA7C00E182A6 /* ContainerForTabBarVC.swift */,
-				E95C1CCD263601C9002786DA /* PopoverAddExpenseVC.swift */,
-				E95C1CD3263606F3002786DA /* PopoverCell.swift */,
-			);
-			path = "Support VCs";
-			sourceTree = "<group>";
-		};
 		E9B3FFAA2632EA0A00E182A6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				E9B3FFAB2632EA1900E182A6 /* UIViewController.swift */,
+				E9F51CE3266A5A5A000ACA66 /* RealmCascadeDeletion.swift */,
 				E9C490992650445F004C6834 /* Array.swift */,
 			);
 			path = Extensions;
@@ -251,6 +223,61 @@
 				E9C49097264FD81E004C6834 /* StorageManager.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		E9F51CDD266A58BA000ACA66 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				E9B3FF7B2632D5E400E182A6 /* Assets.xcassets */,
+				E9B3FFAA2632EA0A00E182A6 /* Extensions */,
+				E9954334263B137B00FAC473 /* Fonts */,
+				E9B3FF9F2632DD0A00E182A6 /* Supportings */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		E9F51CDE266A5930000ACA66 /* Main screen */ = {
+			isa = PBXGroup;
+			children = (
+				E9B3FFAF2632EA7C00E182A6 /* ContainerForTabBarVC.swift */,
+				E9B3FF8A2632D6A300E182A6 /* ExpensesVC.swift */,
+				E9B3FFA52632E57500E182A6 /* ExpenseCell.swift */,
+			);
+			path = "Main screen";
+			sourceTree = "<group>";
+		};
+		E9F51CDF266A5950000ACA66 /* Detail operation info */ = {
+			isa = PBXGroup;
+			children = (
+				E95C1CC92635AEC6002786DA /* DetailVC.swift */,
+			);
+			path = "Detail operation info";
+			sourceTree = "<group>";
+		};
+		E9F51CE0266A5963000ACA66 /* Add new operation */ = {
+			isa = PBXGroup;
+			children = (
+				E9B3FFB32632EBE000E182A6 /* AddExpenseVC.swift */,
+				E95C1CCD263601C9002786DA /* PopoverAddExpenseVC.swift */,
+				E95C1CD3263606F3002786DA /* PopoverCell.swift */,
+			);
+			path = "Add new operation";
+			sourceTree = "<group>";
+		};
+		E9F51CE1266A5985000ACA66 /* Start screen */ = {
+			isa = PBXGroup;
+			children = (
+				E9652E21264D6AB100F21A6F /* CreateAccountVC.swift */,
+			);
+			path = "Start screen";
+			sourceTree = "<group>";
+		};
+		E9F51CE2266A598E000ACA66 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				E9B3FFB92632EC4C00E182A6 /* BudgetVC.swift */,
+			);
+			path = Analytics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,6 +411,7 @@
 				E9B3FFC526333EF600E182A6 /* DefaultCategories.swift in Sources */,
 				E95C1CCE263601C9002786DA /* PopoverAddExpenseVC.swift in Sources */,
 				E9B3FFB02632EA7C00E182A6 /* ContainerForTabBarVC.swift in Sources */,
+				E9F51CE4266A5A5A000ACA66 /* RealmCascadeDeletion.swift in Sources */,
 				E9B3FFB42632EBE000E182A6 /* AddExpenseVC.swift in Sources */,
 				E9B3FF752632D5E300E182A6 /* SceneDelegate.swift in Sources */,
 				E9C49098264FD81E004C6834 /* StorageManager.swift in Sources */,
@@ -538,7 +566,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UHQ7TS5P9H;
-				INFOPLIST_FILE = "Expense&Income/Supportings/Info.plist";
+				INFOPLIST_FILE = "Expense&Income/Supporting files/Supportings/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -559,7 +587,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UHQ7TS5P9H;
-				INFOPLIST_FILE = "Expense&Income/Supportings/Info.plist";
+				INFOPLIST_FILE = "Expense&Income/Supporting files/Supportings/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

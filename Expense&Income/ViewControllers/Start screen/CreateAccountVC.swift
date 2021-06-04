@@ -45,7 +45,7 @@ class CreateAccountVC: UIViewController {
         createdUser.accounts.append(account)
         createdUser.expensesCats.append(objectsIn: DefaultCategories.categoriesForExpenses)
         createdUser.incomesCats.append(objectsIn: DefaultCategories.categoriesForIncomes)
-        StorageManager.shared.save(profile: createdUser)
+        StorageManager.shared.saveNewUser(profile: createdUser)
         
         performSegue(withIdentifier: "toTabBarVC", sender: nil)
     }

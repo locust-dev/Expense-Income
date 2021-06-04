@@ -32,6 +32,7 @@ class ExpensesVC: UIViewController {
         setBackgroundImage(with: "Back", for: view)
         addShadows(viewAboveLabels)
         setupUI(index: 0)
+        print(currentAccount.expenses)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -151,6 +152,7 @@ extension ExpensesVC: UITableViewDelegate, UITableViewDataSource {
                 tableView.deleteRows(at: [indexPath], with: .automatic)
             }
             setupUI(index: segmented.selectedSegmentIndex)
+            setupLabels()
         }
     }
     
@@ -180,7 +182,6 @@ extension ExpensesVC {
         nameOfAccount.text = currentAccount.name
         var countZero = true
         
-        
         switch segmented.selectedSegmentIndex {
         case 0:
             if currentAccount.expenses.count != 0 {
@@ -200,8 +201,8 @@ extension ExpensesVC {
             tableView.isHidden = false
             notExpensesYet.isHidden = true
         }
-        
     }
+    
 }
 
 // MARK: - Configure Date

@@ -9,12 +9,10 @@ import UIKit
 
 class AccountsSettingsTableViewController: UITableViewController {
     
-    var currentUser: UserProfile!
-    private let realm = StorageManager.shared.realm
+    private let currentUser = StorageManager.shared.user
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentUser = StorageManager.shared.realm.objects(UserProfile.self).first
         tableView.contentInset.top = 25
         setBackgroundForTable("Back", tableView)
     }
@@ -34,7 +32,7 @@ class AccountsSettingsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        editAlert(title: "Редактировать", message: "Вы можете изменить имя и баланс", rowIndex: indexPath.row)
+        editAlert(title: "Редактировать", message: "Вы можете изменить имя и баланс", indexPath: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -43,10 +41,8 @@ class AccountsSettingsTableViewController: UITableViewController {
             if currentUser.accounts.count == 1 {
                 notDeleteAlert(title: "Ошибка!", message: "У вас только один кошелек!")
             } else {
-                deleteAlert(title: "Удалить кошелек", message: "Вы уверены?") { [self] in
-                    try! realm.write({
-                        realm.objects(UserProfile.self).first?.accounts.remove(at: indexPath.row)
-                    })
+                deleteAlert(title: "Удалить кошелек", message: "Вы уверены?") {
+                    StorageManager.shared.deleteAccount(self.currentUser.accounts[indexPath.row])
                     tableView.deleteRows(at: [indexPath], with: .automatic)
                 }
             }
@@ -89,11 +85,9 @@ extension AccountsSettingsTableViewController {
             let newAccount = Account()
             newAccount.name = name
             newAccount.balance = balance
-            
-            try! self.realm.write({
-                self.realm.objects(UserProfile.self).first?.accounts.append(newAccount)
-                self.insertNewAccount()
-            })
+        
+            StorageManager.shared.addAcount(newAccount)
+            self.insertNewAccount()
         }
         alert.addAction(saveAction)
         alert.addTextField { textField in
@@ -106,7 +100,7 @@ extension AccountsSettingsTableViewController {
         present(alert, animated: true)
     }
     
-    private func editAlert(title: String, message: String, rowIndex: Int) {
+    private func editAlert(title: String, message: String, indexPath: IndexPath) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Отмена", style: .destructive)
         let saveAction = UIAlertAction(title: "Сохранить", style: .default) { _ in
@@ -114,17 +108,18 @@ extension AccountsSettingsTableViewController {
             guard let balanceString = alert.textFields?.last?.text, !balanceString.isEmpty else { return }
             guard let balance = Int(balanceString) else { return }
             
-            try! self.realm.write({
-                StorageManager.shared.user.accounts[rowIndex].name = name
-                StorageManager.shared.user.accounts[rowIndex].balance = balance
-            })
+            StorageManager.shared.write {
+                self.currentUser.accounts[indexPath.row].name = name
+                self.currentUser.accounts[indexPath.row].balance = balance
+            }
+            self.tableView.reloadRows(at: [indexPath], with: .automatic)
         }
         alert.addAction(saveAction)
         alert.addTextField { textField in
-            textField.text = self.currentUser.accounts[rowIndex].name
+            textField.text = self.currentUser.accounts[indexPath.row].name
         }
         alert.addTextField { textField in
-            textField.text = String(self.currentUser.accounts[rowIndex].balance)
+            textField.text = String(self.currentUser.accounts[indexPath.row].balance)
         }
         alert.addAction(cancelAction)
         present(alert, animated: true)

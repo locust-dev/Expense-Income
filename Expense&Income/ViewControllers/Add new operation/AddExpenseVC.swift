@@ -24,13 +24,12 @@ class AddExpenseVC: UIViewController {
     @IBOutlet weak var sumTextField: UITextField!
     
     let currentUser = StorageManager.shared.user
+    var defaultAccount = StorageManager.shared.user.accounts.first!.name
     var defaultCategory = "Другое"
-    var defaultAccount: String?
     var indexAccountWasChoose = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        defaultAccount = currentUser.accounts.first?.name
         setupUI()
         setupGestures()
     }
@@ -63,24 +62,8 @@ extension AddExpenseVC {
             return
         }
         
-        let newOperation = Operation()
-        newOperation.summ = summInt
-        newOperation.account = defaultAccount ?? "Not found"
-        newOperation.category = defaultCategory
-        newOperation.date = datePicker.date
-        
-        StorageManager.shared.write {
-            switch segment.selectedSegmentIndex {
-            case 0:
-                let account = currentUser.accounts[indexAccountWasChoose]
-                account.expenses.append(newOperation)
-                account.balance -= summInt
-            default:
-                let account = currentUser.accounts[indexAccountWasChoose]
-                account.incomes.append(newOperation)
-                account.balance += summInt
-            }
-        }
+        let newOperation = Operation(value: [summInt, defaultCategory, datePicker.date, defaultAccount])
+        StorageManager.shared.addOperation(newOperation, segment.selectedSegmentIndex, account: indexAccountWasChoose)
     }
     
     private func setupUI() {

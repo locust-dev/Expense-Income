@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E9077321266A85FE00A086B6 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9077320266A85FE00A086B6 /* UIView.swift */; };
 		E93202852660E9CC00561427 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93202842660E9CC00561427 /* SettingsVC.swift */; };
 		E93202872660EA1200561427 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93202862660EA1200561427 /* Settings.swift */; };
 		E93202892660EB1000561427 /* CategoriesSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93202882660EB1000561427 /* CategoriesSettingsTableViewController.swift */; };
@@ -40,6 +41,7 @@
 		34B769994457518423AB8B05 /* Pods-Expense&Income.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expense&Income.release.xcconfig"; path = "Target Support Files/Pods-Expense&Income/Pods-Expense&Income.release.xcconfig"; sourceTree = "<group>"; };
 		8A12317636FE302261697F98 /* Pods_Expense_Income.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Expense_Income.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98CA1D14361377375EAA96C6 /* Pods-Expense&Income.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expense&Income.debug.xcconfig"; path = "Target Support Files/Pods-Expense&Income/Pods-Expense&Income.debug.xcconfig"; sourceTree = "<group>"; };
+		E9077320266A85FE00A086B6 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		E93202842660E9CC00561427 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		E93202862660EA1200561427 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		E93202882660EB1000561427 /* CategoriesSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesSettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				E9B3FFAB2632EA1900E182A6 /* UIViewController.swift */,
+				E9077320266A85FE00A086B6 /* UIView.swift */,
 				E9F51CE3266A5A5A000ACA66 /* RealmCascadeDeletion.swift */,
 				E9C490992650445F004C6834 /* Array.swift */,
 			);
@@ -398,6 +401,7 @@
 			files = (
 				E9B3FFBA2632EC4C00E182A6 /* BudgetVC.swift in Sources */,
 				E93ACA11266172E000A23F48 /* AccountsSettingsTableViewController.swift in Sources */,
+				E9077321266A85FE00A086B6 /* UIView.swift in Sources */,
 				E9652E22264D6AB100F21A6F /* CreateAccountVC.swift in Sources */,
 				E9B3FF732632D5E300E182A6 /* AppDelegate.swift in Sources */,
 				E9C4909A2650445F004C6834 /* Array.swift in Sources */,

@@ -13,7 +13,11 @@ class ContainerForTabBarVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let image = UIImage(named: "Plus")
+        minusButton.setBackgroundImage(image, for: .normal)
+        minusButton.layer.masksToBounds = true
         setCornerRadiusToCircle(minusButton)
+        addShadows(minusButton)
     }
 
 }

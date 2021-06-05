@@ -13,7 +13,6 @@ class ExpensesVC: UIViewController {
     @IBOutlet weak var remainValue: UILabel!
     @IBOutlet weak var notExpensesYet: UILabel!
     @IBOutlet weak var expenseOrIncomeLabel: UILabel!
-    @IBOutlet weak var nameOfAccount: UILabel!
     
     @IBOutlet weak var changeAccount: UIButton!
     @IBOutlet weak var segmented: UISegmentedControl!
@@ -32,14 +31,28 @@ class ExpensesVC: UIViewController {
         setBackgroundImage(with: "Back", for: view)
         addShadows(viewAboveLabels)
         setupUI(index: 0)
-        print(currentAccount.expenses)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         tableView.reloadData()
         setupLabels()
         setupUI(index: segmented.selectedSegmentIndex)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tableView.removeObserver(self, forKeyPath: "contentSize")
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "contentSize" {
+            if let newValue = change?[.newKey] {
+                let newSize = newValue as! CGSize
+                tableViewHeight.constant = newSize.height
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -57,14 +70,8 @@ class ExpensesVC: UIViewController {
     }
     
     @IBAction func changeAccountPressed() {
-        currentIndexOfAccount += 1
-        if currentIndexOfAccount + 1 > currentUser.accounts.count {
-            currentIndexOfAccount = 0
-        }
-        currentAccount = currentUser.accounts[currentIndexOfAccount]
-        setupUI(index: segmented.selectedSegmentIndex)
-        setupLabels()
-        tableView.reloadData()
+        viewAboveLabels.showAnimationWithHaptic()
+        swapToNextAccount()
     }
     
 }
@@ -163,23 +170,18 @@ extension ExpensesVC {
     private func setupUI(index: Int) {
         switch index {
         case 0:
-            navigationController?.navigationBar.topItem?.title = "Расходы"
             youSpentLabel.text = "\(String(currentAccount.allExpenses)) руб."
             remainValue.text = "\(String(currentAccount.balance)) руб."
             expenseOrIncomeLabel.text = "Расходы"
         default:
-            navigationController?.navigationBar.topItem?.title = "Доходы"
             youSpentLabel.text = "\(String(currentAccount.allIncomes)) руб."
             remainValue.text = "\(String(currentAccount.balance)) руб."
             expenseOrIncomeLabel.text = "Доходы"
         }
-        tableViewHeight.constant = view.frame.height-64
-        tableView.isScrollEnabled = false
-        tableView.bounces = true
     }
     
     private func setupLabels() {
-        nameOfAccount.text = currentAccount.name
+        navigationItem.title = currentAccount.name
         var countZero = true
         
         switch segmented.selectedSegmentIndex {
@@ -201,6 +203,17 @@ extension ExpensesVC {
             tableView.isHidden = false
             notExpensesYet.isHidden = true
         }
+    }
+    
+    private func swapToNextAccount() {
+        currentIndexOfAccount += 1
+        if currentIndexOfAccount + 1 > currentUser.accounts.count {
+            currentIndexOfAccount = 0
+        }
+        currentAccount = currentUser.accounts[currentIndexOfAccount]
+        setupUI(index: segmented.selectedSegmentIndex)
+        setupLabels()
+        tableView.reloadData()
     }
     
 }

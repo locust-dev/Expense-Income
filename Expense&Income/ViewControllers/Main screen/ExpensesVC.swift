@@ -21,7 +21,7 @@ class ExpensesVC: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var viewAboveLabels: UIView!
     
-    var currentUser = StorageManager.shared.user
+    private var currentUser = StorageManager.shared.user
     private var currentAccount: Account!
     private var currentIndexOfAccount = 0
     

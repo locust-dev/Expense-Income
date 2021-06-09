@@ -27,7 +27,7 @@ open class PieChartView: PieRadarChartViewBase
     private var _circleBox = CGRect()
     
     /// flag indicating if entry labels should be drawn or not
-    private var _drawEntryLabelsEnabled = false
+    private var _drawEntryLabelsEnabled = true
     
     /// array that holds the width of each pie-slice in degrees
     private var _drawAngles = [CGFloat]()
@@ -61,12 +61,12 @@ open class PieChartView: PieRadarChartViewBase
     /// indicates the size of the hole in the center of the piechart
     ///
     /// **default**: `0.5`
-    private var _holeRadiusPercent = CGFloat(0.3)
+    private var _holeRadiusPercent = CGFloat(0.5)
     
     private var _transparentCircleColor: NSUIColor? = NSUIColor(white: 1.0, alpha: 105.0/255.0)
     
     /// the radius of the transparent circle next to the chart-hole in the center
-    private var _transparentCircleRadiusPercent = CGFloat(0.0)
+    private var _transparentCircleRadiusPercent = CGFloat(0.55)
     
     /// if enabled, centertext is drawn
     private var _drawCenterTextEnabled = true

@@ -5,4 +5,5 @@ target 'Expense&Income' do
 
 	use_frameworks!
 	pod 'RealmSwift'
+	pod 'Charts'
 end

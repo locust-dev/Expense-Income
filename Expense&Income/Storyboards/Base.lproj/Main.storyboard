@@ -403,14 +403,14 @@
                     </tabBar>
                     <connections>
                         <segue destination="7mK-by-x2t" kind="relationship" relationship="viewControllers" id="4ba-td-CXG"/>
-                        <segue destination="E1M-dk-aJH" kind="relationship" relationship="viewControllers" id="Px5-et-cNb"/>
+                        <segue destination="6zR-us-nus" kind="relationship" relationship="viewControllers" id="Px5-et-cNb"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dbw-NX-YJ3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1873" y="270"/>
         </scene>
-        <!--Аналитика-->
+        <!--Бюджет-->
         <scene sceneID="GIV-1I-F6e">
             <objects>
                 <viewController id="E1M-dk-aJH" customClass="BudgetVC" customModule="Expense_Income" customModuleProvider="target" sceneMemberID="viewController">
@@ -418,40 +418,87 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="MjN-NZ-Gew">
-                                <rect key="frame" x="20" y="93.5" width="374" height="98"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tEP-Cl-ikz">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="У вас осталось:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fal-M3-Bps">
-                                        <rect key="frame" x="72" y="0.0" width="230" height="39.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Budget value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dfr-x0-bSP">
-                                        <rect key="frame" x="107" y="65.5" width="160.5" height="32.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="27"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7My-MO-RTc">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8OT-3d-ZJE" customClass="PieChartView" customModule="Charts">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="250" id="6J3-lN-TxH"/>
+                                                </constraints>
+                                            </view>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="55" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Qy2-1u-4mV">
+                                                <rect key="frame" x="0.0" y="250" width="414" height="475"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <prototypes>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="0J5-Yv-xGo" detailTextLabel="l8z-tm-uYD" style="IBUITableViewCellStyleValue1" id="XIf-N0-JXx">
+                                                        <rect key="frame" x="20" y="49.5" width="374" height="55"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XIf-N0-JXx" id="Xjv-qa-1sl">
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="55"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0J5-Yv-xGo">
+                                                                    <rect key="frame" x="20" y="17" width="36" height="21"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="l8z-tm-uYD">
+                                                                    <rect key="frame" x="301" y="17" width="53" height="21"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </tableViewCellContentView>
+                                                        <color key="backgroundColor" red="0.41299321700000002" green="0.46845152179999999" blue="1" alpha="0.729865351809731" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </tableViewCell>
+                                                </prototypes>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="E1M-dk-aJH" id="ei4-PR-23z"/>
+                                                    <outlet property="delegate" destination="E1M-dk-aJH" id="AGg-kj-c51"/>
+                                                </connections>
+                                            </tableView>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
-                            </stackView>
+                                <constraints>
+                                    <constraint firstItem="7My-MO-RTc" firstAttribute="height" secondItem="fRW-nT-p3w" secondAttribute="height" priority="750" id="1I5-GX-CUp"/>
+                                    <constraint firstItem="7My-MO-RTc" firstAttribute="width" secondItem="fRW-nT-p3w" secondAttribute="width" id="9hW-PT-9Xr"/>
+                                    <constraint firstItem="7My-MO-RTc" firstAttribute="trailing" secondItem="sQu-Cg-sR9" secondAttribute="trailing" id="lrs-14-cnD"/>
+                                    <constraint firstItem="7My-MO-RTc" firstAttribute="top" secondItem="sQu-Cg-sR9" secondAttribute="top" id="nVB-Ld-jmx"/>
+                                    <constraint firstItem="7My-MO-RTc" firstAttribute="bottom" secondItem="sQu-Cg-sR9" secondAttribute="bottom" id="wht-Na-Cj7"/>
+                                    <constraint firstItem="7My-MO-RTc" firstAttribute="leading" secondItem="sQu-Cg-sR9" secondAttribute="leading" id="yf1-vB-bAE"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="sQu-Cg-sR9"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="fRW-nT-p3w"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZCv-Qg-f9h"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.55304574969999998" green="0.58668702839999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ZCv-Qg-f9h" firstAttribute="trailing" secondItem="MjN-NZ-Gew" secondAttribute="trailing" constant="20" id="ARf-3s-Xdg"/>
-                            <constraint firstItem="MjN-NZ-Gew" firstAttribute="top" secondItem="ZCv-Qg-f9h" secondAttribute="top" constant="49.5" id="Djk-aI-lSm"/>
-                            <constraint firstItem="MjN-NZ-Gew" firstAttribute="leading" secondItem="ZCv-Qg-f9h" secondAttribute="leading" constant="20" id="Eb7-IH-gPc"/>
+                            <constraint firstItem="ZCv-Qg-f9h" firstAttribute="top" secondItem="tEP-Cl-ikz" secondAttribute="top" id="5kk-zo-S6r"/>
+                            <constraint firstItem="ZCv-Qg-f9h" firstAttribute="bottom" secondItem="tEP-Cl-ikz" secondAttribute="bottom" id="L4m-oh-jYE"/>
+                            <constraint firstItem="ZCv-Qg-f9h" firstAttribute="trailing" secondItem="tEP-Cl-ikz" secondAttribute="trailing" id="eyV-eI-dyA"/>
+                            <constraint firstItem="tEP-Cl-ikz" firstAttribute="leading" secondItem="ZCv-Qg-f9h" secondAttribute="leading" id="xLC-Pj-qtV"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Аналитика" image="arrow.triangle.branch" catalog="system" id="vHY-rY-Q4E"/>
+                    <navigationItem key="navigationItem" title="Бюджет" id="t9L-xS-dFI"/>
                     <connections>
-                        <outlet property="budgetValue" destination="Dfr-x0-bSP" id="oun-bJ-fiU"/>
+                        <outlet property="pieChart" destination="8OT-3d-ZJE" id="XoZ-tf-s7j"/>
+                        <outlet property="tableView" destination="Qy2-1u-4mV" id="bWz-yw-eQt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zDI-AQ-iqX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1070" y="746"/>
+            <point key="canvasLocation" x="-284" y="718"/>
         </scene>
         <!--Item-->
         <scene sceneID="cif-ly-RvB">
@@ -541,7 +588,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nPy-ql-b2y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="703" y="268"/>
+            <point key="canvasLocation" x="597" y="31"/>
         </scene>
         <!--Расходы-->
         <scene sceneID="Zmk-OS-ACY">
@@ -853,7 +900,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fIX-bY-0X1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="698" y="-419"/>
+            <point key="canvasLocation" x="599" y="-846"/>
         </scene>
         <!--Редактирование кошельков-->
         <scene sceneID="dst-Mn-p6v">
@@ -898,7 +945,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Y6-qZ-WQS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2413" y="-701"/>
+            <point key="canvasLocation" x="2397" y="-848"/>
         </scene>
         <!--Редактирование категорий-->
         <scene sceneID="fDg-Q1-oUv">
@@ -944,7 +991,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="28M-ki-LRZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1632" y="-701"/>
+            <point key="canvasLocation" x="1494" y="-847"/>
         </scene>
         <!--Расходы-->
         <scene sceneID="MQf-rq-so6">
@@ -972,6 +1019,29 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FBw-VK-y7t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1071.0144927536232" y="31.473214285714285"/>
+        </scene>
+        <!--Аналитика-->
+        <scene sceneID="M2U-p4-PEq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6zR-us-nus" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Аналитика" image="arrow.triangle.branch" catalog="system" id="vHY-rY-Q4E"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1tU-7w-LAM">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.41299321700000002" green="0.46845152179999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="E1M-dk-aJH" kind="relationship" relationship="rootViewController" id="O3p-yT-spi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1au-wX-NjO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1070" y="717"/>
         </scene>
     </scenes>
     <resources>
